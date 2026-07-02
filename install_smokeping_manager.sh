@@ -1,6 +1,10 @@
 #!/bin/bash
 # ============================================================
+<<<<<<< HEAD
+# SmokePing Manager 6.0 - Complete All-in-One Installer
+=======
 # SmokePing Manager 5.9 - Complete All-in-One Installer
+>>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
 #
 # Features:
 #   - Interactief installatiemenu
@@ -12,6 +16,7 @@
 #   - Deeplinks naar SmokePing grafieken
 #   - Gebruikersbeheer
 #   - Volledige SmokePing config editor
+<<<<<<< HEAD
 #   - 4.1 - Mailprobleem met +1u extra tijd bij uitval opgelost.
 #   - 4.2 - weergave uitval in grafieken verduidelijkt door rode blokken in de grafieken te tonen tijdens uitval.
 #   - 4.3 - Layout grafieken verbeterd voor uitval en packetloss.
@@ -27,6 +32,24 @@
 #   - 5.7 - Nieuwe gebruikers krijgen nu gebruikersrechten ipv manager  rechten. Diverse kleine verbeteringen en bugfixes.
 #   - 5.8 - Bij toevoegen van nieuwe targets worden deze automatisch toegevoegd aan de wachtrij.
 #   - 5.9 - Bij meerdere uitval wordt alles verzameld per target in 1 mail ipv aparte mails. Opschonen IPv6 grafieken bij opschonen RRD grafieken opgelost.
+#   - 6.0 - Update notificatie wordt slechts 1 keer getoond, daarna update knop bovenaan de pagina.
+=======
+#   - 4.1 - Mailprobleem met +1u extra tijd bij uitval opgelost.
+#   - 4.2 - weergave uitval in grafieken verduidelijkt door rode blokken in de grafieken te tonen tijdens uitval.
+#   - 4.3 - Layout grafieken verbeterd voor uitval en packetloss.
+#   - 4.4 - Diverse kleine verbeteringen en bugfixes. Backup layout verbeterd, gebruikersbeheer uitgebreid, en meer.
+#   - 4.5 - Loop in de installatie opgelost. 
+#   - 5.0 - Grote update met veel nieuwe functies, verbeterde beveiliging, en een compleet vernieuwde webinterface.
+#   - 5.1 - Mogelijkheid om link te delen met gebruiker om zelf target toe te voegen
+#   - 5.2 - Snelheid van de webinterface verbeterd door caching toe te voegen aan de backend en optimalisaties in database queries.
+#   - 5.3 - Email preview toegevoegd onder Admin Debug sectie.
+#   - 5.4 - Layout gewijzigd, Targets wachtrij toegevoegd, en diverse kleine verbeteringen.
+#   - 5.5 - Google Auth toegevoegd. Gebruikersrechten uitgebreid, en diverse kleine verbeteringen.
+#   - 5.6 - Default pingtijden verlaagd zodat uitval sneller wordt gedetecteerd. Stappenplan gewijzigd en optie toegevoegd om in te loggen met Google account.
+#   - 5.7 - Nieuwe gebruikers krijgen nu gebruikersrechten ipv manager  rechten. Diverse kleine verbeteringen en bugfixes.
+#   - 5.8 - Bij toevoegen van nieuwe targets worden deze automatisch toegevoegd aan de wachtrij.
+#   - 5.9 - Bij meerdere uitval wordt alles verzameld per target in 1 mail ipv aparte mails. Opschonen IPv6 grafieken bij opschonen RRD grafieken opgelost.
+>>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
 #
 # Voer uit als root in je LXC-container:
 #   wget -O install_smokeping_manager.sh https://charlesderidder.nl/proxmox/install_smokeping_manager.sh && chmod +x install_smokeping_manager.sh && ./install_smokeping_manager.sh
@@ -110,6 +133,39 @@ extract_tar_safe() {
 
 show_menu() {
     clear
+<<<<<<< HEAD
+    echo -e "${ORANGE}╔══════════════════════════════════════════════════════════════╗${NC}"
+    echo -e "${ORANGE}║${NC}            ${CYAN}SmokePing Manager 6.0 - Installer${NC}                 ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC}  Start na update of installatie met: ${GREEN}smokepingmanager${NC}        ${ORANGE}║${NC}"
+    echo -e "${ORANGE}╠══════════════════════════════════════════════════════════════╣${NC}"
+    echo -e "${ORANGE}║${NC} ${YELLOW}Installatie & Update${NC}                                         ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC}  1) Volledige installatie                                    ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC}  2) Script updaten en direct opnieuw starten                 ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC}  3) Alles verwijderen (clean uninstall)                      ${ORANGE}║${NC}"
+    echo -e "${ORANGE}╠══════════════════════════════════════════════════════════════╣${NC}"
+    echo -e "${ORANGE}║${NC} ${YELLOW}Configuratie & Data${NC}                                          ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC}  4) Targets herstellen (basisconfig leeg)                    ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC}  5) RRD bestanden wissen (grafiekdata)                       ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC}  6) Alle targets wissen (database + bestand)                 ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC}  7) Targets bestand downloaden                               ${ORANGE}║${NC}"
+    echo -e "${ORANGE}╠══════════════════════════════════════════════════════════════╣${NC}"
+    echo -e "${ORANGE}║${NC} ${YELLOW}Backup & Herstel${NC}                                             ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC}  8) Backup maken                                             ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC}  9) Backup terugzetten                                       ${ORANGE}║${NC}"
+    echo -e "${ORANGE}╠══════════════════════════════════════════════════════════════╣${NC}"
+    echo -e "${ORANGE}║${NC} ${YELLOW}Gebruikersbeheer${NC}                                             ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC} 10) Gebruikersnaam/wachtwoord wijzigen                       ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC} 11) Gebruikersbeheer CLI                                     ${ORANGE}║${NC}"
+    echo -e "${ORANGE}╠══════════════════════════════════════════════════════════════╣${NC}"
+    echo -e "${ORANGE}║${NC} ${YELLOW}SmokePing Service${NC}                                            ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC} 12) Restart SmokePing                                        ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC} 13) Reload SmokePing                                         ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC} 14) Status SmokePing                                         ${ORANGE}║${NC}"
+    echo -e "${ORANGE}║${NC} 15) SmokePing --check                                        ${ORANGE}║${NC}"
+    echo -e "${ORANGE}╠══════════════════════════════════════════════════════════════╣${NC}"
+    echo -e "${ORANGE}║${NC}  0) Afsluiten                                                ${ORANGE}║${NC}"
+    echo -e "${ORANGE}╚══════════════════════════════════════════════════════════════╝${NC}"
+=======
     echo -e "${ORANGE}╔══════════════════════════════════════════════════════════════╗${NC}"
     echo -e "${ORANGE}║${NC}            ${CYAN}SmokePing Manager 5.9 - Installer${NC}                 ${ORANGE}║${NC}"
     echo -e "${ORANGE}║${NC}  Start na update of installatie met: ${GREEN}smokepingmanager${NC}        ${ORANGE}║${NC}"
@@ -141,6 +197,7 @@ show_menu() {
     echo -e "${ORANGE}╠══════════════════════════════════════════════════════════════╣${NC}"
     echo -e "${ORANGE}║${NC}  0) Afsluiten                                                ${ORANGE}║${NC}"
     echo -e "${ORANGE}╚══════════════════════════════════════════════════════════════╝${NC}"
+>>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
     echo ""
     read -rp "Keuze [0-15]: " choice
 }
@@ -420,9 +477,15 @@ EOF
 
     IP=$(hostname -I | awk '{print $1}')
     echo ""
+<<<<<<< HEAD
+    echo -e "${ORANGE}════════════════════════════════════════════${NC}"
+    echo -e "${GREEN} ✓ SmokePing Manager 6.0 geïnstalleerd!${NC}"
+    echo -e "${ORANGE}════════════════════════════════════════════${NC}"
+=======
     echo -e "${ORANGE}════════════════════════════════════════════${NC}"
     echo -e "${GREEN} ✓ SmokePing Manager 5.9 geïnstalleerd!${NC}"
     echo -e "${ORANGE}════════════════════════════════════════════${NC}"
+>>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
     echo -e " URL:   ${YELLOW}http://${IP}/smokeping-manager/${NC}"
     echo -e " Login: ${YELLOW}admin${NC} / ${YELLOW}admin${NC}"
     echo -e " ${RED}⚠  Wijzig het wachtwoord direct na eerste login!${NC}"
@@ -2131,7 +2194,11 @@ define('SMOKEPING_PROBES_FILE', SMOKEPING_CONF_DIR . '/Probes');
 define('SMOKEPING_DATA_DIR', '/var/lib/smokeping');
 define('SMOKEPING_CGI_URL', '/smokeping/smokeping.cgi');
 define('APP_TITLE', 'SmokePing Manager');
+<<<<<<< HEAD
+define('APP_VERSION', '6.0');
+=======
 define('APP_VERSION', '5.9');
+>>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
 
 define('SECRET_KEY_FILE', __DIR__ . '/data/.secret_key');
 
@@ -9133,6 +9200,198 @@ body{font-family:'Segoe UI','Calibri','Trebuchet MS',sans-serif;background:var(-
 body[data-fontsize='10']{--font-adjust:-4px}body[data-fontsize='12']{--font-adjust:-2px}body[data-fontsize='14']{--font-adjust:0px}body[data-fontsize='16']{--font-adjust:2px}body[data-fontsize='18']{--font-adjust:5px}body[data-fontsize='20']{--font-adjust:7px}body[data-fontsize='22']{--font-adjust:9px}body[data-fontsize='24']{--font-adjust:11px}
 button,a,input,select,textarea{touch-action:manipulation}
 a{color:var(--ac);text-decoration:none}a:hover{color:var(--ach)}
+<<<<<<< HEAD
+select{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--txd) 50%),linear-gradient(135deg,var(--txd) 50%,transparent 50%),linear-gradient(180deg,var(--control-bg),var(--control-bg2));background-position:calc(100% - 18px) calc(50% - 3px),calc(100% - 12px) calc(50% - 3px),0 0;background-size:6px 6px,6px 6px,100% 100%;background-repeat:no-repeat;padding-right:34px;color:var(--tx)}
+select:hover{border-color:color-mix(in srgb,var(--ac) 38%,var(--brd))}
+select option,select optgroup{background:var(--control-opt-bg);color:var(--control-opt-fg)}
+select:disabled{opacity:.7;cursor:not-allowed}
+.hd{backdrop-filter:blur(10px);background:var(--header-bg);border-bottom:1px solid var(--brd);padding:3px 10px;min-height:50px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;position:sticky;top:0;z-index:250;box-shadow:0 14px 36px rgba(0,0,0,.24)}
+.hd h1{font-size:calc(16px + var(--font-adjust));color:var(--ac);display:flex;align-items:center;gap:10px;font-weight:700}.hd h1::before{content:none}
+@keyframes versionGlow{0%,100%{box-shadow:0 0 8px rgba(66,165,245,.4),0 0 16px rgba(66,165,245,.2),inset 0 1px 0 rgba(255,255,255,.04);text-shadow:0 0 8px rgba(66,165,245,.3)}50%{box-shadow:0 0 12px rgba(66,165,245,.6),0 0 24px rgba(66,165,245,.35),inset 0 1px 0 rgba(255,255,255,.06);text-shadow:0 0 12px rgba(66,165,245,.5)}}
+.hd .ver{font-size:calc(12px + var(--font-adjust));color:var(--tx);margin-left:6px;padding:4px 9px;border-radius:10px;border:1px solid #001d35;background:linear-gradient(180deg,rgba(66,165,245,.12),rgba(66,165,245,.08));box-shadow:0 0 8px rgba(66,165,245,.4),0 0 16px rgba(66,165,245,.2),inset 0 1px 0 rgba(255,255,255,.04);animation:versionGlow 3s ease-in-out infinite;font-weight:600}
+.brand-mark{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:linear-gradient(180deg,var(--brand-bg1),var(--brand-bg2));border:1px solid var(--brand-brd);color:var(--txd);font-size:15px;line-height:1;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.brand-mark{position:relative;cursor:help}
+.brand-mark::after{content:attr(data-tip);position:absolute;left:0;top:calc(100% + 8px);transform:translateY(-3px);width:max-content;min-width:240px;max-width:min(320px,calc(100vw - 28px));padding:8px 10px;border-radius:8px;border:1px solid color-mix(in srgb,var(--ac) 35%,var(--brd));background:linear-gradient(180deg,var(--s1),var(--s2));color:var(--tx);font-size:11px;font-weight:600;line-height:1.35;white-space:normal;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .16s ease,transform .16s ease,visibility .16s ease;z-index:420;box-shadow:var(--shadow-soft)}
+.brand-mark::before{content:'';position:absolute;left:12px;top:calc(100% + 3px);border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:6px solid color-mix(in srgb,var(--ac) 35%,var(--brd));opacity:0;visibility:hidden;transition:opacity .16s ease,visibility .16s ease;z-index:421}
+.brand-mark:hover::after,.brand-mark:hover::before,.brand-mark:focus-visible::after,.brand-mark:focus-visible::before{opacity:1;visibility:visible}
+.brand-mark:hover::after,.brand-mark:focus-visible::after{transform:translateY(0)}
+.brand-mark.ok{color:var(--ok)}
+.brand-mark.err{color:var(--err)}
+@media(max-width:640px){
+.brand-mark::after{left:-4px;min-width:200px;max-width:calc(100vw - 16px)}
+.brand-mark::before{left:14px}
+}
+.hd-tip{position:relative}
+.hd-tip::after{content:attr(data-tip);position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%) translateY(-3px);width:max-content;min-width:220px;max-width:min(340px,calc(100vw - 24px));padding:8px 10px;border-radius:8px;border:1px solid color-mix(in srgb,var(--ac) 35%,var(--brd));background:linear-gradient(180deg,var(--s1),var(--s2));color:var(--tx);font-size:11px;font-weight:600;line-height:1.35;white-space:normal;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .16s ease,transform .16s ease,visibility .16s ease;z-index:420;box-shadow:var(--shadow-soft)}
+.hd-tip::before{content:'';position:absolute;left:50%;top:calc(100% + 3px);transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:6px solid color-mix(in srgb,var(--ac) 35%,var(--brd));opacity:0;visibility:hidden;transition:opacity .16s ease,visibility .16s ease;z-index:421}
+.hd-tip:hover::after,.hd-tip:hover::before,.hd-tip:focus-visible::after,.hd-tip:focus-visible::before{opacity:1;visibility:visible}
+.hd-tip:hover::after,.hd-tip:focus-visible::after{transform:translateX(-50%) translateY(0)}
+@media(max-width:640px){
+.hd-tip::after{min-width:190px;max-width:calc(100vw - 16px)}
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.05}
+.brand-title{font-size:calc(14px + var(--font-adjust));font-weight:800;color:var(--tx);letter-spacing:.02em}
+.brand-sub{font-size:calc(10px + var(--font-adjust));color:var(--txd);font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.brand-alert{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--err) 52%,var(--brd));background:linear-gradient(180deg,color-mix(in srgb,var(--err) 28%,#3a2323),color-mix(in srgb,var(--err) 18%,#281919));color:var(--errfg);font-size:calc(11px + var(--font-adjust));font-weight:900;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 0 0 1px color-mix(in srgb,var(--err) 20%,transparent),0 0 18px color-mix(in srgb,var(--err) 25%,transparent);animation:brand-alert-pulse 1.3s ease-in-out infinite}
+.brand-alert-dot{width:8px;height:8px;border-radius:50%;background:var(--err);box-shadow:0 0 8px color-mix(in srgb,var(--err) 60%,transparent)}
+@keyframes brand-alert-pulse{0%,100%{transform:translateY(0);box-shadow:0 0 0 1px color-mix(in srgb,var(--err) 20%,transparent),0 0 18px color-mix(in srgb,var(--err) 25%,transparent)}50%{transform:translateY(-1px);box-shadow:0 0 0 1px color-mix(in srgb,var(--err) 35%,transparent),0 0 24px color-mix(in srgb,var(--err) 40%,transparent)}}
+.hd-nav{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;justify-self:center;border-radius:10px;background:var(--nav-shell-bg);border:1px solid var(--brd);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+.hd-nav a{padding:8px 13px;min-height:36px;border-radius:9px;font-size:calc(14px + var(--font-adjust));border:1px solid transparent;cursor:pointer;color:var(--txd);background:transparent;transition:.14s;font-family:inherit;display:flex;align-items:center;gap:7px;text-decoration:none;font-weight:600;white-space:nowrap}
+.hd-nav a:hover{background:var(--s2);color:var(--tx);border-color:var(--brd)}
+.hd-nav .on{background:linear-gradient(180deg,#3c3c3c,#2a2a2a);color:var(--ac)!important;font-weight:700;border-color:#5a5a5a;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.hd-right{display:flex;align-items:center;gap:8px;margin-left:auto}
+.hd-right .top-nav-actions{display:flex;gap:6px;align-items:center;margin-left:0;flex-wrap:wrap}
+.hd-right .bt{min-height:32px;padding:6px 10px;font-size:12px}
+.hd-right form{margin:0}
+.hd-mobile-toggle{display:none;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:0 12px;border-radius:10px;border:1px solid var(--brd);background:linear-gradient(180deg,#333,#252525);color:var(--tx);font-size:13px;font-weight:700;cursor:pointer}
+.hd-mobile-toggle .menu-ico{font-size:16px;line-height:1}
+.hd-mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:320}
+.hd-mobile-menu{display:none;position:fixed;left:10px;right:10px;top:calc(58px + env(safe-area-inset-top));max-height:calc(100dvh - 68px - env(safe-area-inset-top));overflow:auto;background:linear-gradient(180deg,var(--mobile-menu-bg1),var(--mobile-menu-bg2));border:1px solid var(--brd);border-radius:14px;padding:12px;z-index:330;box-shadow:var(--shadow)}
+.hd-mobile-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--brd)}
+.hd-mobile-title{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--txd)}
+.hd-mobile-links,.hd-mobile-actions{display:grid;grid-template-columns:1fr;gap:8px}
+.hd-mobile-links a,.hd-mobile-actions .bt{width:100%;min-height:42px;padding:10px 12px;font-size:calc(13px + var(--font-adjust));font-weight:700;text-align:left}
+.hd-mobile-links a,.hd-mobile-actions .bt{display:grid;grid-template-columns:18px minmax(0,1fr);align-items:center;column-gap:8px}
+.hd-mobile-links a{border-radius:10px;border:1px solid var(--brd);background:linear-gradient(180deg,#333,#292929);color:var(--tx)}
+.hd-mobile-actions form{margin:0}
+.hd-mobile-menu .top-nav-ic{display:inline-flex;align-items:center;justify-content:center;width:18px;line-height:1}
+.hd-mobile-links a.on{border-color:color-mix(in srgb,var(--ac) 55%,var(--brd));color:var(--ac)}
+body.mobile-menu-open{overflow:hidden}
+body.mobile-menu-open .hd-mobile-overlay,body.mobile-menu-open .hd-mobile-menu{display:block}
+.sp-status{display:flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;font-size:calc(11px + var(--font-adjust));font-weight:700;border:1px solid transparent;white-space:nowrap;background:linear-gradient(180deg,#2c2c2c,#232323);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.sp-status.ok{background:var(--okbg);color:var(--okfg);border-color:color-mix(in srgb,var(--ok) 35%,transparent)}
+.sp-status.err{background:var(--errbg);color:var(--errfg);border-color:color-mix(in srgb,var(--err) 35%,transparent)}
+.sp-status .sp-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.sp-status.ok .sp-dot{background:var(--ok)}.sp-status.err .sp-dot{background:var(--err)}
+@media(max-width:480px){.sp-status .sp-lbl{display:none}.brand-sub{display:none}}
+.hm-notif,.hm-info{display:inline-flex;align-items:center;justify-content:center;min-height:40px;border-radius:10px;border:1px solid var(--brd);background:var(--s1);color:var(--txd);cursor:pointer;transition:.18s}
+.hm-notif{min-width:40px;padding:0 10px;font-size:calc(18px + var(--font-adjust));background:var(--s2)}
+.hm-info{min-width:34px;padding:0 8px;font-size:calc(14px + var(--font-adjust));background:var(--s2)}
+.hm-notif:hover,.hm-info:hover{border-color:var(--ac);color:var(--ac)}
+.notif-help-step{background:var(--s2);padding:12px;border-radius:8px;margin-bottom:12px;border-left:3px solid var(--ac)}
+.notif-help-step strong{display:block;margin-bottom:6px;color:var(--ac)}
+.notif-help-step code{background:var(--bg);padding:2px 6px;border-radius:4px;font-family:'Consolas','Cascadia Mono',monospace;font-size:calc(12px + var(--font-adjust))}
+.app{width:100%;margin:0;padding:8px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:8px;align-items:start}
+.sd{background:linear-gradient(180deg,var(--sidebar-bg1),var(--sidebar-bg2));border:1px solid var(--brd);border-radius:14px;display:flex;flex-direction:column;max-height:calc(100vh - 102px);height:calc(100vh - 102px);overflow-y:auto;overflow-x:hidden;box-shadow:var(--shadow)}
+.top-nav{background:linear-gradient(180deg,var(--s1),var(--s2));border:1px solid var(--brd);padding:9px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:1px -1px 8px;border-radius:12px;box-shadow:var(--shadow-soft)}
+.top-nav-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center;flex:1 1 auto}
+.top-nav-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-left:auto}
+.top-nav-note{display:inline-flex;align-items:center;min-height:32px;padding:6px 10px;border:1px solid color-mix(in srgb,var(--warn) 40%,var(--brd));border-radius:999px;background:color-mix(in srgb,var(--warn) 12%,var(--s2));color:var(--warnfg);font-size:11px;font-weight:700}
+.top-nav a,.top-nav button{padding:9px 12px;min-height:36px;border-radius:9px;font-size:calc(13px + var(--font-adjust));border:1px solid transparent;cursor:pointer;color:var(--txd);background:transparent;transition:.14s;font-family:inherit;display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:600}
+.top-nav a:hover,.top-nav button:hover{background:var(--s2);color:var(--tx);border-color:var(--brd)}
+.top-nav .on{background:linear-gradient(180deg,#3a3a3a,#292929);color:var(--ac)!important;font-weight:700;border-color:#5a5a5a;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.top-nav .danger,.hd-right .danger{color:var(--err)}
+.top-nav .danger:hover,.hd-right .danger:hover{background:var(--errbg)!important;color:var(--errfg)!important;border-color:color-mix(in srgb,var(--err) 40%,transparent)!important}
+.top-nav .troubleshoot-btn,.hd-right .troubleshoot-btn{background:linear-gradient(180deg,#4d4d4d,#373737);color:#f3f3f3;border:1px solid #5b5b5b;font-weight:700;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.top-nav .troubleshoot-btn:hover,.hd-right .troubleshoot-btn:hover{filter:brightness(1.06);border-color:#6a6a6a;color:#fff;background:linear-gradient(180deg,#5a5a5a,#414141)}
+.top-nav-ic{font-size:14px;line-height:1}
+.sd-info{padding:10px;border:1px solid var(--brd);border-radius:12px;background:linear-gradient(180deg,#2d2d2d,#252525);display:flex;flex-direction:column;flex:1 1 auto;min-height:0;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+.sd-info-title{font-size:10px;font-weight:800;color:var(--txd);text-transform:uppercase;letter-spacing:.18em;margin-bottom:8px}
+.sd-info-list{display:flex;flex-direction:column;gap:6px;flex:1 1 auto;min-height:0;overflow-y:auto;padding-right:2px}
+.sd,.sd-info-list{scrollbar-width:thin;scrollbar-color:#4f4f4f #191919}
+.sd::-webkit-scrollbar,.sd-info-list::-webkit-scrollbar{width:10px;height:10px}
+.sd::-webkit-scrollbar-track,.sd-info-list::-webkit-scrollbar-track{background:#191919;border-radius:999px}
+.sd::-webkit-scrollbar-thumb,.sd-info-list::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#4f4f4f,#383838);border-radius:999px;border:2px solid #191919}
+.sd::-webkit-scrollbar-thumb:hover,.sd-info-list::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#616161,#444)}
+.sd-info-item{border:1px solid var(--brd);border-left:3px solid var(--brd);border-radius:10px;background:linear-gradient(180deg,#303030,#262626);padding:8px 9px}
+.sd-info-item.success{border-left-color:var(--ok)}.sd-info-item.error{border-left-color:var(--err)}
+.sd-info-item-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;font-size:10px;color:var(--txd)}
+.sd-info-item-type{font-weight:700;text-transform:uppercase;letter-spacing:.25px}
+.sd-info-item-text{font-size:11px;line-height:1.35;color:var(--tx);word-break:break-word}
+.sd-info-empty{font-size:11px;color:var(--txd);line-height:1.35}
+.pf{margin-left:auto;position:relative;flex:0 0 auto}
+.pf-btn{padding:0 11px;min-height:40px;border-radius:10px;border:1px solid var(--brd);background:linear-gradient(180deg,var(--s1),#1f1f1f);color:var(--txd);font-size:calc(16px + var(--font-adjust));cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.pf-btn:hover{border-color:var(--ac);color:var(--ac)}
+.pf-menu{display:none;position:absolute;right:0;top:calc(100% + 8px);min-width:200px;background:linear-gradient(180deg,var(--s1),#1f1f1f);border:1px solid var(--brd);border-radius:12px;box-shadow:var(--shadow);padding:8px;z-index:120}
+.pf.open .pf-menu{display:block}
+.pf-item{display:flex;align-items:center;width:100%;min-height:40px;text-align:left;padding:9px 11px;border-radius:8px;color:var(--txd);font-size:calc(14px + var(--font-adjust));background:transparent;border:none;cursor:pointer;text-decoration:none}
+.pf-item:hover{background:var(--s2);color:var(--tx)}
+.pf-logout{margin-top:10px;padding-top:10px;border-top:1px solid var(--brd)}.pf-logout button{width:100%;justify-content:flex-start}
+.ct{max-width:none;margin:0;padding:0;min-width:0}
+.fl{padding:11px 13px;border-radius:10px;margin-bottom:12px;font-size:calc(13px + var(--font-adjust));border:1px solid}
+.fl.success{background:var(--okbg);border-color:color-mix(in srgb,var(--ok) 38%,transparent);color:var(--okfg)}
+.fl.error{background:var(--errbg);border-color:color-mix(in srgb,var(--err) 40%,transparent);color:var(--errfg)}
+.cd{background:linear-gradient(180deg,var(--s1),#202020);border:1px solid var(--brd);border-radius:14px;padding:7px 7px;margin-bottom:7px;content-visibility:auto;contain-intrinsic-size:220px;box-shadow:var(--shadow-soft)}
+.cd-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}.cd-row .cd{margin-bottom:0}
+.cd-t{font-size:calc(14px + var(--font-adjust));font-weight:700;margin-bottom:12px;padding-bottom:9px;border-bottom:1px solid var(--brd);color:var(--tx);letter-spacing:.02em}
+.dash-hero{background:linear-gradient(180deg,#2f2f2f 0%,#242424 100%);border:1px solid #4d4d4d;border-radius:14px;padding:16px 18px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:var(--shadow)}
+.dash-hero-main{flex:1 1 auto;min-width:0}.dash-hero h2{font-size:calc(22px + var(--font-adjust));margin-bottom:6px;color:var(--tx)}.dash-hero p{font-size:calc(13px + var(--font-adjust));color:var(--txd);max-width:860px}
+.dash-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.dash-hero .dash-links{margin-top:0;justify-content:flex-end;align-self:center;flex:0 0 auto}
+.dash-stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-bottom:12px}
+.dash-stat{background:linear-gradient(180deg,#2f2f2f,#242424);border:1px solid var(--brd);border-radius:12px;padding:13px 14px;min-width:0;box-shadow:var(--shadow-soft)}
+.dash-stat-value{font-size:calc(24px + var(--font-adjust));font-weight:800;color:var(--tx);line-height:1.05}
+.dash-stat-label{font-size:calc(11px + var(--font-adjust));color:var(--txd);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+.dash-sections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.dash-summary{font-size:calc(12px + var(--font-adjust));color:var(--txd);margin-bottom:10px}.dash-list{display:flex;flex-direction:column;gap:8px}.dash-item{display:flex;gap:7px;font-size:calc(12px + var(--font-adjust));color:var(--tx)}.dash-item::before{content:'•';color:var(--ac);font-weight:800;flex-shrink:0}
+.admin-scroll-pane{max-height:420px;overflow:auto;border:1px solid var(--brd);border-radius:12px;background:linear-gradient(180deg,var(--s1),#202020)}
+.admin-scroll-pane table{width:100%;border-collapse:collapse}.admin-scroll-pane thead{position:sticky;top:0;z-index:1;background:var(--s2)}
+.fg{margin-bottom:8px}.fg label{display:block;font-size:calc(13px + var(--font-adjust));color:var(--txd);margin-bottom:4px;font-weight:700}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:9px}.fr3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+input[type=text],input[type=password],input[type=email],input[type=number],select,textarea{width:100%;padding:9px 11px;min-height:36px;background:linear-gradient(180deg,var(--control-bg),var(--control-bg2));border:1px solid var(--brd);border-radius:10px;color:var(--tx);font-size:calc(13px + var(--font-adjust));font-family:inherit;box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+input[type=file].file-input{width:100%;padding:8px;border:1px solid var(--brd);border-radius:10px;background:linear-gradient(180deg,var(--control-bg),var(--control-bg2));color:var(--tx);font-size:calc(13px + var(--font-adjust))}
+input[type=file].file-input::file-selector-button{margin-right:10px;padding:8px 12px;border:none;border-radius:7px;background:var(--ac);color:#fff;cursor:pointer;font-family:inherit}
+input[type=file].file-input::file-selector-button:hover{background:var(--ach)}
+textarea{resize:vertical;min-height:120px;font-family:'Consolas','Cascadia Mono',monospace;font-size:calc(13px + var(--font-adjust))}
+/* Ensure font-size preference applies to form field content on every page, even where local CSS/inline styles set fixed sizes. */
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+input[type=search],
+input[type=url],
+input[type=tel],
+input[type=file],
+select,
+textarea,
+input[type=file].file-input,
+input[type=file].file-input::file-selector-button{font-size:calc(13px + var(--font-adjust)) !important}
+input::placeholder,
+textarea::placeholder{font-size:inherit}
+select option,
+select optgroup{font-size:calc(13px + var(--font-adjust))}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--ac);box-shadow:var(--ring)}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 12px;min-height:32px;min-width:58px;border-radius:10px;font-size:calc(12px + var(--font-adjust));font-weight:700;letter-spacing:.02em;border:1px solid #555;cursor:pointer;transition:.14s;font-family:inherit;box-shadow:inset 0 1px 0 rgba(255,255,255,.04);background:linear-gradient(180deg,#353535,#272727);color:var(--tx)}
+.bt:hover{background:linear-gradient(180deg,#404040,#2e2e2e);color:var(--tx);border-color:#666}
+.google-signin{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:42px;padding:10px 14px;border-radius:8px;border:1px solid #dadce0;background:#ffffff;color:#3c4043!important;font-size:14px;font-weight:700;letter-spacing:.01em;text-decoration:none;box-shadow:0 1px 2px rgba(60,64,67,.2);transition:box-shadow .16s ease,border-color .16s ease,transform .16s ease}
+.google-signin:hover{background:#ffffff;border-color:#c6c9cc;color:#202124!important;box-shadow:0 2px 6px rgba(60,64,67,.28);transform:translateY(-1px)}
+.google-signin:focus-visible{outline:none;border-color:#4285f4;box-shadow:0 0 0 3px rgba(66,133,244,.25)}
+.google-signin:active{transform:translateY(0);box-shadow:0 1px 2px rgba(60,64,67,.24)}
+.google-signin .g-icon{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;flex-shrink:0}
+.google-signin .g-label{line-height:1.2}
+.google-signin.is-disabled,.google-signin:disabled{cursor:not-allowed;opacity:.62;color:#6f7275!important;box-shadow:none;transform:none;pointer-events:none}
+.login-divider{display:flex;align-items:center;gap:10px;margin:16px 0;color:var(--txd);font-size:11px}.login-divider::before,.login-divider::after{content:'';flex:1;height:1px;background:var(--brd)}.login-divider span{white-space:nowrap;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.bp{background:linear-gradient(180deg,var(--ac),#379a51);border-color:#4fb968;color:#fff}.bp:hover{background:linear-gradient(180deg,var(--ach),#42a95d)}
+.bd{background:linear-gradient(180deg,#c85d5d,#aa4646);border-color:#d17b7b;color:#fff}.bd:hover{background:linear-gradient(180deg,#d87272,#b95454)}
+.bg{background:linear-gradient(180deg,#353535,#272727);color:var(--txd);border:1px solid #555}.bg:hover{background:linear-gradient(180deg,#404040,#2e2e2e);color:var(--tx)}
+.bo{background:linear-gradient(180deg,#ae8750,#8a693c);border-color:#bf9a63;color:#fff}.bo:hover{background:linear-gradient(180deg,#bd955b,#987242)}
+.bs{background:linear-gradient(180deg,#4ebc69,#37944e);border-color:#5dca78;color:#fff}.bs:hover{background:linear-gradient(180deg,#5acb77,#41a55b)}
+.bw{background:linear-gradient(180deg,#8d7447,#6f5b37);border-color:#a18757;color:#fff}.bw:hover{background:linear-gradient(180deg,#9a8050,#7b643d)}
+.bsm{padding:6px 9px;font-size:calc(11px + var(--font-adjust))}
+body[data-theme='light'] .hd-mobile-links a{background:linear-gradient(180deg,#ffffff,#f2f6fd)}
+body[data-theme='light'] .top-nav .troubleshoot-btn,body[data-theme='light'] .hd-right .troubleshoot-btn{background:linear-gradient(180deg,#f8fbff,#eaf1fb);color:#26354a;border-color:#c8d4e6;box-shadow:inset 0 1px 0 rgba(255,255,255,.85)}
+body[data-theme='light'] .top-nav .troubleshoot-btn:hover,body[data-theme='light'] .hd-right .troubleshoot-btn:hover{background:linear-gradient(180deg,#ffffff,#eef4fd);border-color:#b9c9df;color:#1b2a3f}
+body[data-theme='light'] .sd-info{background:linear-gradient(180deg,#ffffff,#f3f7ff)}
+body[data-theme='light'] .dash-hero{background:linear-gradient(180deg,#ffffff 0%,#eef4fc 100%);border-color:#c6d3e6}
+body[data-theme='light'] .sd-info-title,body[data-theme='light'] .cd h2,body[data-theme='light'] .cd h3,body[data-theme='light'] .cd h4,body[data-theme='light'] .subtab .subtab-title,body[data-theme='light'] .lb h2{color:var(--tx)}
+body[data-theme='light'] .ct h1,body[data-theme='light'] .ct h2,body[data-theme='light'] .ct h3,body[data-theme='light'] .ct h4{color:var(--tx)}
+body[data-theme='light'] .sd-info-item{background:linear-gradient(180deg,#ffffff,#edf3fb);border-color:#c6d3e6;border-left-color:#b4c6de}
+body[data-theme='light'] .sd-info-item-meta{color:#47607c}
+body[data-theme='light'] .sd-info-item-text{color:#1b2a3f}
+body[data-theme='light'] .sd-info-empty{color:#4f6076}
+body[data-theme='light'] .sd,body[data-theme='light'] .sd-info-list{scrollbar-color:#b9c9de #eaf1fa}
+body[data-theme='light'] .sd::-webkit-scrollbar-track,body[data-theme='light'] .sd-info-list::-webkit-scrollbar-track{background:#eaf1fa}
+body[data-theme='light'] .sd::-webkit-scrollbar-thumb,body[data-theme='light'] .sd-info-list::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#c2d2e6,#aebfd7);border-color:#eaf1fa}
+body[data-theme='light'] .sd::-webkit-scrollbar-thumb:hover,body[data-theme='light'] .sd-info-list::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#b2c4db,#9fb3cd)}
+body[data-theme='light'] .cd{background:linear-gradient(180deg,#ffffff,#f2f6fc)}
+body[data-theme='light'] .dash-stat{background:linear-gradient(180deg,#ffffff,#f3f7ff)}
+body[data-theme='light'] .admin-scroll-pane{background:linear-gradient(180deg,#ffffff,#f4f8ff)}
+body[data-theme='light'] .bt,body[data-theme='light'] .bg{background:linear-gradient(180deg,#f6faff,#e8eff9);border-color:#c6d2e3;color:#233247;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+body[data-theme='light'] .bt:hover,body[data-theme='light'] .bg:hover{background:linear-gradient(180deg,#ffffff,#edf3fb);border-color:#b8c9de;color:#16243a}
+body[data-theme='light'] .hd-nav .on,body[data-theme='light'] .top-nav .on{background:linear-gradient(180deg,#eaf7ef,#dff2e6);border-color:#9fcdaf;color:#1c6b3a!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.88)}
+body[data-theme='light'] .hd .ver{background:linear-gradient(180deg,#f6faff,#e8eff9);color:#1b2a3f;border-color:#bfd0e6}
+body[data-theme='light'] .hd-mobile-toggle{background:linear-gradient(180deg,#ffffff,#edf3fb);border-color:#c6d2e3;color:#233247}
+body[data-theme='light'] .tb tr:hover td{background:#edf3fb}
+body[data-theme='light'] .lb{background:linear-gradient(180deg,#ffffff,#f3f7ff)}
+=======
 select{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--txd) 50%),linear-gradient(135deg,var(--txd) 50%,transparent 50%),linear-gradient(180deg,var(--control-bg),var(--control-bg2));background-position:calc(100% - 18px) calc(50% - 3px),calc(100% - 12px) calc(50% - 3px),0 0;background-size:6px 6px,6px 6px,100% 100%;background-repeat:no-repeat;padding-right:34px;color:var(--tx)}
 select:hover{border-color:color-mix(in srgb,var(--ac) 38%,var(--brd))}
 select option,select optgroup{background:var(--control-opt-bg);color:var(--control-opt-fg)}
@@ -9326,6 +9585,7 @@ body[data-theme='light'] .hd .ver{background:linear-gradient(180deg,#f6faff,#e8e
 body[data-theme='light'] .hd-mobile-toggle{background:linear-gradient(180deg,#ffffff,#edf3fb);border-color:#c6d2e3;color:#233247}
 body[data-theme='light'] .tb tr:hover td{background:#edf3fb}
 body[data-theme='light'] .lb{background:linear-gradient(180deg,#ffffff,#f3f7ff)}
+>>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
 table.tb{width:100%;border-collapse:collapse}
 .tb th{text-align:left;font-size:calc(11px + var(--font-adjust));font-weight:800;color:var(--txd);text-transform:uppercase;letter-spacing:.12em;padding:10px 12px;border-bottom:1px solid var(--brd);background:var(--table-head-bg)}
 .tb td{padding:10px 12px;font-size:calc(13px + var(--font-adjust));border-bottom:1px solid var(--brd);vertical-align:middle}
@@ -9434,6 +9694,108 @@ body.login-mode .lb{width:min(100vw,560px);margin:auto;box-shadow:var(--shadow)}
 function copyLink(url){navigator.clipboard.writeText(window.location.origin+url);var b=event.target;b.textContent='Gekopieerd!';setTimeout(()=>b.textContent='Link',1500);}
 function openM(id){document.getElementById(id).classList.add('on');}
 function closeM(id){document.getElementById(id).classList.remove('on');}
+<<<<<<< HEAD
+function showEditUser(uid, username, role, email){
+    document.getElementById('euUserId').value=uid;
+    document.getElementById('euUsername').value=username;
+    document.getElementById('euRole').value=role;
+    document.getElementById('euEmail').value=email||'';
+    openM('editUserM');
+}
+function toggleProfileMenu(){
+    var el=document.getElementById('profileMenuWrap');
+    if(!el) return;
+    el.classList.toggle('open');
+}
+function closeMobileMainMenu(){
+    document.body.classList.remove('mobile-menu-open');
+}
+function toggleMobileMainMenu(ev){
+    if(ev){ ev.preventDefault(); ev.stopPropagation(); }
+    document.body.classList.toggle('mobile-menu-open');
+}
+document.addEventListener('DOMContentLoaded',function(){
+    var nav=document.getElementById('mainNav');
+    if(nav){
+        nav.querySelectorAll('a').forEach(function(link){
+            link.addEventListener('click',function(){
+                var pf=document.getElementById('profileMenuWrap');
+                if(pf) pf.classList.remove('open');
+            });
+        });
+    }
+    document.querySelectorAll('.js-close-mobile-menu').forEach(function(el){
+        el.addEventListener('click',function(){ closeMobileMainMenu(); });
+    });
+    document.querySelectorAll('.log-actions-mobile').forEach(function(el){
+        el.addEventListener('toggle', function(){
+            if(!el.open){
+                el.classList.remove('open-up');
+                return;
+            }
+            document.querySelectorAll('.log-actions-mobile').forEach(function(other){
+                if(other !== el){
+                    other.open = false;
+                    other.classList.remove('open-up');
+                }
+            });
+            var panel = el.querySelector('.log-actions-mobile-panel');
+            if(!panel) return;
+            el.classList.remove('open-up');
+            requestAnimationFrame(function(){
+                var rect = panel.getBoundingClientRect();
+                if(rect.bottom > (window.innerHeight - 8)){
+                    el.classList.add('open-up');
+                }
+                requestAnimationFrame(function(){
+                    el.scrollIntoView({block:'nearest', inline:'nearest'});
+                });
+            });
+        });
+    });
+    updateFullscreenButtonLabel();
+});
+document.addEventListener('click',function(e){
+    if(document.body.classList.contains('mobile-menu-open')){
+        var menu=document.getElementById('mobileMainMenu');
+        var btn=document.getElementById('mobileMainMenuBtn');
+        if(menu && btn && !menu.contains(e.target) && !btn.contains(e.target)){
+            closeMobileMainMenu();
+        }
+    }
+    var el=document.getElementById('profileMenuWrap');
+    if(!el) return;
+    if(!el.contains(e.target)) el.classList.remove('open');
+});
+document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+        closeMobileMainMenu();
+        var el=document.getElementById('profileMenuWrap');
+        if(el) el.classList.remove('open');
+    }
+});
+function updateFullscreenButtonLabel(){
+    var btn=document.getElementById('fullscreenToggleBtn');
+    if(!btn) return;
+    var isFull=!!document.fullscreenElement;
+    btn.textContent=isFull ? '⤢ Venster' : '⛶ Volledig scherm';
+    btn.setAttribute('aria-pressed', isFull ? 'true' : 'false');
+}
+async function toggleFullscreenMode(){
+    try{
+        if(!document.fullscreenElement){
+            await document.documentElement.requestFullscreen();
+        } else {
+            await document.exitFullscreen();
+        }
+    } catch(err) {
+        console.warn('Fullscreen niet beschikbaar', err);
+    } finally {
+        updateFullscreenButtonLabel();
+    }
+}
+document.addEventListener('fullscreenchange', updateFullscreenButtonLabel);
+=======
 function showEditUser(uid, username, role, email){
     document.getElementById('euUserId').value=uid;
     document.getElementById('euUsername').value=username;
@@ -9548,6 +9910,7 @@ async function toggleFullscreenMode(){
     }
 }
 document.addEventListener('fullscreenchange', updateFullscreenButtonLabel);
+>>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
 </script>
 </head><body class="<?=in_array($page,['login','public_target_add','set_password'],true)?'login-mode':''?>"<?=($theme!=='auto'?' data-theme="'.e($theme).'"':'')?><?=' data-fontsize="'.e($fontsize).'"'?> >
 
@@ -9655,6 +10018,280 @@ document.addEventListener('fullscreenchange', updateFullscreenButtonLabel);
 <p class="sub">Maak SmokePing Manager klaar voor gebruik</p>
 <?php if($flash):?><div class="fl <?=$flash['type']?>"><?=e($flash['msg'])?></div><?php endif;?>
 
+<<<<<<< HEAD
+<?php if($step==='1'): ?>
+<div class="setup-step-label">Stap 1 van 6: Kies je thema</div>
+<form method="POST"><input type="hidden" name="action" value="setup_wizard_theme"><?=csrfField()?>
+<div class="setup-list-row"><label>Thema</label>
+<select name="theme">
+<option value="auto" <?=$theme==='auto'?'selected':''?>>Automatisch (volg systeem)</option>
+<option value="light" <?=$theme==='light'?'selected':''?>>Licht</option>
+<option value="dark" <?=$theme==='dark'?'selected':''?>>Donker</option>
+</select></div>
+<div class="setup-actions"><button type="submit" class="bt bp">Volgende</button><a href="?p=setup&step=2" class="bt">Overslaan</a></div>
+</form>
+<?php elseif($step==='2'): ?>
+<div class="setup-step-label">Stap 2 van 6: Gebruikersnaam & Wachtwoord</div>
+<form method="POST"><input type="hidden" name="action" value="setup_wizard_credentials"><?=csrfField()?>
+<div class="setup-list-row"><label>Gebruikersnaam (leeg = admin)</label><input type="text" name="newuser" placeholder="admin"></div>
+<div class="setup-list-row"><label>Wachtwoord</label><input type="password" name="newpass" required></div>
+<div class="setup-actions"><button type="submit" class="bt bp">Volgende</button><a href="?p=setup&step=3" class="bt">Overslaan</a></div>
+</form>
+<?php elseif($step==='3'): ?>
+<div class="setup-step-label">Stap 3 van 6: Email Instellingen</div>
+<form method="POST" id="emailForm"><input type="hidden" name="action" value="setup_wizard_email"><?=csrfField()?>
+<div class="fg" style="border:1px solid var(--brd);border-radius:8px;padding:12px;background:var(--bg);margin-bottom:12px">
+<div style="font-weight:700;margin:0 0 8px">SMTP Email instellingen</div>
+<p style="font-size:12px;color:var(--txd);margin:0 0 10px">Deze instellingen zijn voor uitval- en statusmails.</p>
+<div class="setup-list-row"><label>Email Provider</label>
+<select name="email_provider" id="emailProvider" onchange="updateProviderFields()">
+<option value="gmail" selected>Gmail</option>
+<option value="outlook">Outlook / Hotmail</option>
+<option value="yahoo">Yahoo Mail</option>
+<option value="custom">Custom SMTP</option>
+</select></div>
+<div class="setup-list-row"><label>Email Adres (mailadres + wachtwoord voor inloggen)</label><input type="email" name="email_address" required placeholder="your.email@gmail.com"></div>
+<div class="setup-list-row"><label>Wachtwoord</label><input type="password" name="email_password" required placeholder="app password of wachtwoord"></div>
+<div id="customFields" style="display:none">
+<div class="setup-list-row"><label>SMTP Host</label><input type="text" name="custom_smtp_host" placeholder="smtp.example.com"></div>
+<div class="setup-list-row"><label>SMTP Port</label><input type="number" name="custom_smtp_port" value="587"></div>
+<div class="setup-list-row"><label>Encryptie</label>
+<select name="custom_smtp_encryption">
+<option value="tls" selected>TLS</option>
+<option value="ssl">SSL</option>
+<option value="none">Geen</option>
+</select></div>
+</div>
+</div>
+
+<div class="fg" style="border:1px solid var(--brd);border-radius:8px;padding:12px;background:var(--bg)">
+<div style="font-weight:700;margin:0 0 8px">Google Auth instellingen</div>
+<p style="font-size:12px;color:var(--txd);margin:0 0 10px">Deze instellingen zijn alleen voor inloggen met Google en staan los van SMTP email.</p>
+<div class="setup-list-row"><label>Google Auth inschakelen</label>
+<label style="display:flex;align-items:center;gap:8px;margin:0;color:var(--tx)"><input type="checkbox" name="google_auth_enabled" value="1" checked>Google login activeren</label></div>
+<div class="setup-list-row"><label>Google Client ID</label><input type="text" name="google_client_id" placeholder="xxxxx.apps.googleusercontent.com"></div>
+<div class="setup-list-row"><label>Google Client Secret</label><input type="password" name="google_client_secret" placeholder="Client secret"></div>
+<div class="setup-list-row"><label>Redirect URI</label><input type="text" name="google_redirect_uri" value="<?=e(buildGoogleRedirectUri($db))?>" placeholder="<?=e(buildGoogleRedirectUri($db))?>"></div>
+<p style="font-size:12px;color:var(--txd);margin:8px 0 0">Als Google login actief is, vul dan Client ID en Secret in om door te kunnen naar de volgende stap.</p>
+</div>
+
+<div class="setup-actions"><button type="submit" class="bt bp">Volgende</button><a href="?p=setup&step=4" class="bt">Overslaan</a></div>
+</form>
+
+<?php elseif($step==='4'): ?>
+<div class="setup-step-label">Stap 4 van 6: Database & Presentatie afstemmen</div>
+<form method="POST" id="wizardTuningForm" onsubmit="return confirmWizardTuningSubmit()"><input type="hidden" name="action" value="setup_wizard_smokeping_tuning"><?=csrfField()?>
+
+<div class="fg" style="border:1px solid var(--brd);border-radius:8px;padding:12px;background:var(--bg)">
+<label style="display:flex;align-items:center;gap:8px;font-weight:600"><input type="checkbox" name="apply_database_tuning" value="1" checked>Database instellingen aanpassen</label>
+<p style="font-size:12px;color:var(--txd);margin:8px 0 10px">Default: elke <strong>10 seconden</strong> een meetronde, met <strong>5 pings</strong> per ronde.  
+Dit betekent gemiddeld ongeveer 1 ping per <strong>2 seconden</strong> tijdens die meetronde.</p>
+
+<div class="setup-list-row"><label>Voorinstelling</label>
+<select name="db_profile" id="dbProfile" onchange="updateDbPresetHint()">
+<option value="default_300_20">Standaard - 5 minuten, 20 pings</option>
+<option value="fast_10_5" selected>Sneller - 10 seconden, 5 pings (ongeveer 1 ping per 2s)</option>
+<option value="custom">Aangepast - zelf step en pings kiezen</option>
+</select></div>
+
+<div class="setup-list">
+<div class="setup-list-row"><label>Meetinterval (step in seconden)</label><input type="number" name="db_step" id="dbStep" value="10" min="10" max="3600"></div>
+<div class="setup-list-row"><label>Aantal pings per meting</label><input type="number" name="db_pings" id="dbPings" value="5" min="1" max="100"></div>
+</div>
+<div id="dbHint" style="font-size:12px;color:var(--txd)">Bij deze keuze is dat ongeveer 1 ping per 2 seconden tijdens een meetronde.</div>
+</div>
+
+<div class="fg" style="border:1px solid var(--brd);border-radius:8px;padding:12px;background:var(--bg)">
+<label style="display:flex;align-items:center;gap:8px;font-weight:600"><input type="checkbox" name="apply_presentation_tuning" value="1" checked>Presentation grafiekranges aanpassen</label>
+<p style="font-size:12px;color:var(--txd);margin:8px 0 10px">Pas de zichtbare grafiekperiodes aan. Formaat per regel: <code>Label|Range</code>.  
+Voorbeeld: <code>Last 1 Hour|1h</code>.</p>
+<div style="font-size:12px;background:#fff4e5;border:1px solid #f1c27d;color:#8a5a00;padding:8px 10px;border-radius:6px;margin-bottom:10px">
+Let op: bij toepassen van Presentation wijzigingen worden bestaande grafieken verwijderd (.rrd), daarna wordt SmokePing automatisch herstart.
+</div>
+<div class="setup-list-row"><label>Grafiek opties</label>
+<textarea name="presentation_ranges" rows="10">Last 1 Hour|1h
+Last 3 Hours|3h
+Last 24 Hours|1d
+Last 30 Days|30d
+Last 180 Days|180d
+Last 360 Days|360d</textarea>
+</div>
+</div>
+
+<div class="setup-actions"><button type="submit" class="bt bp">Volgende</button><a href="?p=setup&step=5" class="bt">Overslaan</a></div>
+</form>
+
+<script>
+function updateDbPresetHint(){
+    var profile = document.getElementById('dbProfile').value;
+    var stepEl = document.getElementById('dbStep');
+    var pingsEl = document.getElementById('dbPings');
+    if(profile === 'default_300_20'){ stepEl.value = 300; pingsEl.value = 20; }
+    if(profile === 'fast_10_5'){ stepEl.value = 10; pingsEl.value = 5; }
+    var step = Math.max(1, parseInt(stepEl.value || '1', 10));
+    var pings = Math.max(1, parseInt(pingsEl.value || '1', 10));
+    var interval = (step / pings).toFixed(2);
+    if(interval.endsWith('.00')) interval = interval.slice(0, -3);
+    document.getElementById('dbHint').textContent = 'Bij deze keuze is dat ongeveer 1 ping per ' + interval + ' seconden tijdens een meetronde.';
+}
+function confirmWizardTuningSubmit(){
+    var presentationCheckbox = document.querySelector('input[name="apply_presentation_tuning"]');
+    if (presentationCheckbox && presentationCheckbox.checked) {
+        return confirm('Let op: bestaande grafiekdata wordt verwijderd om de nieuwe grafiekinstellingen toe te passen. Daarna wordt SmokePing automatisch herstart. Doorgaan?');
+    }
+    return true;
+}
+document.addEventListener('DOMContentLoaded', function(){
+    var s = document.getElementById('dbStep');
+    var p = document.getElementById('dbPings');
+    if(s) s.addEventListener('input', updateDbPresetHint);
+    if(p) p.addEventListener('input', updateDbPresetHint);
+    updateDbPresetHint();
+});
+</script>
+
+<?php elseif($step==='5'): ?>
+<div class="setup-step-label">Stap 5 van 6: Targets importeren</div>
+<form method="POST" id="targetsImportForm" enctype="multipart/form-data"><input type="hidden" name="action" value="setup_wizard_targets_import"><?=csrfField()?>
+<div class="setup-list-row"><label>Importeer bestaand Targets bestand of backup</label><input type="file" class="file-input" name="targets_import_file" accept=".conf,.txt,.backup,.cfg"></div>
+<p style="font-size:12px;color:var(--txd);margin:8px 0 14px">Upload hier je bestaande Targets bestand om categorieen en targets tijdens de wizard in te laden.</p>
+<div class="setup-actions"><button type="submit" class="bt bp">Volgende</button><button type="button" onclick="document.getElementById('skipForm').submit()" class="bt">Overslaan</button></div>
+</form>
+<form method="GET" id="skipForm" style="display:none"><input type="hidden" name="p" value="setup"><input type="hidden" name="step" value="6"></form>
+<?php elseif($step==='6'): ?>
+<div class="setup-step-label">Stap 6 van 6: Automatische backups</div>
+<form method="POST"><input type="hidden" name="action" value="setup_wizard_backup_schedule"><?=csrfField()?>
+<div class="fg" style="border:1px solid var(--brd);border-radius:8px;padding:12px;background:var(--bg)">
+<p style="font-size:12px;color:var(--txd);margin:0 0 10px">Slim schema: bewaar altijd de laatste items, daarna alle dagelijkse backups voor een korte periode, vervolgens 1 per week en daarna 1 per maand.</p>
+<div class="setup-list">
+    <div class="setup-list-row">
+        <label>Automatische full backups inschakelen</label>
+        <label style="display:flex;align-items:center;gap:8px;margin:0;color:var(--tx)"><input type="checkbox" name="auto_backup_enabled" value="1" checked>Ingeschakeld</label>
+    </div>
+    <div class="setup-list-row">
+        <label>Nieuwe backup maken</label>
+        <select name="auto_backup_frequency"><option value="daily" selected>Elke dag</option><option value="weekly">Elke week</option><option value="monthly">Elke maand</option></select>
+    </div>
+    <div class="setup-list-row">
+        <label>Behoud altijd laatste x items</label>
+        <input type="number" name="auto_backup_keep_latest" value="10" min="1" max="100">
+    </div>
+    <div class="setup-list-row">
+        <label>Alle dagelijkse backups bewaren (dagen)</label>
+        <input type="number" name="auto_backup_retain_daily" value="14" min="0" max="365">
+    </div>
+    <div class="setup-list-row">
+        <label>Daarna 1 per week bewaren (weken)</label>
+        <input type="number" name="auto_backup_retain_weekly" value="8" min="0" max="104">
+    </div>
+    <div class="setup-list-row">
+        <label>Daarna 1 per maand bewaren (maanden)</label>
+        <input type="number" name="auto_backup_retain_monthly" value="6" min="0" max="36">
+    </div>
+</div>
+</div>
+<div class="setup-actions"><button type="submit" class="bt bp">Voltooien</button><a href="?p=setup&step=complete" class="bt">Overslaan</a></div>
+</form>
+<?php elseif($step==='complete'): ?>
+<div style="text-align:center;padding:20px 0">
+<div style="font-size:32px;margin-bottom:12px">✓</div>
+<h3>Voltooid!</h3>
+<p>SmokePing Manager is gereed. Veel succes met monitoren!</p>
+<form method="POST" style="margin-top:16px"><input type="hidden" name="action" value="setup_wizard_complete"><?=csrfField()?><button type="submit" class="bt bp" style="width:100%">Naar Overzicht</button></form>
+</div>
+<?php endif; ?>
+</div></div>
+<?php else: requireLogin();
+$_spActive = (int)@shell_exec('pgrep -c "smokeping" 2>/dev/null') > 0;
+$_spStatusTip = $_spActive
+    ? 'Groen: SmokePing service draait en reageert normaal.'
+    : 'Rood: SmokePing service draait niet of reageert niet.';
+?>
+<div class="hd">
+<h1>
+    <span class="brand-mark <?=$_spActive?'ok':'err'?>" data-tip="<?=htmlspecialchars($_spStatusTip, ENT_QUOTES)?>" tabindex="0" aria-label="<?=htmlspecialchars($_spStatusTip, ENT_QUOTES)?>">●</span>
+        <?php if(!$_spActive): ?>
+        <span class="brand-alert hd-tip" data-tip="SmokePing is inactief. Herstart of rebuild de service om metingen te hervatten." aria-label="SmokePing is inactief. Herstart of rebuild de service om metingen te hervatten"><span class="brand-alert-dot"></span>Smokeping inactief</span>
+        <?php endif; ?>
+    <span class="brand-text"><span class="brand-title ver"><?=APP_TITLE?> <?=APP_VERSION?></span></span>
+</h1>
+<button type="button" class="hd-mobile-toggle" id="mobileMainMenuBtn" onclick="toggleMobileMainMenu(event)"><span class="menu-ico">☰</span> Menu</button>
+<nav class="hd-nav" id="mainNav">
+<a href="?p=dash" class="<?=$page==='dash'?'on':''?> hd-tip" data-tip="Overzicht: samenvatting van status, aantallen en snelle links" aria-label="Overzicht: samenvatting van status, aantallen en snelle links"><span class="top-nav-ic">⌂</span>Overzicht</a>
+<a href="?p=targets" class="<?=in_array($page,['targets','cat'])?'on':''?> hd-tip" data-tip="Targets: beheer categorieen, targets en monitoring instellingen" aria-label="Targets: beheer categorieen, targets en monitoring instellingen"><span class="top-nav-ic">⊞</span>Targets</a>
+<?php if(canManage($db)): ?><a href="?p=database" class="<?=$page==='database'?'on':''?> hd-tip" data-tip="Database: bekijk en beheer opgeslagen meetgegevens" aria-label="Database: bekijk en beheer opgeslagen meetgegevens"><span class="top-nav-ic">🗄</span>Database</a><?php endif; ?>
+<?php if(canManage($db)): ?><a href="?p=settings" class="<?=$page==='settings'?'on':''?> hd-tip" data-tip="Instellingen: systeem-, notificatie- en backupopties" aria-label="Instellingen: systeem-, notificatie- en backupopties"><span class="top-nav-ic">⚙</span>Instellingen</a><?php endif; ?>
+<?php if(isAdmin($db)): ?><a href="?p=admin" class="<?=$page==='admin'?'on':''?> hd-tip" data-tip="Admin Debug: technische controles, logging en diagnostiek" aria-label="Admin Debug: technische controles, logging en diagnostiek"><span class="top-nav-ic">🔧</span>Admin Debug</a><?php endif; ?>
+</nav>
+<div class="hd-right">
+<div class="top-nav-actions">
+    <button type="button" class="bt bsm hd-tip" id="fullscreenToggleBtn" onclick="toggleFullscreenMode()" data-tip="Schermvullend tonen of weer terug naar venster" aria-label="Schermvullend tonen of weer terug naar venster" aria-pressed="false">⛶ Volledig scherm</button>
+    <?php if(hasActionPermission($db, 'act_config_manage')): ?>
+        <form method="POST"><input type="hidden" name="action" value="reload"><?=csrfField()?><button class="bt bsm troubleshoot-btn hd-tip" type="submit" data-tip="Herstelactie: herbouw configuratie en herstart SmokePing" aria-label="Herstelactie: herbouw configuratie en herstart SmokePing">🛠 Rebuild</button></form>
+        <form method="POST"><input type="hidden" name="action" value="restart"><?=csrfField()?><button class="bt bsm troubleshoot-btn hd-tip" type="submit" data-tip="Herstelactie: herstart alleen de SmokePing service" aria-label="Herstelactie: herstart alleen de SmokePing service">🛠 Restart</button></form>
+    <?php endif; ?>
+        <form method="POST"><input type="hidden" name="action" value="logout"><button type="submit" class="bt bsm danger hd-tip" data-tip="Uitloggen: beeindig je sessie en ga terug naar het inlogscherm" aria-label="Uitloggen: beeindig je sessie en ga terug naar het inlogscherm">⇥ Uitloggen</button></form>
+</div>
+</div>
+</div>
+<div class="hd-mobile-overlay" id="mobileMainMenuOverlay" onclick="closeMobileMainMenu()"></div>
+<div class="hd-mobile-menu" id="mobileMainMenu" role="dialog" aria-label="Hoofdmenu">
+    <div class="hd-mobile-head">
+        <div class="hd-mobile-title">Hoofdmenu</div>
+        <button type="button" class="bt bg bsm" onclick="closeMobileMainMenu()">Sluiten</button>
+    </div>
+    <div class="hd-mobile-links" style="margin-bottom:10px">
+        <a href="?p=dash" class="<?=$page==='dash'?'on':''?> js-close-mobile-menu hd-tip" data-tip="Overzicht: samenvatting van status, aantallen en snelle links" aria-label="Overzicht: samenvatting van status, aantallen en snelle links"><span class="top-nav-ic">⌂</span>Overzicht</a>
+        <a href="?p=targets" class="<?=in_array($page,['targets','cat'])?'on':''?> js-close-mobile-menu hd-tip" data-tip="Targets: beheer categorieen, targets en monitoring instellingen" aria-label="Targets: beheer categorieen, targets en monitoring instellingen"><span class="top-nav-ic">⊞</span>Targets</a>
+        <?php if(canManage($db)): ?><a href="?p=database" class="<?=$page==='database'?'on':''?> js-close-mobile-menu hd-tip" data-tip="Database: bekijk en beheer opgeslagen meetgegevens" aria-label="Database: bekijk en beheer opgeslagen meetgegevens"><span class="top-nav-ic">🗄</span>Database</a><?php endif; ?>
+        <?php if(canManage($db)): ?><a href="?p=settings" class="<?=$page==='settings'?'on':''?> js-close-mobile-menu hd-tip" data-tip="Instellingen: systeem-, notificatie- en backupopties" aria-label="Instellingen: systeem-, notificatie- en backupopties"><span class="top-nav-ic">⚙</span>Instellingen</a><?php endif; ?>
+        <?php if(isAdmin($db)): ?><a href="?p=admin" class="<?=$page==='admin'?'on':''?> js-close-mobile-menu hd-tip" data-tip="Admin Debug: technische controles, logging en diagnostiek" aria-label="Admin Debug: technische controles, logging en diagnostiek"><span class="top-nav-ic">🔧</span>Admin Debug</a><?php endif; ?>
+    </div>
+    <div class="hd-mobile-actions">
+        <button type="button" class="bt bsm troubleshoot-btn" onclick="toggleFullscreenMode()"><span class="top-nav-ic">⛶</span><span>Volledig scherm</span></button>
+        <?php if(hasActionPermission($db, 'act_config_manage')): ?>
+        <form method="POST"><input type="hidden" name="action" value="reload"><?=csrfField()?><button class="bt bsm troubleshoot-btn" type="submit"><span class="top-nav-ic">🛠</span><span>Rebuild</span></button></form>
+        <form method="POST"><input type="hidden" name="action" value="restart"><?=csrfField()?><button class="bt bsm troubleshoot-btn" type="submit"><span class="top-nav-ic">🛠</span><span>Restart</span></button></form>
+        <?php endif; ?>
+        <form method="POST"><input type="hidden" name="action" value="logout"><button type="submit" class="bt bsm danger"><span class="top-nav-ic">⇥</span><span>Uitloggen</span></button></form>
+    </div>
+</div>
+<?php if(!empty($updateNotice)): ?>
+<div class="mo on" id="updateNoticeM" onclick="if(event.target===this)closeM('updateNoticeM')" style="z-index:1300">
+    <div class="md" style="width:min(560px,92vw)">
+        <h3>Nieuwe versie beschikbaar</h3>
+        <p style="margin-bottom:10px;color:var(--txd);font-size:13px">Je draait versie <strong><?=e(APP_VERSION)?></strong>, maar op de server staat versie <strong><?=e((string)$updateNotice['latest'])?></strong>.</p>
+        <div style="border:1px solid var(--brd);border-radius:10px;padding:10px 12px;background:var(--s1);font-size:12px;color:var(--txd);line-height:1.5;margin-bottom:14px">
+            Als admin kun je de update installeren door het update-script opnieuw uit te voeren op de server.
+        </div>
+        <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
+            <button type="button" class="bt bg" onclick="closeM('updateNoticeM')">Later</button>
+            <?php if(!empty($updateNotice['url'])): ?><a class="bt bp" href="<?=e((string)$updateNotice['url'])?>" target="_blank" rel="noopener noreferrer">Update-script openen</a><?php endif; ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<div class="app">
+<aside class="sd">
+<div class="sd-info">
+<div class="sd-info-title">Info</div>
+<?php if(!empty($flashHistory)): ?>
+<div class="sd-info-list">
+<?php foreach(array_reverse($flashHistory) as $msg): $msgType=in_array(($msg['type']??'success'),['success','error'],true)?$msg['type']:'success'; ?>
+<div class="sd-info-item <?=$msgType?>">
+    <div class="sd-info-item-meta">
+        <span class="sd-info-item-type"><?=e($msgType)?></span>
+        <span><?=date('d-m-Y H:i:s', (int)($msg['ts'] ?? time()))?></span>
+    </div>
+    <div class="sd-info-item-text"><?=e((string)($msg['msg'] ?? ''))?></div>
+</div>
+<?php endforeach; ?>
+</div>
+<?php else: ?><div class="sd-info-empty">Geen meldingen beschikbaar.</div><?php endif;?>
+</div>
+</aside>
+<div class="ct">
+=======
 <?php if($step==='1'): ?>
 <div class="setup-step-label">Stap 1 van 6: Kies je thema</div>
 <form method="POST"><input type="hidden" name="action" value="setup_wizard_theme"><?=csrfField()?>
@@ -9929,6 +10566,7 @@ $_spStatusTip = $_spActive
 </div>
 </aside>
 <div class="ct">
+>>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
 <?php
 // Pre-compute default email for forms (available in all page contexts)
 $_uid=(int)($_SESSION['uid']??0);
