@@ -1,15 +1,29 @@
-# SmokePing Manager v4.1
+# SmokePing Manager v6.0
 
 ## Nederlands
 
 ### Overzicht
-SmokePing Manager is een complete beheerlaag bovenop SmokePing voor Proxmox/LXC-omgevingen.  
-Deze repository bevat een all-in-one installatiescript dat:
+SmokePing Manager is een complete beheerlaag bovenop SmokePing voor Proxmox/LXC-omgevingen.
+Deze repository bevat een all-in-one installatiescript en webinterface die:
 
-- SmokePing Manager installeert en configureert
-- de webinterface uitrolt
-- onderhoudsacties en beheerfuncties aanbiedt via een CLI-menu
-- een snelle start mogelijk maakt via het commando `smokepingmanager`
+- Installeert en configureert SmokePing Manager
+- Deployt de webapplicatie
+- Biedt onderhoudsacties en beheerfuncties via een interactief CLI-menu
+- Maakt snelle toegang mogelijk via het commando `smokepingmanager`
+
+### Changelog (samenvatting)
+- 6.0 - Release: UI-verbeteringen, éénmalige update-popup en blijvende "Update beschikbaar" knop; documentatie bijgewerkt.
+- 5.9 - Bij meerdere uitval wordt alles verzameld per target in 1 mail ipv aparte mails. Opschonen IPv6 grafieken bij opschonen RRD grafieken opgelost.
+- 5.8 - Bij toevoegen van nieuwe targets worden deze automatisch toegevoegd aan de wachtrij.
+- 5.7 - Nieuwe gebruikers krijgen nu gebruikersrechten ipv manager rechten. Diverse kleine verbeteringen en bugfixes.
+- 5.6 - Default pingtijden verlaagd zodat uitval sneller wordt gedetecteerd. Stappenplan gewijzigd en optie toegevoegd om in te loggen met Google account.
+- 5.5 - Google Auth toegevoegd. Gebruikersrechten uitgebreid, en diverse kleine verbeteringen.
+- 5.4 - Layout gewijzigd, Targets wachtrij toegevoegd, en diverse kleine verbeteringen.
+- 5.3 - Email preview toegevoegd onder Admin Debug sectie.
+- 5.2 - Snelheid van de webinterface verbeterd door caching toe te voegen aan de backend en optimalisaties in database queries.
+- 5.1 - Mogelijkheid om link te delen met gebruiker om zelf target toe te voegen
+- 5.0 - Grote update met veel nieuwe functies, verbeterde beveiliging, en een compleet vernieuwde webinterface.
+- 4.x - Diverse eerdere verbeteringen en bugfixes (backup, layout, installatie, mailfixes).
 
 ### Belangrijkste mogelijkheden
 
@@ -89,9 +103,17 @@ Volgende opties zijn direct beschikbaar in het installatiemenu:
 ### Snelle start
 
 ```bash
-wget -O install_smokeping_manager.sh https://charlesderidder.nl/proxmox/install_smokeping_manager.sh
+wget -O install_smokeping_manager.sh https://raw.githubusercontent.com/charlesderidder/Smokeping-Manager/main/install_smokeping_manager.sh
 chmod +x install_smokeping_manager.sh
 ./install_smokeping_manager.sh
+```
+
+Gebruik bij `wget` altijd de raw URL. Een GitHub `/blob/` link downloadt HTML in plaats van het script.
+
+Extra copy-paste one-liner:
+
+```bash
+wget -O /tmp/install_smokeping_manager.sh https://raw.githubusercontent.com/charlesderidder/Smokeping-Manager/main/install_smokeping_manager.sh && chmod +x /tmp/install_smokeping_manager.sh && bash /tmp/install_smokeping_manager.sh
 ```
 
 Na installatie/updaten kun je het script altijd starten met:
@@ -213,9 +235,17 @@ The following options are available directly from the installer menu:
 ### Quick start
 
 ```bash
-wget -O install_smokeping_manager.sh https://charlesderidder.nl/proxmox/install_smokeping_manager.sh
+wget -O install_smokeping_manager.sh https://raw.githubusercontent.com/charlesderidder/Smokeping-Manager/main/install_smokeping_manager.sh
 chmod +x install_smokeping_manager.sh
 ./install_smokeping_manager.sh
+```
+
+Always use the raw URL with `wget`. A GitHub `/blob/` URL downloads HTML instead of the script.
+
+Extra copy-paste one-liner:
+
+```bash
+wget -O /tmp/install_smokeping_manager.sh https://raw.githubusercontent.com/charlesderidder/Smokeping-Manager/main/install_smokeping_manager.sh && chmod +x /tmp/install_smokeping_manager.sh && bash /tmp/install_smokeping_manager.sh
 ```
 
 After installation/update, start anytime with:
