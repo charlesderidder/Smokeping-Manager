@@ -9160,10 +9160,13 @@ select:disabled{opacity:.7;cursor:not-allowed}
 .hd-tip:hover::after,.hd-tip:focus-visible::after{transform:translateX(-50%) translateY(0)}
 @media(max-width:640px){
 .hd-tip::after{min-width:190px;max-width:calc(100vw - 16px)}
+.hd-update-btn{margin-left:4px;padding:5px 8px;font-size:calc(10px + var(--font-adjust))}
 }
 .brand-text{display:flex;flex-direction:column;line-height:1.05}
 .brand-title{font-size:calc(14px + var(--font-adjust));font-weight:800;color:var(--tx);letter-spacing:.02em}
 .brand-sub{font-size:calc(10px + var(--font-adjust));color:var(--txd);font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.hd-update-btn{display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:5px 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--warn) 55%,var(--brd));background:linear-gradient(180deg,color-mix(in srgb,var(--warn) 26%,#3a2f1c),color-mix(in srgb,var(--warn) 16%,#2d2517));color:var(--warnfg);font-size:calc(11px + var(--font-adjust));font-weight:800;letter-spacing:.02em;cursor:pointer;box-shadow:0 0 0 1px color-mix(in srgb,var(--warn) 26%,transparent),0 0 14px color-mix(in srgb,var(--warn) 24%,transparent)}
+.hd-update-btn:hover{filter:brightness(1.06);border-color:color-mix(in srgb,var(--warn) 70%,var(--brd));color:#fff}
 .brand-alert{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--err) 52%,var(--brd));background:linear-gradient(180deg,color-mix(in srgb,var(--err) 28%,#3a2323),color-mix(in srgb,var(--err) 18%,#281919));color:var(--errfg);font-size:calc(11px + var(--font-adjust));font-weight:900;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 0 0 1px color-mix(in srgb,var(--err) 20%,transparent),0 0 18px color-mix(in srgb,var(--err) 25%,transparent);animation:brand-alert-pulse 1.3s ease-in-out infinite}
 .brand-alert-dot{width:8px;height:8px;border-radius:50%;background:var(--err);box-shadow:0 0 8px color-mix(in srgb,var(--err) 60%,transparent)}
 @keyframes brand-alert-pulse{0%,100%{transform:translateY(0);box-shadow:0 0 0 1px color-mix(in srgb,var(--err) 20%,transparent),0 0 18px color-mix(in srgb,var(--err) 25%,transparent)}50%{transform:translateY(-1px);box-shadow:0 0 0 1px color-mix(in srgb,var(--err) 35%,transparent),0 0 24px color-mix(in srgb,var(--err) 40%,transparent)}}
@@ -9489,6 +9492,20 @@ document.addEventListener('DOMContentLoaded',function(){
             });
         });
     });
+    var updateModal=document.getElementById('updateNoticeM');
+    if(updateModal){
+        var latest=updateModal.getAttribute('data-latest') || '';
+        var key='sm_update_notice_seen_' + latest;
+        try{
+            if(localStorage.getItem(key)!=='1'){
+                openM('updateNoticeM');
+                localStorage.setItem(key,'1');
+            }
+        } catch(err){
+            // Als localStorage niet beschikbaar is, tonen we de melding alleen voor deze paginalading.
+            openM('updateNoticeM');
+        }
+    }
     updateFullscreenButtonLabel();
 });
 document.addEventListener('click',function(e){
@@ -9833,6 +9850,7 @@ $_spStatusTip = $_spActive
         <span class="brand-alert hd-tip" data-tip="SmokePing is inactief. Herstart of rebuild de service om metingen te hervatten." aria-label="SmokePing is inactief. Herstart of rebuild de service om metingen te hervatten"><span class="brand-alert-dot"></span>Smokeping inactief</span>
         <?php endif; ?>
     <span class="brand-text"><span class="brand-title ver"><?=APP_TITLE?> <?=APP_VERSION?></span></span>
+    <?php if(!empty($updateNotice)): ?><button type="button" class="hd-update-btn hd-tip" onclick="openM('updateNoticeM')" data-tip="Er staat een nieuwere versie klaar. Klik voor update-instructies." aria-label="Update beschikbaar">⬆ Update beschikbaar</button><?php endif; ?>
 </h1>
 <button type="button" class="hd-mobile-toggle" id="mobileMainMenuBtn" onclick="toggleMobileMainMenu(event)"><span class="menu-ico">☰</span> Menu</button>
 <nav class="hd-nav" id="mainNav">
@@ -9876,16 +9894,17 @@ $_spStatusTip = $_spActive
     </div>
 </div>
 <?php if(!empty($updateNotice)): ?>
-<div class="mo on" id="updateNoticeM" onclick="if(event.target===this)closeM('updateNoticeM')" style="z-index:1300">
+<div class="mo" id="updateNoticeM" data-latest="<?=e((string)$updateNotice['latest'])?>" onclick="if(event.target===this)closeM('updateNoticeM')" style="z-index:1300">
     <div class="md" style="width:min(560px,92vw)">
         <h3>Nieuwe versie beschikbaar</h3>
         <p style="margin-bottom:10px;color:var(--txd);font-size:13px">Je draait versie <strong><?=e(APP_VERSION)?></strong>, maar op de server staat versie <strong><?=e((string)$updateNotice['latest'])?></strong>.</p>
         <div style="border:1px solid var(--brd);border-radius:10px;padding:10px 12px;background:var(--s1);font-size:12px;color:var(--txd);line-height:1.5;margin-bottom:14px">
-            Als admin kun je de update installeren door het update-script opnieuw uit te voeren op de server.
+            Als admin kun je de update installeren door het update-script opnieuw uit te voeren op de server. Voor de volledige instructies en laatste bestanden, gebruik de GitHub-repository.
         </div>
         <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
             <button type="button" class="bt bg" onclick="closeM('updateNoticeM')">Later</button>
-            <?php if(!empty($updateNotice['url'])): ?><a class="bt bp" href="<?=e((string)$updateNotice['url'])?>" target="_blank" rel="noopener noreferrer">Update-script openen</a><?php endif; ?>
+            <a class="bt bp" href="https://github.com/charlesderidder/Smokeping-Manager" target="_blank" rel="noopener noreferrer">charlesderidder/Smokeping-Manager</a>
+            <?php if(!empty($updateNotice['url'])): ?><a class="bt" href="<?=e((string)$updateNotice['url'])?>" target="_blank" rel="noopener noreferrer">Update-script openen</a><?php endif; ?>
         </div>
     </div>
 </div>
