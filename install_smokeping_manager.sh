@@ -1,10 +1,6 @@
 #!/bin/bash
 # ============================================================
-<<<<<<< HEAD
 # SmokePing Manager 6.0 - Complete All-in-One Installer
-=======
-# SmokePing Manager 5.9 - Complete All-in-One Installer
->>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
 #
 # Features:
 #   - Interactief installatiemenu
@@ -16,7 +12,6 @@
 #   - Deeplinks naar SmokePing grafieken
 #   - Gebruikersbeheer
 #   - Volledige SmokePing config editor
-<<<<<<< HEAD
 #   - 4.1 - Mailprobleem met +1u extra tijd bij uitval opgelost.
 #   - 4.2 - weergave uitval in grafieken verduidelijkt door rode blokken in de grafieken te tonen tijdens uitval.
 #   - 4.3 - Layout grafieken verbeterd voor uitval en packetloss.
@@ -32,24 +27,6 @@
 #   - 5.7 - Nieuwe gebruikers krijgen nu gebruikersrechten ipv manager  rechten. Diverse kleine verbeteringen en bugfixes.
 #   - 5.8 - Bij toevoegen van nieuwe targets worden deze automatisch toegevoegd aan de wachtrij.
 #   - 5.9 - Bij meerdere uitval wordt alles verzameld per target in 1 mail ipv aparte mails. Opschonen IPv6 grafieken bij opschonen RRD grafieken opgelost.
-#   - 6.0 - Update notificatie wordt slechts 1 keer getoond, daarna update knop bovenaan de pagina.
-=======
-#   - 4.1 - Mailprobleem met +1u extra tijd bij uitval opgelost.
-#   - 4.2 - weergave uitval in grafieken verduidelijkt door rode blokken in de grafieken te tonen tijdens uitval.
-#   - 4.3 - Layout grafieken verbeterd voor uitval en packetloss.
-#   - 4.4 - Diverse kleine verbeteringen en bugfixes. Backup layout verbeterd, gebruikersbeheer uitgebreid, en meer.
-#   - 4.5 - Loop in de installatie opgelost. 
-#   - 5.0 - Grote update met veel nieuwe functies, verbeterde beveiliging, en een compleet vernieuwde webinterface.
-#   - 5.1 - Mogelijkheid om link te delen met gebruiker om zelf target toe te voegen
-#   - 5.2 - Snelheid van de webinterface verbeterd door caching toe te voegen aan de backend en optimalisaties in database queries.
-#   - 5.3 - Email preview toegevoegd onder Admin Debug sectie.
-#   - 5.4 - Layout gewijzigd, Targets wachtrij toegevoegd, en diverse kleine verbeteringen.
-#   - 5.5 - Google Auth toegevoegd. Gebruikersrechten uitgebreid, en diverse kleine verbeteringen.
-#   - 5.6 - Default pingtijden verlaagd zodat uitval sneller wordt gedetecteerd. Stappenplan gewijzigd en optie toegevoegd om in te loggen met Google account.
-#   - 5.7 - Nieuwe gebruikers krijgen nu gebruikersrechten ipv manager  rechten. Diverse kleine verbeteringen en bugfixes.
-#   - 5.8 - Bij toevoegen van nieuwe targets worden deze automatisch toegevoegd aan de wachtrij.
-#   - 5.9 - Bij meerdere uitval wordt alles verzameld per target in 1 mail ipv aparte mails. Opschonen IPv6 grafieken bij opschonen RRD grafieken opgelost.
->>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
 #
 # Voer uit als root in je LXC-container:
 #   wget -O install_smokeping_manager.sh https://charlesderidder.nl/proxmox/install_smokeping_manager.sh && chmod +x install_smokeping_manager.sh && ./install_smokeping_manager.sh
@@ -133,39 +110,6 @@ extract_tar_safe() {
 
 show_menu() {
     clear
-<<<<<<< HEAD
-    echo -e "${ORANGE}╔══════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${ORANGE}║${NC}            ${CYAN}SmokePing Manager 6.0 - Installer${NC}                 ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC}  Start na update of installatie met: ${GREEN}smokepingmanager${NC}        ${ORANGE}║${NC}"
-    echo -e "${ORANGE}╠══════════════════════════════════════════════════════════════╣${NC}"
-    echo -e "${ORANGE}║${NC} ${YELLOW}Installatie & Update${NC}                                         ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC}  1) Volledige installatie                                    ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC}  2) Script updaten en direct opnieuw starten                 ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC}  3) Alles verwijderen (clean uninstall)                      ${ORANGE}║${NC}"
-    echo -e "${ORANGE}╠══════════════════════════════════════════════════════════════╣${NC}"
-    echo -e "${ORANGE}║${NC} ${YELLOW}Configuratie & Data${NC}                                          ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC}  4) Targets herstellen (basisconfig leeg)                    ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC}  5) RRD bestanden wissen (grafiekdata)                       ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC}  6) Alle targets wissen (database + bestand)                 ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC}  7) Targets bestand downloaden                               ${ORANGE}║${NC}"
-    echo -e "${ORANGE}╠══════════════════════════════════════════════════════════════╣${NC}"
-    echo -e "${ORANGE}║${NC} ${YELLOW}Backup & Herstel${NC}                                             ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC}  8) Backup maken                                             ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC}  9) Backup terugzetten                                       ${ORANGE}║${NC}"
-    echo -e "${ORANGE}╠══════════════════════════════════════════════════════════════╣${NC}"
-    echo -e "${ORANGE}║${NC} ${YELLOW}Gebruikersbeheer${NC}                                             ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC} 10) Gebruikersnaam/wachtwoord wijzigen                       ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC} 11) Gebruikersbeheer CLI                                     ${ORANGE}║${NC}"
-    echo -e "${ORANGE}╠══════════════════════════════════════════════════════════════╣${NC}"
-    echo -e "${ORANGE}║${NC} ${YELLOW}SmokePing Service${NC}                                            ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC} 12) Restart SmokePing                                        ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC} 13) Reload SmokePing                                         ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC} 14) Status SmokePing                                         ${ORANGE}║${NC}"
-    echo -e "${ORANGE}║${NC} 15) SmokePing --check                                        ${ORANGE}║${NC}"
-    echo -e "${ORANGE}╠══════════════════════════════════════════════════════════════╣${NC}"
-    echo -e "${ORANGE}║${NC}  0) Afsluiten                                                ${ORANGE}║${NC}"
-    echo -e "${ORANGE}╚══════════════════════════════════════════════════════════════╝${NC}"
-=======
     echo -e "${ORANGE}╔══════════════════════════════════════════════════════════════╗${NC}"
     echo -e "${ORANGE}║${NC}            ${CYAN}SmokePing Manager 5.9 - Installer${NC}                 ${ORANGE}║${NC}"
     echo -e "${ORANGE}║${NC}  Start na update of installatie met: ${GREEN}smokepingmanager${NC}        ${ORANGE}║${NC}"
@@ -197,7 +141,6 @@ show_menu() {
     echo -e "${ORANGE}╠══════════════════════════════════════════════════════════════╣${NC}"
     echo -e "${ORANGE}║${NC}  0) Afsluiten                                                ${ORANGE}║${NC}"
     echo -e "${ORANGE}╚══════════════════════════════════════════════════════════════╝${NC}"
->>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
     echo ""
     read -rp "Keuze [0-15]: " choice
 }
@@ -477,15 +420,9 @@ EOF
 
     IP=$(hostname -I | awk '{print $1}')
     echo ""
-<<<<<<< HEAD
-    echo -e "${ORANGE}════════════════════════════════════════════${NC}"
-    echo -e "${GREEN} ✓ SmokePing Manager 6.0 geïnstalleerd!${NC}"
-    echo -e "${ORANGE}════════════════════════════════════════════${NC}"
-=======
     echo -e "${ORANGE}════════════════════════════════════════════${NC}"
     echo -e "${GREEN} ✓ SmokePing Manager 5.9 geïnstalleerd!${NC}"
     echo -e "${ORANGE}════════════════════════════════════════════${NC}"
->>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
     echo -e " URL:   ${YELLOW}http://${IP}/smokeping-manager/${NC}"
     echo -e " Login: ${YELLOW}admin${NC} / ${YELLOW}admin${NC}"
     echo -e " ${RED}⚠  Wijzig het wachtwoord direct na eerste login!${NC}"
@@ -2173,7 +2110,8 @@ $autoBackup = runAutoBackupIfDue($db);
 if (empty($autoBackup['skipped'])) {
     echo date('Y-m-d H:i:s') . ' smokeping-notify: ' . ($autoBackup['msg'] ?? 'Automatische backup uitgevoerd') . "\n";
 }
-echo date('Y-m-d H:i:s') . " smokeping-notify: sessie+uitval notificaties verwerkt\n";
+    echo date('Y-m-d H:i:s') . " smokeping-notify: sessie+uitval notificaties verwerkt\n";
+    ?>
 ENDOFNOTIFYPHP
 }
 
@@ -2194,29 +2132,25 @@ define('SMOKEPING_PROBES_FILE', SMOKEPING_CONF_DIR . '/Probes');
 define('SMOKEPING_DATA_DIR', '/var/lib/smokeping');
 define('SMOKEPING_CGI_URL', '/smokeping/smokeping.cgi');
 define('APP_TITLE', 'SmokePing Manager');
-<<<<<<< HEAD
 define('APP_VERSION', '6.0');
-=======
-define('APP_VERSION', '5.9');
->>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
 
 define('SECRET_KEY_FILE', __DIR__ . '/data/.secret_key');
 
-function smGetOrCreateSecretKey(): string {
+function smGetOrCreateSecretKey__dup(): string {
     $f = SECRET_KEY_FILE;
     if (is_file($f)) { $k = trim((string)@file_get_contents($f)); if (strlen($k) === 64) return $k; }
     $k = bin2hex(random_bytes(32));
     @file_put_contents($f, $k); @chmod($f, 0600);
     return $k;
 }
-function smEncryptPassword(string $plain): string {
+function smEncryptPassword__dup(string $plain): string {
     if ($plain === '') return '';
     $key = hex2bin(smGetOrCreateSecretKey());
     $iv = random_bytes(16);
     $cipher = openssl_encrypt($plain, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
     return $cipher !== false ? 'enc:' . base64_encode($iv . $cipher) : $plain;
 }
-function smDecryptPassword(string $stored): string {
+function smDecryptPassword__dup(string $stored): string {
     if ($stored === '' || strpos($stored, 'enc:') !== 0) return $stored;
     $key = hex2bin(smGetOrCreateSecretKey());
     $raw = base64_decode(substr($stored, 4));
@@ -2279,7 +2213,7 @@ class TrackedSQLite3 extends SQLite3 {
     }
 }
 
-function getDB(): SQLite3 {
+function getDB__dup(): SQLite3 {
     $db = new TrackedSQLite3(DB_PATH);
     $db->busyTimeout(5000);
     $db->exec('PRAGMA journal_mode=WAL');
@@ -3394,12 +3328,12 @@ function summarizePerformanceMetrics(int $windowSec = 86400): array {
     ];
 }
 
-function safeName(string $s): string { return preg_replace('/[^a-zA-Z0-9_]/','_',$s); }
-function normalizeSessionDuration(string $v): string {
+function safeName__dup(string $s): string { return preg_replace('/[^a-zA-Z0-9_]/','_',$s); }
+function normalizeSessionDuration__dup(string $v): string {
     $allowed = ['unlimited','1m','1h','6h','12h','24h','7d','30d'];
     return in_array($v, $allowed, true) ? $v : 'unlimited';
 }
-function sessionDurationLabel(string $v): string {
+function sessionDurationLabel__dup(string $v): string {
     $map = [
         'unlimited' => 'Onbeperkt',
         '1m' => '1 minuut',
@@ -3412,11 +3346,11 @@ function sessionDurationLabel(string $v): string {
     ];
     return $map[$v] ?? 'Onbeperkt';
 }
-function sessionDurationHours(string $v): int {
+function sessionDurationHours__dup(string $v): int {
     $map = ['1m'=>1,'1h'=>1,'6h'=>6,'12h'=>12,'24h'=>24,'7d'=>168,'30d'=>720,'unlimited'=>720];
     return $map[$v] ?? 720;
 }
-function sessionDurationSeconds(string $v): int {
+function sessionDurationSeconds__dup(string $v): int {
     $map = ['1m'=>60,'1h'=>3600,'6h'=>21600,'12h'=>43200,'24h'=>86400,'7d'=>604800,'30d'=>2592000,'unlimited'=>0];
     return $map[$v] ?? 0;
 }
@@ -3704,7 +3638,7 @@ function maybeSendSessionStartMail($db, int $targetId): void {
     }
 }
 
-function processSessionEndNotifications($db): void {
+function processSessionEndNotifications__dup($db): void {
     $last = (int)getSetting($db, 'session_mail_last_check', '0');
     $now = time();
     if ($now - $last < 60) return;
@@ -3842,7 +3776,7 @@ function processSessionEndNotifications($db): void {
         $u->execute();
     }
 }
-function buildOutageStartMailBody(array $row, int $startTs): string {
+function buildOutageStartMailBody__dup(array $row, int $startTs): string {
     $body  = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body style="margin:0;padding:20px 0;background:#f1f5f9;font-family:\'Segoe UI\',Arial,sans-serif">';
     $body .= '<div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.10)">';
     $body .= '<div style="background:linear-gradient(135deg,#dc2626 0%,#991b1b 100%);padding:28px 32px">';
@@ -3875,7 +3809,7 @@ function buildOutageStartMailBody(array $row, int $startTs): string {
     return $body;
 }
 
-function buildOutageEndMailBody(array $row, int $startTs, int $endTs, int $duration): string {
+function buildOutageEndMailBody__dup(array $row, int $startTs, int $endTs, int $duration): string {
     $min = (int)floor($duration / 60);
     $sec = $duration % 60;
     $durStr = ($min > 0 ? $min . ' min ' : '') . $sec . ' sec';
@@ -3914,7 +3848,7 @@ function buildOutageEndMailBody(array $row, int $startTs, int $endTs, int $durat
     return $body;
 }
 
-function buildBatchOutageStartMail(array $outages): string {
+function buildBatchOutageStartMail__dup(array $outages): string {
     $count = count($outages);
     $body = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>SmokePing</title></head><body style="margin:0;padding:20px;background:#f3f4f6;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif">';
     $body .= '<div style="max-width:600px;margin:0 auto;background:#fff;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden">';
@@ -3946,7 +3880,7 @@ function buildBatchOutageStartMail(array $outages): string {
     return $body;
 }
 
-function buildBatchOutageSummaryMail(array $started, array $ended, int $generatedTs, int $intervalMin): string {
+function buildBatchOutageSummaryMail__dup(array $started, array $ended, int $generatedTs, int $intervalMin): string {
     $startCount = count($started);
     $endCount = count($ended);
     $body = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>SmokePing</title></head><body style="margin:0;padding:20px;background:#f3f4f6;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif">';
@@ -4003,7 +3937,7 @@ function buildBatchOutageSummaryMail(array $started, array $ended, int $generate
     return $body;
 }
 
-function processOutageNotifications($db): void {
+function processOutageNotifications__dup($db): void {
     $es = $db->query('SELECT batch_outage_notifications, outage_mail_interval FROM email_settings WHERE id=1')->fetchArray(SQLITE3_ASSOC);
     $batchMode = (int)($es['batch_outage_notifications'] ?? 1) === 1;
     $globalInterval = max(1, (int)($es['outage_mail_interval'] ?? 5));
@@ -4216,7 +4150,7 @@ function getTargetsForCat($db,$cid) {
         return $a;
     }, static fn($value): bool => is_array($value));
 }
-function getAllTargets($db) {
+function getAllTargets__dup($db) {
     $key = 'db:getAllTargets:' . smDbCacheVersion();
     return smCacheRemember($key, 180, static function () use ($db): array {
         $r = $db->query('SELECT t.*,c.name as cat_name,c.display_name as cat_display FROM targets t JOIN categories c ON t.category_id=c.id ORDER BY c.sort_order,c.name,t.sort_order,t.name');
@@ -4334,7 +4268,7 @@ function getAllAlerts($db) {
         return $a;
     }, static fn($value): bool => is_array($value));
 }
-function getSetting($db,$k,$d=''){
+function getSetting__dup($db,$k,$d=''){
     static $requestCache = [];
     $cacheKey = smDbCacheVersion() . '|' . (string)$k;
     if (array_key_exists($cacheKey, $requestCache)) {
@@ -4349,7 +4283,7 @@ function getSetting($db,$k,$d=''){
     $requestCache[$cacheKey] = $value;
     return $value === "\0__missing__\0" ? $d : $value;
 }
-function setSetting($db,$k,$v){ $s=$db->prepare('INSERT OR REPLACE INTO settings(k,v) VALUES(:k,:v)'); $s->bindValue(':k',$k); $s->bindValue(':v',$v); $s->execute(); }
+function setSetting__dup($db,$k,$v){ $s=$db->prepare('INSERT OR REPLACE INTO settings(k,v) VALUES(:k,:v)'); $s->bindValue(':k',$k); $s->bindValue(':v',$v); $s->execute(); }
 function logActivity($db, string $actionType, string $description): void {
     $uid  = (int)($_SESSION['uid'] ?? 0);
     $uname = $_SESSION['uname'] ?? ($_SESSION['un'] ?? 'systeem');
@@ -4397,7 +4331,7 @@ function sendActivityLogEmail($db, string $reason = ''): array {
     $body .= '</table></body></html>';
     return logAndSendEmail($db, $email, $subject, $body, 'activity_log', '');
 }
-function parseEmailList(?string $raw): array {
+function parseEmailList__dup(?string $raw): array {
     $raw = str_replace(["\r", "\n", ';'], ',', (string)$raw);
     $parts = array_filter(array_map('trim', explode(',', $raw)), static function ($v) { return $v !== ''; });
     $valid = []; $seen = [];
@@ -4410,14 +4344,14 @@ function parseEmailList(?string $raw): array {
     }
     return $valid;
 }
-function normalizeEmailListString(?string $raw): string {
+function normalizeEmailListString__dup(?string $raw): string {
     return implode(', ', parseEmailList($raw));
 }
-function getDefaultNotifyRecipientList($db): string {
+function getDefaultNotifyRecipientList__dup($db): string {
     $row = $db->query('SELECT alert_recipients FROM email_settings WHERE id=1')->fetchArray(SQLITE3_ASSOC);
     return normalizeEmailListString($row['alert_recipients'] ?? '');
 }
-function resolveNotifyRecipients($db, ?string $preferredList): array {
+function resolveNotifyRecipients__dup($db, ?string $preferredList): array {
     $preferred = normalizeEmailListString($preferredList);
     if ($preferred !== '') return parseEmailList($preferred);
     return parseEmailList(getDefaultNotifyRecipientList($db));
@@ -4449,7 +4383,7 @@ function deepLink(string $catName, string $targetName=''): string {
 }
 
 // RRD data uitlezen voor uptime info
-function rrdtoolBin(): string {
+function rrdtoolBin__dup(): string {
     static $bin = null;
     if ($bin === null) {
         foreach (['/usr/bin/rrdtool','/usr/local/bin/rrdtool','/opt/homebrew/bin/rrdtool'] as $p) {
@@ -4459,12 +4393,12 @@ function rrdtoolBin(): string {
     }
     return $bin;
 }
-function isRrdUnknownValue($value): bool {
+function isRrdUnknownValue__dup($value): bool {
     if ($value === null) return true;
     $v = strtolower(trim((string)$value));
     return $v === '' || $v === 'u' || $v === 'nan' || $v === '-nan';
 }
-function findRrdColumnIndex(array $lines, string $column, int $default = 0): int {
+function findRrdColumnIndex__dup(array $lines, string $column, int $default = 0): int {
     $needle = strtolower($column);
     foreach ($lines as $line) {
         if (strpos($line, ':') !== false) continue;
@@ -4476,7 +4410,7 @@ function findRrdColumnIndex(array $lines, string $column, int $default = 0): int
     }
     return $default;
 }
-function getRrdPingColumnCount(array $lines): int {
+function getRrdPingColumnCount__dup(array $lines): int {
     foreach ($lines as $line) {
         if (strpos($line, ':') !== false) continue;
         $cols = preg_split('/\s+/', trim($line));
@@ -4490,7 +4424,7 @@ function getRrdPingColumnCount(array $lines): int {
     return 0;
 }
 
-function getTargetStatus(string $catName, string $targetName, bool $includeDowntime = false): array {
+function getTargetStatus__dup(string $catName, string $targetName, bool $includeDowntime = false): array {
     static $baseCache = [];
     static $downtimeCache = [];
 
@@ -4591,7 +4525,7 @@ function getTargetStatus(string $catName, string $targetName, bool $includeDownt
 }
 
 // Bereken uptime percentage voor target
-function getTargetUptime(string $catName, string $targetName, int $periodHours = 24): array {
+function getTargetUptime__dup(string $catName, string $targetName, int $periodHours = 24): array {
     static $cache = [];
     $cacheKey = safeName($catName) . '|' . safeName($targetName) . '|' . $periodHours;
     if (isset($cache[$cacheKey])) return $cache[$cacheKey];
@@ -4672,7 +4606,7 @@ function getTargetUptime(string $catName, string $targetName, int $periodHours =
     return $cache[$cacheKey] = $result;
 }
 
-function parseDbDateToTs(?string $value): int {
+function parseDbDateToTs__dup(?string $value): int {
     if ($value === null || trim($value) === '') return 0;
     // Parse database datetime strings as UTC, not local timezone
     $value = trim($value);
@@ -4682,13 +4616,13 @@ function parseDbDateToTs(?string $value): int {
     return 0;
 }
 
-function formatDbDateLocal(?string $value, string $format = 'd-m-Y H:i:s'): string {
+function formatDbDateLocal__dup(?string $value, string $format = 'd-m-Y H:i:s'): string {
     $ts = parseDbDateToTs($value);
     if ($ts <= 0) return (string)($value ?? '');
     return date($format, $ts);
 }
 
-function formatDurationSeconds(int $seconds): string {
+function formatDurationSeconds__dup(int $seconds): string {
     if ($seconds <= 0) return '0s';
     $hours = (int)floor($seconds / 3600);
     $minutes = (int)floor(($seconds % 3600) / 60);
@@ -4713,7 +4647,7 @@ function getTargetSessionStartTs(array $target): int {
     return time();
 }
 
-function syncTargetOutageState($db, array $target, array $status): void {
+function syncTargetOutageState__dup($db, array $target, array $status): void {
     $targetId = (int)($target['id'] ?? 0);
     if ($targetId <= 0) return;
 
@@ -4810,7 +4744,7 @@ function collectTargetOutageSummary($db, array $target): array {
     return $result;
 }
 
-function logPingLossSample($db, array $target, array $status): void {
+function logPingLossSample__dup($db, array $target, array $status): void {
     $targetId = (int)($target['id'] ?? 0);
     if ($targetId <= 0) return;
     if ((int)($target['enabled'] ?? 0) !== 1) return;
@@ -4829,7 +4763,7 @@ function logPingLossSample($db, array $target, array $status): void {
     $ins->execute();
 }
 
-function buildPingLossGroups(array $events, int $gapSeconds = 120): array {
+function buildPingLossGroups__dup(array $events, int $gapSeconds = 120): array {
     if (empty($events)) return [];
     usort($events, static function ($a, $b) {
         return ((int)($a['sample_ts'] ?? 0)) <=> ((int)($b['sample_ts'] ?? 0));
@@ -4859,7 +4793,7 @@ function buildPingLossGroups(array $events, int $gapSeconds = 120): array {
     return $groups;
 }
 
-function collectSessionPingLossSummary($db, int $targetId, int $sessionStartTs, int $sessionEndTs, int $limit = 200): array {
+function collectSessionPingLossSummary__dup($db, int $targetId, int $sessionStartTs, int $sessionEndTs, int $limit = 200): array {
     $summary = ['total_samples' => 0, 'groups' => [], 'event_ids' => []];
     if ($targetId <= 0 || $sessionEndTs <= $sessionStartTs) return $summary;
 
@@ -4880,7 +4814,7 @@ function collectSessionPingLossSummary($db, int $targetId, int $sessionStartTs, 
     return $summary;
 }
 
-function buildPingLossMailBody(array $target, array $groups, int $sampleCount): string {
+function buildPingLossMailBody__dup(array $target, array $groups, int $sampleCount): string {
     $body  = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body style="margin:0;padding:20px 0;background:#f1f5f9;font-family:\'Segoe UI\',Arial,sans-serif">';
     $body .= '<div style="max-width:620px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.10)">';
     $body .= '<div style="background:linear-gradient(135deg,#d97706 0%,#92400e 100%);padding:28px 32px">';
@@ -4905,7 +4839,7 @@ function buildPingLossMailBody(array $target, array $groups, int $sampleCount): 
     return $body;
 }
 
-function buildSessionSnapshotMailBody(array $t, string $dur, int $startedAt, int $snapshotTs, array $st, array $ut, array $outageSummary, array $pingSummary, string $modeLabel = 'Tussenstand'): string {
+function buildSessionSnapshotMailBody__dup(array $t, string $dur, int $startedAt, int $snapshotTs, array $st, array $ut, array $outageSummary, array $pingSummary, string $modeLabel = 'Tussenstand'): string {
     $lossPct = $st['loss'] !== null ? round(((float)$st['loss']) * 100, 1) . '%' : 'n.v.t.';
     $median = $st['median'] !== null ? $st['median'] . ' ms' : 'n.v.t.';
     $uptime = $ut['uptime'] !== null ? $ut['uptime'] . '%' : 'n.v.t.';
@@ -4975,7 +4909,7 @@ function buildSessionSnapshotMailBody(array $t, string $dur, int $startedAt, int
     return $body;
 }
 
-function processPingLossNotifications($db): void {
+function processPingLossNotifications__dup($db): void {
     $settings = $db->query('SELECT ping_loss_notifications, outage_mail_interval FROM email_settings WHERE id=1')->fetchArray(SQLITE3_ASSOC);
     if ((int)($settings['ping_loss_notifications'] ?? 0) !== 1) return;
     $globalInterval = max(1, (int)($settings['outage_mail_interval'] ?? 5));
@@ -5036,7 +4970,7 @@ function updateOutageTracking($db): void {
 }
 
 // Email Sending Function (Pure PHP SMTP Implementation)
-function sendEmail($db, $to, $subject, $body, &$debug_output = null): array {
+function sendEmail__dup($db, $to, $subject, $body, &$debug_output = null): array {
     $result = ['success' => false, 'message' => ''];
     $debug = [];
     
@@ -5378,7 +5312,7 @@ function processPendingMailQueue($db, int $limit = 10): array {
     return ['processed' => $processed, 'queued' => count($rows)];
 }
 
-function logAndSendEmail($db, string $to, string $subject, string $body,
+function logAndSendEmail__dup($db, string $to, string $subject, string $body,
                           string $type = 'notification', string $targetName = '', bool $queue = true): array {
     if ($queue) {
         return queueEmailForSending($db, $to, $subject, $body, $type, $targetName);
@@ -5393,7 +5327,7 @@ function logAndSendEmail($db, string $to, string $subject, string $body,
 }
 
 // Multi-recipient wrapper voor sessie/outage mails (index.php runtime)
-function logAndSendEmailList($db, array $recipients, string $subject, string $body,
+function logAndSendEmailList__dup($db, array $recipients, string $subject, string $body,
                              string $type = 'notification', string $targetName = ''): array {
     if (empty($recipients)) {
         try {
@@ -6146,7 +6080,7 @@ function listConfigBackupFiles(): array {
     }, static fn($value): bool => is_array($value));
 }
 
-function removeDirectoryRecursive(string $path): bool {
+function removeDirectoryRecursive__dup(string $path): bool {
     if (!is_dir($path)) return @unlink($path);
     $items = scandir($path);
     if ($items === false) return false;
@@ -6162,7 +6096,7 @@ function removeDirectoryRecursive(string $path): bool {
     return @rmdir($path);
 }
 
-function createFullBackup(string $reason = 'manual'): array {
+function createFullBackup__dup(string $reason = 'manual'): array {
     $safeReason = preg_replace('/[^a-z0-9_]+/i', '_', strtolower(trim($reason)));
     $suffix = $safeReason !== '' ? '_' . trim($safeReason, '_') : '';
     $name = 'backup_' . date('Ymd_His') . $suffix;
@@ -6178,7 +6112,7 @@ function createFullBackup(string $reason = 'manual'): array {
     return ['success' => true, 'msg' => 'Backup gemaakt: ' . $name, 'name' => $name, 'dir' => $dir];
 }
 
-function getAutoBackupSettings($db): array {
+function getAutoBackupSettings__dup($db): array {
     return [
         'enabled' => getSetting($db, 'auto_backup_enabled', '0') === '1',
         'frequency' => getSetting($db, 'auto_backup_frequency', 'daily'),
@@ -6192,14 +6126,14 @@ function getAutoBackupSettings($db): array {
     ];
 }
 
-function autoBackupPeriodKey(string $frequency, ?int $ts = null): string {
+function autoBackupPeriodKey__dup(string $frequency, ?int $ts = null): string {
     $ts = $ts ?? time();
     if ($frequency === 'weekly') return date('o-\\WW', $ts);
     if ($frequency === 'monthly') return date('Y-m', $ts);
     return date('Y-m-d', $ts);
 }
 
-function listAutoFullBackupDirs(): array {
+function listAutoFullBackupDirs__dup(): array {
     $key = 'fs:listAutoFullBackupDirs:' . smPathVersion(BACKUP_DIR);
     return smCacheRemember($key, 300, static function (): array {
         $dirs = [];
@@ -6214,7 +6148,7 @@ function listAutoFullBackupDirs(): array {
     }, static fn($value): bool => is_array($value));
 }
 
-function pruneAutoFullBackups(array $cfg): array {
+function pruneAutoFullBackups__dup(array $cfg): array {
     $dirs = listAutoFullBackupDirs();
     if (empty($dirs)) return ['removed' => 0, 'kept' => 0];
 
@@ -6264,7 +6198,7 @@ function pruneAutoFullBackups(array $cfg): array {
     return ['removed' => $removed, 'kept' => count($keep)];
 }
 
-function runAutoBackupIfDue($db, bool $logActivity = false): array {
+function runAutoBackupIfDue__dup($db, bool $logActivity = false): array {
     $cfg = getAutoBackupSettings($db);
     if (!$cfg['enabled']) return ['success' => false, 'msg' => 'Automatische backups zijn uitgeschakeld.', 'skipped' => true];
     $frequency = in_array($cfg['frequency'], ['daily', 'weekly', 'monthly'], true) ? $cfg['frequency'] : 'daily';
@@ -8864,6 +8798,13 @@ if ($_SERVER['REQUEST_METHOD']==='POST' && $act) {
         redir('settings',['stab'=>'alerts']);
     }
     
+    if ($act==='set_settings_nav_mode') {
+        $mode = trim((string)($_POST['mode'] ?? 'tabs'));
+        if (!in_array($mode, ['tabs', 'sidebar'], true)) $mode = 'tabs';
+        setSetting($db, 'settings_nav_mode', $mode);
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) { header('Content-Type: application/json'); echo json_encode(['ok'=>true]); exit; }
+        redir('settings', ['stab' => ($_POST['stab'] ?? 'profiel')]);
+    }
     if ($act==='set_theme') {
         $th=$_POST['theme']??'auto';
         if(!in_array($th,['auto','light','dark'],true)) $th='auto';
@@ -9190,17 +9131,16 @@ $flashHistory=getFlashHistory();
 <!DOCTYPE html>
 <html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title><?=APP_TITLE?></title>
 <style>
-:root{--bg:#111111;--s1:#242424;--s2:#2b2b2b;--s3:#343434;--brd:#454545;--tx:#ececec;--txd:#a6a6a6;--ac:#4bc56b;--ach:#69d985;--ok:#57cb74;--okbg:#1d3422;--okfg:#b8f1c6;--err:#d66b6b;--errbg:#3a2020;--errfg:#f2b7b7;--warn:#d1a85b;--warnbg:#3a2f1c;--warnfg:#f4d79b;--v6:#8ea1ff;--ring:0 0 0 2px rgba(75,197,107,.18);--r:10px;--font-adjust:0px;--shadow:0 16px 40px rgba(0,0,0,.32);--shadow-soft:0 8px 18px rgba(0,0,0,.22);--body-grad:radial-gradient(900px 440px at 20% -12%,rgba(255,255,255,.04),transparent 65%),radial-gradient(780px 360px at 100% 0,rgba(75,197,107,.09),transparent 58%),linear-gradient(180deg,#121212 0%,#0d0d0d 100%);--control-bg:#1d1d1d;--control-bg2:#181818;--control-opt-bg:#202020;--control-opt-fg:#f1f1f1;--header-bg:rgba(20,20,20,.9);--nav-shell-bg:rgba(35,35,35,.82);--brand-bg1:#4d4d4d;--brand-bg2:#2f2f2f;--brand-brd:#585858;--table-head-bg:#2b2b2b;--mobile-menu-bg1:#2f2f2f;--mobile-menu-bg2:#252525;--sidebar-bg1:rgba(35,35,35,.98);--sidebar-bg2:rgba(28,28,28,.98)}
-body[data-theme='dark']{--bg:#0b0b0b;--s1:#1d1d1d;--s2:#262626;--s3:#303030;--brd:#3d3d3d;--tx:#f1f1f1;--txd:#9d9d9d;--ac:#57cf78;--ach:#74e092;--ok:#62d883;--okbg:#173221;--okfg:#c4f6d0;--err:#e07d7d;--errbg:#382020;--errfg:#f5c3c3;--warn:#ddb36b;--warnbg:#3a2f18;--warnfg:#f9dfab;--v6:#9cabff;--body-grad:radial-gradient(900px 440px at 20% -12%,rgba(255,255,255,.04),transparent 65%),radial-gradient(780px 360px at 100% 0,rgba(75,197,107,.09),transparent 58%),linear-gradient(180deg,#121212 0%,#0d0d0d 100%);--control-bg:#1d1d1d;--control-bg2:#181818;--control-opt-bg:#202020;--control-opt-fg:#f1f1f1;--header-bg:rgba(20,20,20,.9);--nav-shell-bg:rgba(35,35,35,.82);--brand-bg1:#4d4d4d;--brand-bg2:#2f2f2f;--brand-brd:#585858;--table-head-bg:#2b2b2b;--mobile-menu-bg1:#2f2f2f;--mobile-menu-bg2:#252525;--sidebar-bg1:rgba(35,35,35,.98);--sidebar-bg2:rgba(28,28,28,.98);color-scheme:dark}
-body[data-theme='light']{--bg:#f4f7fb;--s1:#ffffff;--s2:#f2f6fb;--s3:#e8eef7;--brd:#cfd8e6;--tx:#18212f;--txd:#4f6076;--ac:#1d9748;--ach:#16783a;--ok:#2f9f5d;--okbg:#e8f8ef;--okfg:#1f6a37;--err:#c44f4f;--errbg:#fdecec;--errfg:#8b3131;--warn:#b8871f;--warnbg:#fff7e8;--warnfg:#725515;--v6:#3a5fd7;--body-grad:radial-gradient(920px 470px at 18% -15%,rgba(67,118,194,.16),transparent 62%),radial-gradient(740px 320px at 100% 0,rgba(29,151,72,.12),transparent 58%),linear-gradient(180deg,#f8fbff 0%,#eef3fb 100%);--control-bg:#ffffff;--control-bg2:#f7faff;--control-opt-bg:#ffffff;--control-opt-fg:#1d2a3b;--header-bg:rgba(255,255,255,.92);--nav-shell-bg:rgba(246,249,255,.96);--brand-bg1:#f8fbff;--brand-bg2:#e7edf8;--brand-brd:#c6d2e5;--table-head-bg:#edf2f8;--mobile-menu-bg1:#ffffff;--mobile-menu-bg2:#f2f6fd;--sidebar-bg1:rgba(255,255,255,.98);--sidebar-bg2:rgba(246,249,255,.98);--shadow:0 14px 34px rgba(32,52,84,.14);--shadow-soft:0 6px 14px rgba(32,52,84,.1);color-scheme:light}
-@media (prefers-color-scheme: dark){body:not([data-theme]){--bg:#0b0b0b;--s1:#1d1d1d;--s2:#262626;--s3:#303030;--brd:#3d3d3d;--tx:#f1f1f1;--txd:#9d9d9d;--ac:#57cf78;--ach:#74e092;--ok:#62d883;--okbg:#173221;--okfg:#c4f6d0;--err:#e07d7d;--errbg:#382020;--errfg:#f5c3c3;--warn:#ddb36b;--warnbg:#3a2f18;--warnfg:#f9dfab;--v6:#9cabff;--body-grad:radial-gradient(900px 440px at 20% -12%,rgba(255,255,255,.04),transparent 65%),radial-gradient(780px 360px at 100% 0,rgba(75,197,107,.09),transparent 58%),linear-gradient(180deg,#121212 0%,#0d0d0d 100%);--control-bg:#1d1d1d;--control-bg2:#181818;--control-opt-bg:#202020;--control-opt-fg:#f1f1f1;--header-bg:rgba(20,20,20,.9);--nav-shell-bg:rgba(35,35,35,.82);--brand-bg1:#4d4d4d;--brand-bg2:#2f2f2f;--brand-brd:#585858;--table-head-bg:#2b2b2b;--mobile-menu-bg1:#2f2f2f;--mobile-menu-bg2:#252525;--sidebar-bg1:rgba(35,35,35,.98);--sidebar-bg2:rgba(28,28,28,.98);color-scheme:dark}}
+:root{--bg:#0f1117;--s1:#1a1d27;--s2:#22262f;--s3:#2a2e3a;--brd:#353a48;--tx:#e8eaf0;--txd:#8b90a0;--ac:#3b82f6;--ach:#60a5fa;--ok:#22c55e;--okbg:#14352a;--okfg:#86efac;--err:#ef4444;--errbg:#3b1a1a;--errfg:#fca5a5;--warn:#eab308;--warnbg:#3b351a;--warnfg:#fde68a;--v6:#818cf8;--ring:0 0 0 2px rgba(59,130,246,.22);--r:10px;--font-adjust:0px;--shadow:0 12px 32px rgba(0,0,0,.35);--shadow-soft:0 4px 12px rgba(0,0,0,.2);--body-grad:linear-gradient(180deg,#0f1117 0%,#0b0d14 100%);--control-bg:#1a1d27;--control-bg2:#151820;--control-opt-bg:#1e2130;--control-opt-fg:#e8eaf0;--header-bg:rgba(15,17,23,.92);--nav-shell-bg:rgba(26,29,39,.85);--brand-bg1:#2a2e3a;--brand-bg2:#1a1d27;--brand-brd:#353a48;--table-head-bg:#22262f;--mobile-menu-bg1:#1a1d27;--mobile-menu-bg2:#151820;--sidebar-bg1:rgba(26,29,39,.98);--sidebar-bg2:rgba(20,23,32,.98)}
+body[data-theme='dark']{--bg:#0f1117;--s1:#1a1d27;--s2:#22262f;--s3:#2a2e3a;--brd:#353a48;--tx:#e8eaf0;--txd:#8b90a0;--ac:#3b82f6;--ach:#60a5fa;--ok:#22c55e;--okbg:#14352a;--okfg:#86efac;--err:#ef4444;--errbg:#3b1a1a;--errfg:#fca5a5;--warn:#eab308;--warnbg:#3b351a;--warnfg:#fde68a;--v6:#818cf8;--body-grad:linear-gradient(180deg,#0f1117 0%,#0b0d14 100%);--control-bg:#1a1d27;--control-bg2:#151820;--control-opt-bg:#1e2130;--control-opt-fg:#e8eaf0;--header-bg:rgba(15,17,23,.92);--nav-shell-bg:rgba(26,29,39,.85);--brand-bg1:#2a2e3a;--brand-bg2:#1a1d27;--brand-brd:#353a48;--table-head-bg:#22262f;--mobile-menu-bg1:#1a1d27;--mobile-menu-bg2:#151820;--sidebar-bg1:rgba(26,29,39,.98);--sidebar-bg2:rgba(20,23,32,.98);color-scheme:dark}
+body[data-theme='light']{--bg:#f0f4f8;--s1:#ffffff;--s2:#f7fafd;--s3:#e9eef6;--brd:#d1d9e6;--tx:#1a2332;--txd:#5a6a80;--ac:#3b82f6;--ach:#2563eb;--ok:#16a34a;--okbg:#ecfdf5;--okfg:#15803d;--err:#dc2626;--errbg:#fef2f2;--errfg:#991b1b;--warn:#ca8a04;--warnbg:#fefce8;--warnfg:#854d0e;--v6:#4f46e5;--body-grad:linear-gradient(180deg,#f0f4f8 0%,#e8edf4 100%);--control-bg:#ffffff;--control-bg2:#f8fafc;--control-opt-bg:#ffffff;--control-opt-fg:#1a2332;--header-bg:rgba(255,255,255,.94);--nav-shell-bg:rgba(240,244,248,.96);--brand-bg1:#f0f4f8;--brand-bg2:#e2e8f0;--brand-brd:#c1cad6;--table-head-bg:#edf2f7;--mobile-menu-bg1:#ffffff;--mobile-menu-bg2:#f7fafc;--sidebar-bg1:rgba(255,255,255,.98);--sidebar-bg2:rgba(240,244,248,.98);--shadow:0 10px 30px rgba(30,50,80,.12);--shadow-soft:0 4px 12px rgba(30,50,80,.08);color-scheme:light}
+@media (prefers-color-scheme: dark){body:not([data-theme]){--bg:#0f1117;--s1:#1a1d27;--s2:#22262f;--s3:#2a2e3a;--brd:#353a48;--tx:#e8eaf0;--txd:#8b90a0;--ac:#3b82f6;--ach:#60a5fa;--ok:#22c55e;--okbg:#14352a;--okfg:#86efac;--err:#ef4444;--errbg:#3b1a1a;--errfg:#fca5a5;--warn:#eab308;--warnbg:#3b351a;--warnfg:#fde68a;--v6:#818cf8;--body-grad:linear-gradient(180deg,#0f1117 0%,#0b0d14 100%);--control-bg:#1a1d27;--control-bg2:#151820;--control-opt-bg:#1e2130;--control-opt-fg:#e8eaf0;--header-bg:rgba(15,17,23,.92);--nav-shell-bg:rgba(26,29,39,.85);--brand-bg1:#2a2e3a;--brand-bg2:#1a1d27;--brand-brd:#353a48;--table-head-bg:#22262f;--mobile-menu-bg1:#1a1d27;--mobile-menu-bg2:#151820;--sidebar-bg1:rgba(26,29,39,.98);--sidebar-bg2:rgba(20,23,32,.98);color-scheme:dark}}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;overflow-x:hidden}
 body{font-family:'Segoe UI','Calibri','Trebuchet MS',sans-serif;background:var(--body-grad);color:var(--tx);min-height:100vh;line-height:1.45;font-size:13px;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
 body[data-fontsize='10']{--font-adjust:-4px}body[data-fontsize='12']{--font-adjust:-2px}body[data-fontsize='14']{--font-adjust:0px}body[data-fontsize='16']{--font-adjust:2px}body[data-fontsize='18']{--font-adjust:5px}body[data-fontsize='20']{--font-adjust:7px}body[data-fontsize='22']{--font-adjust:9px}body[data-fontsize='24']{--font-adjust:11px}
 button,a,input,select,textarea{touch-action:manipulation}
 a{color:var(--ac);text-decoration:none}a:hover{color:var(--ach)}
-<<<<<<< HEAD
 select{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--txd) 50%),linear-gradient(135deg,var(--txd) 50%,transparent 50%),linear-gradient(180deg,var(--control-bg),var(--control-bg2));background-position:calc(100% - 18px) calc(50% - 3px),calc(100% - 12px) calc(50% - 3px),0 0;background-size:6px 6px,6px 6px,100% 100%;background-repeat:no-repeat;padding-right:34px;color:var(--tx)}
 select:hover{border-color:color-mix(in srgb,var(--ac) 38%,var(--brd))}
 select option,select optgroup{background:var(--control-opt-bg);color:var(--control-opt-fg)}
@@ -9391,201 +9331,6 @@ body[data-theme='light'] .hd .ver{background:linear-gradient(180deg,#f6faff,#e8e
 body[data-theme='light'] .hd-mobile-toggle{background:linear-gradient(180deg,#ffffff,#edf3fb);border-color:#c6d2e3;color:#233247}
 body[data-theme='light'] .tb tr:hover td{background:#edf3fb}
 body[data-theme='light'] .lb{background:linear-gradient(180deg,#ffffff,#f3f7ff)}
-=======
-select{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--txd) 50%),linear-gradient(135deg,var(--txd) 50%,transparent 50%),linear-gradient(180deg,var(--control-bg),var(--control-bg2));background-position:calc(100% - 18px) calc(50% - 3px),calc(100% - 12px) calc(50% - 3px),0 0;background-size:6px 6px,6px 6px,100% 100%;background-repeat:no-repeat;padding-right:34px;color:var(--tx)}
-select:hover{border-color:color-mix(in srgb,var(--ac) 38%,var(--brd))}
-select option,select optgroup{background:var(--control-opt-bg);color:var(--control-opt-fg)}
-select:disabled{opacity:.7;cursor:not-allowed}
-.hd{backdrop-filter:blur(10px);background:var(--header-bg);border-bottom:1px solid var(--brd);padding:3px 10px;min-height:50px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;position:sticky;top:0;z-index:250;box-shadow:0 14px 36px rgba(0,0,0,.24)}
-.hd h1{font-size:calc(16px + var(--font-adjust));color:var(--ac);display:flex;align-items:center;gap:10px;font-weight:700}.hd h1::before{content:none}
-@keyframes versionGlow{0%,100%{box-shadow:0 0 8px rgba(66,165,245,.4),0 0 16px rgba(66,165,245,.2),inset 0 1px 0 rgba(255,255,255,.04);text-shadow:0 0 8px rgba(66,165,245,.3)}50%{box-shadow:0 0 12px rgba(66,165,245,.6),0 0 24px rgba(66,165,245,.35),inset 0 1px 0 rgba(255,255,255,.06);text-shadow:0 0 12px rgba(66,165,245,.5)}}
-.hd .ver{font-size:calc(12px + var(--font-adjust));color:var(--tx);margin-left:6px;padding:4px 9px;border-radius:10px;border:1px solid #001d35;background:linear-gradient(180deg,rgba(66,165,245,.12),rgba(66,165,245,.08));box-shadow:0 0 8px rgba(66,165,245,.4),0 0 16px rgba(66,165,245,.2),inset 0 1px 0 rgba(255,255,255,.04);animation:versionGlow 3s ease-in-out infinite;font-weight:600}
-.brand-mark{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:linear-gradient(180deg,var(--brand-bg1),var(--brand-bg2));border:1px solid var(--brand-brd);color:var(--txd);font-size:15px;line-height:1;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
-.brand-mark{position:relative;cursor:help}
-.brand-mark::after{content:attr(data-tip);position:absolute;left:0;top:calc(100% + 8px);transform:translateY(-3px);width:max-content;min-width:240px;max-width:min(320px,calc(100vw - 28px));padding:8px 10px;border-radius:8px;border:1px solid color-mix(in srgb,var(--ac) 35%,var(--brd));background:linear-gradient(180deg,var(--s1),var(--s2));color:var(--tx);font-size:11px;font-weight:600;line-height:1.35;white-space:normal;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .16s ease,transform .16s ease,visibility .16s ease;z-index:420;box-shadow:var(--shadow-soft)}
-.brand-mark::before{content:'';position:absolute;left:12px;top:calc(100% + 3px);border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:6px solid color-mix(in srgb,var(--ac) 35%,var(--brd));opacity:0;visibility:hidden;transition:opacity .16s ease,visibility .16s ease;z-index:421}
-.brand-mark:hover::after,.brand-mark:hover::before,.brand-mark:focus-visible::after,.brand-mark:focus-visible::before{opacity:1;visibility:visible}
-.brand-mark:hover::after,.brand-mark:focus-visible::after{transform:translateY(0)}
-.brand-mark.ok{color:var(--ok)}
-.brand-mark.err{color:var(--err)}
-@media(max-width:640px){
-.brand-mark::after{left:-4px;min-width:200px;max-width:calc(100vw - 16px)}
-.brand-mark::before{left:14px}
-}
-.hd-tip{position:relative}
-.hd-tip::after{content:attr(data-tip);position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%) translateY(-3px);width:max-content;min-width:220px;max-width:min(340px,calc(100vw - 24px));padding:8px 10px;border-radius:8px;border:1px solid color-mix(in srgb,var(--ac) 35%,var(--brd));background:linear-gradient(180deg,var(--s1),var(--s2));color:var(--tx);font-size:11px;font-weight:600;line-height:1.35;white-space:normal;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .16s ease,transform .16s ease,visibility .16s ease;z-index:420;box-shadow:var(--shadow-soft)}
-.hd-tip::before{content:'';position:absolute;left:50%;top:calc(100% + 3px);transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:6px solid color-mix(in srgb,var(--ac) 35%,var(--brd));opacity:0;visibility:hidden;transition:opacity .16s ease,visibility .16s ease;z-index:421}
-.hd-tip:hover::after,.hd-tip:hover::before,.hd-tip:focus-visible::after,.hd-tip:focus-visible::before{opacity:1;visibility:visible}
-.hd-tip:hover::after,.hd-tip:focus-visible::after{transform:translateX(-50%) translateY(0)}
-@media(max-width:640px){
-.hd-tip::after{min-width:190px;max-width:calc(100vw - 16px)}
-.hd-update-btn{margin-left:4px;padding:5px 8px;font-size:calc(10px + var(--font-adjust))}
-}
-.brand-text{display:flex;flex-direction:column;line-height:1.05}
-.brand-title{font-size:calc(14px + var(--font-adjust));font-weight:800;color:var(--tx);letter-spacing:.02em}
-.brand-sub{font-size:calc(10px + var(--font-adjust));color:var(--txd);font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-.hd-update-btn{display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:5px 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--warn) 55%,var(--brd));background:linear-gradient(180deg,color-mix(in srgb,var(--warn) 26%,#3a2f1c),color-mix(in srgb,var(--warn) 16%,#2d2517));color:var(--warnfg);font-size:calc(11px + var(--font-adjust));font-weight:800;letter-spacing:.02em;cursor:pointer;box-shadow:0 0 0 1px color-mix(in srgb,var(--warn) 26%,transparent),0 0 14px color-mix(in srgb,var(--warn) 24%,transparent)}
-.hd-update-btn:hover{filter:brightness(1.06);border-color:color-mix(in srgb,var(--warn) 70%,var(--brd));color:#fff}
-.brand-alert{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--err) 52%,var(--brd));background:linear-gradient(180deg,color-mix(in srgb,var(--err) 28%,#3a2323),color-mix(in srgb,var(--err) 18%,#281919));color:var(--errfg);font-size:calc(11px + var(--font-adjust));font-weight:900;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 0 0 1px color-mix(in srgb,var(--err) 20%,transparent),0 0 18px color-mix(in srgb,var(--err) 25%,transparent);animation:brand-alert-pulse 1.3s ease-in-out infinite}
-.brand-alert-dot{width:8px;height:8px;border-radius:50%;background:var(--err);box-shadow:0 0 8px color-mix(in srgb,var(--err) 60%,transparent)}
-@keyframes brand-alert-pulse{0%,100%{transform:translateY(0);box-shadow:0 0 0 1px color-mix(in srgb,var(--err) 20%,transparent),0 0 18px color-mix(in srgb,var(--err) 25%,transparent)}50%{transform:translateY(-1px);box-shadow:0 0 0 1px color-mix(in srgb,var(--err) 35%,transparent),0 0 24px color-mix(in srgb,var(--err) 40%,transparent)}}
-.hd-nav{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;justify-self:center;border-radius:10px;background:var(--nav-shell-bg);border:1px solid var(--brd);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
-.hd-nav a{padding:8px 13px;min-height:36px;border-radius:9px;font-size:calc(14px + var(--font-adjust));border:1px solid transparent;cursor:pointer;color:var(--txd);background:transparent;transition:.14s;font-family:inherit;display:flex;align-items:center;gap:7px;text-decoration:none;font-weight:600;white-space:nowrap}
-.hd-nav a:hover{background:var(--s2);color:var(--tx);border-color:var(--brd)}
-.hd-nav .on{background:linear-gradient(180deg,#3c3c3c,#2a2a2a);color:var(--ac)!important;font-weight:700;border-color:#5a5a5a;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
-.hd-right{display:flex;align-items:center;gap:8px;margin-left:auto}
-.hd-right .top-nav-actions{display:flex;gap:6px;align-items:center;margin-left:0;flex-wrap:wrap}
-.hd-right .bt{min-height:32px;padding:6px 10px;font-size:12px}
-.hd-right form{margin:0}
-.hd-mobile-toggle{display:none;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:0 12px;border-radius:10px;border:1px solid var(--brd);background:linear-gradient(180deg,#333,#252525);color:var(--tx);font-size:13px;font-weight:700;cursor:pointer}
-.hd-mobile-toggle .menu-ico{font-size:16px;line-height:1}
-.hd-mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:320}
-.hd-mobile-menu{display:none;position:fixed;left:10px;right:10px;top:calc(58px + env(safe-area-inset-top));max-height:calc(100dvh - 68px - env(safe-area-inset-top));overflow:auto;background:linear-gradient(180deg,var(--mobile-menu-bg1),var(--mobile-menu-bg2));border:1px solid var(--brd);border-radius:14px;padding:12px;z-index:330;box-shadow:var(--shadow)}
-.hd-mobile-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--brd)}
-.hd-mobile-title{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--txd)}
-.hd-mobile-links,.hd-mobile-actions{display:grid;grid-template-columns:1fr;gap:8px}
-.hd-mobile-links a,.hd-mobile-actions .bt{width:100%;min-height:42px;padding:10px 12px;font-size:calc(13px + var(--font-adjust));font-weight:700;text-align:left}
-.hd-mobile-links a,.hd-mobile-actions .bt{display:grid;grid-template-columns:18px minmax(0,1fr);align-items:center;column-gap:8px}
-.hd-mobile-links a{border-radius:10px;border:1px solid var(--brd);background:linear-gradient(180deg,#333,#292929);color:var(--tx)}
-.hd-mobile-actions form{margin:0}
-.hd-mobile-menu .top-nav-ic{display:inline-flex;align-items:center;justify-content:center;width:18px;line-height:1}
-.hd-mobile-links a.on{border-color:color-mix(in srgb,var(--ac) 55%,var(--brd));color:var(--ac)}
-body.mobile-menu-open{overflow:hidden}
-body.mobile-menu-open .hd-mobile-overlay,body.mobile-menu-open .hd-mobile-menu{display:block}
-.sp-status{display:flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;font-size:calc(11px + var(--font-adjust));font-weight:700;border:1px solid transparent;white-space:nowrap;background:linear-gradient(180deg,#2c2c2c,#232323);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
-.sp-status.ok{background:var(--okbg);color:var(--okfg);border-color:color-mix(in srgb,var(--ok) 35%,transparent)}
-.sp-status.err{background:var(--errbg);color:var(--errfg);border-color:color-mix(in srgb,var(--err) 35%,transparent)}
-.sp-status .sp-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.sp-status.ok .sp-dot{background:var(--ok)}.sp-status.err .sp-dot{background:var(--err)}
-@media(max-width:480px){.sp-status .sp-lbl{display:none}.brand-sub{display:none}}
-.hm-notif,.hm-info{display:inline-flex;align-items:center;justify-content:center;min-height:40px;border-radius:10px;border:1px solid var(--brd);background:var(--s1);color:var(--txd);cursor:pointer;transition:.18s}
-.hm-notif{min-width:40px;padding:0 10px;font-size:calc(18px + var(--font-adjust));background:var(--s2)}
-.hm-info{min-width:34px;padding:0 8px;font-size:calc(14px + var(--font-adjust));background:var(--s2)}
-.hm-notif:hover,.hm-info:hover{border-color:var(--ac);color:var(--ac)}
-.notif-help-step{background:var(--s2);padding:12px;border-radius:8px;margin-bottom:12px;border-left:3px solid var(--ac)}
-.notif-help-step strong{display:block;margin-bottom:6px;color:var(--ac)}
-.notif-help-step code{background:var(--bg);padding:2px 6px;border-radius:4px;font-family:'Consolas','Cascadia Mono',monospace;font-size:calc(12px + var(--font-adjust))}
-.app{width:100%;margin:0;padding:8px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:8px;align-items:start}
-.sd{background:linear-gradient(180deg,var(--sidebar-bg1),var(--sidebar-bg2));border:1px solid var(--brd);border-radius:14px;display:flex;flex-direction:column;max-height:calc(100vh - 102px);height:calc(100vh - 102px);overflow-y:auto;overflow-x:hidden;box-shadow:var(--shadow)}
-.top-nav{background:linear-gradient(180deg,var(--s1),var(--s2));border:1px solid var(--brd);padding:9px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:1px -1px 8px;border-radius:12px;box-shadow:var(--shadow-soft)}
-.top-nav-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center;flex:1 1 auto}
-.top-nav-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-left:auto}
-.top-nav-note{display:inline-flex;align-items:center;min-height:32px;padding:6px 10px;border:1px solid color-mix(in srgb,var(--warn) 40%,var(--brd));border-radius:999px;background:color-mix(in srgb,var(--warn) 12%,var(--s2));color:var(--warnfg);font-size:11px;font-weight:700}
-.top-nav a,.top-nav button{padding:9px 12px;min-height:36px;border-radius:9px;font-size:calc(13px + var(--font-adjust));border:1px solid transparent;cursor:pointer;color:var(--txd);background:transparent;transition:.14s;font-family:inherit;display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:600}
-.top-nav a:hover,.top-nav button:hover{background:var(--s2);color:var(--tx);border-color:var(--brd)}
-.top-nav .on{background:linear-gradient(180deg,#3a3a3a,#292929);color:var(--ac)!important;font-weight:700;border-color:#5a5a5a;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
-.top-nav .danger,.hd-right .danger{color:var(--err)}
-.top-nav .danger:hover,.hd-right .danger:hover{background:var(--errbg)!important;color:var(--errfg)!important;border-color:color-mix(in srgb,var(--err) 40%,transparent)!important}
-.top-nav .troubleshoot-btn,.hd-right .troubleshoot-btn{background:linear-gradient(180deg,#4d4d4d,#373737);color:#f3f3f3;border:1px solid #5b5b5b;font-weight:700;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
-.top-nav .troubleshoot-btn:hover,.hd-right .troubleshoot-btn:hover{filter:brightness(1.06);border-color:#6a6a6a;color:#fff;background:linear-gradient(180deg,#5a5a5a,#414141)}
-.top-nav-ic{font-size:14px;line-height:1}
-.sd-info{padding:10px;border:1px solid var(--brd);border-radius:12px;background:linear-gradient(180deg,#2d2d2d,#252525);display:flex;flex-direction:column;flex:1 1 auto;min-height:0;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
-.sd-info-title{font-size:10px;font-weight:800;color:var(--txd);text-transform:uppercase;letter-spacing:.18em;margin-bottom:8px}
-.sd-info-list{display:flex;flex-direction:column;gap:6px;flex:1 1 auto;min-height:0;overflow-y:auto;padding-right:2px}
-.sd,.sd-info-list{scrollbar-width:thin;scrollbar-color:#4f4f4f #191919}
-.sd::-webkit-scrollbar,.sd-info-list::-webkit-scrollbar{width:10px;height:10px}
-.sd::-webkit-scrollbar-track,.sd-info-list::-webkit-scrollbar-track{background:#191919;border-radius:999px}
-.sd::-webkit-scrollbar-thumb,.sd-info-list::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#4f4f4f,#383838);border-radius:999px;border:2px solid #191919}
-.sd::-webkit-scrollbar-thumb:hover,.sd-info-list::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#616161,#444)}
-.sd-info-item{border:1px solid var(--brd);border-left:3px solid var(--brd);border-radius:10px;background:linear-gradient(180deg,#303030,#262626);padding:8px 9px}
-.sd-info-item.success{border-left-color:var(--ok)}.sd-info-item.error{border-left-color:var(--err)}
-.sd-info-item-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;font-size:10px;color:var(--txd)}
-.sd-info-item-type{font-weight:700;text-transform:uppercase;letter-spacing:.25px}
-.sd-info-item-text{font-size:11px;line-height:1.35;color:var(--tx);word-break:break-word}
-.sd-info-empty{font-size:11px;color:var(--txd);line-height:1.35}
-.pf{margin-left:auto;position:relative;flex:0 0 auto}
-.pf-btn{padding:0 11px;min-height:40px;border-radius:10px;border:1px solid var(--brd);background:linear-gradient(180deg,var(--s1),#1f1f1f);color:var(--txd);font-size:calc(16px + var(--font-adjust));cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
-.pf-btn:hover{border-color:var(--ac);color:var(--ac)}
-.pf-menu{display:none;position:absolute;right:0;top:calc(100% + 8px);min-width:200px;background:linear-gradient(180deg,var(--s1),#1f1f1f);border:1px solid var(--brd);border-radius:12px;box-shadow:var(--shadow);padding:8px;z-index:120}
-.pf.open .pf-menu{display:block}
-.pf-item{display:flex;align-items:center;width:100%;min-height:40px;text-align:left;padding:9px 11px;border-radius:8px;color:var(--txd);font-size:calc(14px + var(--font-adjust));background:transparent;border:none;cursor:pointer;text-decoration:none}
-.pf-item:hover{background:var(--s2);color:var(--tx)}
-.pf-logout{margin-top:10px;padding-top:10px;border-top:1px solid var(--brd)}.pf-logout button{width:100%;justify-content:flex-start}
-.ct{max-width:none;margin:0;padding:0;min-width:0}
-.fl{padding:11px 13px;border-radius:10px;margin-bottom:12px;font-size:calc(13px + var(--font-adjust));border:1px solid}
-.fl.success{background:var(--okbg);border-color:color-mix(in srgb,var(--ok) 38%,transparent);color:var(--okfg)}
-.fl.error{background:var(--errbg);border-color:color-mix(in srgb,var(--err) 40%,transparent);color:var(--errfg)}
-.cd{background:linear-gradient(180deg,var(--s1),#202020);border:1px solid var(--brd);border-radius:14px;padding:7px 7px;margin-bottom:7px;content-visibility:auto;contain-intrinsic-size:220px;box-shadow:var(--shadow-soft)}
-.cd-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}.cd-row .cd{margin-bottom:0}
-.cd-t{font-size:calc(14px + var(--font-adjust));font-weight:700;margin-bottom:12px;padding-bottom:9px;border-bottom:1px solid var(--brd);color:var(--tx);letter-spacing:.02em}
-.dash-hero{background:linear-gradient(180deg,#2f2f2f 0%,#242424 100%);border:1px solid #4d4d4d;border-radius:14px;padding:16px 18px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:var(--shadow)}
-.dash-hero-main{flex:1 1 auto;min-width:0}.dash-hero h2{font-size:calc(22px + var(--font-adjust));margin-bottom:6px;color:var(--tx)}.dash-hero p{font-size:calc(13px + var(--font-adjust));color:var(--txd);max-width:860px}
-.dash-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.dash-hero .dash-links{margin-top:0;justify-content:flex-end;align-self:center;flex:0 0 auto}
-.dash-stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-bottom:12px}
-.dash-stat{background:linear-gradient(180deg,#2f2f2f,#242424);border:1px solid var(--brd);border-radius:12px;padding:13px 14px;min-width:0;box-shadow:var(--shadow-soft)}
-.dash-stat-value{font-size:calc(24px + var(--font-adjust));font-weight:800;color:var(--tx);line-height:1.05}
-.dash-stat-label{font-size:calc(11px + var(--font-adjust));color:var(--txd);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
-.dash-sections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.dash-summary{font-size:calc(12px + var(--font-adjust));color:var(--txd);margin-bottom:10px}.dash-list{display:flex;flex-direction:column;gap:8px}.dash-item{display:flex;gap:7px;font-size:calc(12px + var(--font-adjust));color:var(--tx)}.dash-item::before{content:'•';color:var(--ac);font-weight:800;flex-shrink:0}
-.admin-scroll-pane{max-height:420px;overflow:auto;border:1px solid var(--brd);border-radius:12px;background:linear-gradient(180deg,var(--s1),#202020)}
-.admin-scroll-pane table{width:100%;border-collapse:collapse}.admin-scroll-pane thead{position:sticky;top:0;z-index:1;background:var(--s2)}
-.fg{margin-bottom:8px}.fg label{display:block;font-size:calc(13px + var(--font-adjust));color:var(--txd);margin-bottom:4px;font-weight:700}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:9px}.fr3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
-input[type=text],input[type=password],input[type=email],input[type=number],select,textarea{width:100%;padding:9px 11px;min-height:36px;background:linear-gradient(180deg,var(--control-bg),var(--control-bg2));border:1px solid var(--brd);border-radius:10px;color:var(--tx);font-size:calc(13px + var(--font-adjust));font-family:inherit;box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
-input[type=file].file-input{width:100%;padding:8px;border:1px solid var(--brd);border-radius:10px;background:linear-gradient(180deg,var(--control-bg),var(--control-bg2));color:var(--tx);font-size:calc(13px + var(--font-adjust))}
-input[type=file].file-input::file-selector-button{margin-right:10px;padding:8px 12px;border:none;border-radius:7px;background:var(--ac);color:#fff;cursor:pointer;font-family:inherit}
-input[type=file].file-input::file-selector-button:hover{background:var(--ach)}
-textarea{resize:vertical;min-height:120px;font-family:'Consolas','Cascadia Mono',monospace;font-size:calc(13px + var(--font-adjust))}
-/* Ensure font-size preference applies to form field content on every page, even where local CSS/inline styles set fixed sizes. */
-input[type=text],
-input[type=password],
-input[type=email],
-input[type=number],
-input[type=search],
-input[type=url],
-input[type=tel],
-input[type=file],
-select,
-textarea,
-input[type=file].file-input,
-input[type=file].file-input::file-selector-button{font-size:calc(13px + var(--font-adjust)) !important}
-input::placeholder,
-textarea::placeholder{font-size:inherit}
-select option,
-select optgroup{font-size:calc(13px + var(--font-adjust))}
-input:focus,select:focus,textarea:focus{outline:0;border-color:var(--ac);box-shadow:var(--ring)}
-.bt{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 12px;min-height:32px;min-width:58px;border-radius:10px;font-size:calc(12px + var(--font-adjust));font-weight:700;letter-spacing:.02em;border:1px solid #555;cursor:pointer;transition:.14s;font-family:inherit;box-shadow:inset 0 1px 0 rgba(255,255,255,.04);background:linear-gradient(180deg,#353535,#272727);color:var(--tx)}
-.bt:hover{background:linear-gradient(180deg,#404040,#2e2e2e);color:var(--tx);border-color:#666}
-.google-signin{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:42px;padding:10px 14px;border-radius:8px;border:1px solid #dadce0;background:#ffffff;color:#3c4043!important;font-size:14px;font-weight:700;letter-spacing:.01em;text-decoration:none;box-shadow:0 1px 2px rgba(60,64,67,.2);transition:box-shadow .16s ease,border-color .16s ease,transform .16s ease}
-.google-signin:hover{background:#ffffff;border-color:#c6c9cc;color:#202124!important;box-shadow:0 2px 6px rgba(60,64,67,.28);transform:translateY(-1px)}
-.google-signin:focus-visible{outline:none;border-color:#4285f4;box-shadow:0 0 0 3px rgba(66,133,244,.25)}
-.google-signin:active{transform:translateY(0);box-shadow:0 1px 2px rgba(60,64,67,.24)}
-.google-signin .g-icon{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;flex-shrink:0}
-.google-signin .g-label{line-height:1.2}
-.google-signin.is-disabled,.google-signin:disabled{cursor:not-allowed;opacity:.62;color:#6f7275!important;box-shadow:none;transform:none;pointer-events:none}
-.login-divider{display:flex;align-items:center;gap:10px;margin:16px 0;color:var(--txd);font-size:11px}.login-divider::before,.login-divider::after{content:'';flex:1;height:1px;background:var(--brd)}.login-divider span{white-space:nowrap;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
-.bp{background:linear-gradient(180deg,var(--ac),#379a51);border-color:#4fb968;color:#fff}.bp:hover{background:linear-gradient(180deg,var(--ach),#42a95d)}
-.bd{background:linear-gradient(180deg,#c85d5d,#aa4646);border-color:#d17b7b;color:#fff}.bd:hover{background:linear-gradient(180deg,#d87272,#b95454)}
-.bg{background:linear-gradient(180deg,#353535,#272727);color:var(--txd);border:1px solid #555}.bg:hover{background:linear-gradient(180deg,#404040,#2e2e2e);color:var(--tx)}
-.bo{background:linear-gradient(180deg,#ae8750,#8a693c);border-color:#bf9a63;color:#fff}.bo:hover{background:linear-gradient(180deg,#bd955b,#987242)}
-.bs{background:linear-gradient(180deg,#4ebc69,#37944e);border-color:#5dca78;color:#fff}.bs:hover{background:linear-gradient(180deg,#5acb77,#41a55b)}
-.bw{background:linear-gradient(180deg,#8d7447,#6f5b37);border-color:#a18757;color:#fff}.bw:hover{background:linear-gradient(180deg,#9a8050,#7b643d)}
-.bsm{padding:6px 9px;font-size:calc(11px + var(--font-adjust))}
-body[data-theme='light'] .hd-mobile-links a{background:linear-gradient(180deg,#ffffff,#f2f6fd)}
-body[data-theme='light'] .top-nav .troubleshoot-btn,body[data-theme='light'] .hd-right .troubleshoot-btn{background:linear-gradient(180deg,#f8fbff,#eaf1fb);color:#26354a;border-color:#c8d4e6;box-shadow:inset 0 1px 0 rgba(255,255,255,.85)}
-body[data-theme='light'] .top-nav .troubleshoot-btn:hover,body[data-theme='light'] .hd-right .troubleshoot-btn:hover{background:linear-gradient(180deg,#ffffff,#eef4fd);border-color:#b9c9df;color:#1b2a3f}
-body[data-theme='light'] .sd-info{background:linear-gradient(180deg,#ffffff,#f3f7ff)}
-body[data-theme='light'] .dash-hero{background:linear-gradient(180deg,#ffffff 0%,#eef4fc 100%);border-color:#c6d3e6}
-body[data-theme='light'] .sd-info-title,body[data-theme='light'] .cd h2,body[data-theme='light'] .cd h3,body[data-theme='light'] .cd h4,body[data-theme='light'] .subtab .subtab-title,body[data-theme='light'] .lb h2{color:var(--tx)}
-body[data-theme='light'] .ct h1,body[data-theme='light'] .ct h2,body[data-theme='light'] .ct h3,body[data-theme='light'] .ct h4{color:var(--tx)}
-body[data-theme='light'] .sd-info-item{background:linear-gradient(180deg,#ffffff,#edf3fb);border-color:#c6d3e6;border-left-color:#b4c6de}
-body[data-theme='light'] .sd-info-item-meta{color:#47607c}
-body[data-theme='light'] .sd-info-item-text{color:#1b2a3f}
-body[data-theme='light'] .sd-info-empty{color:#4f6076}
-body[data-theme='light'] .sd,body[data-theme='light'] .sd-info-list{scrollbar-color:#b9c9de #eaf1fa}
-body[data-theme='light'] .sd::-webkit-scrollbar-track,body[data-theme='light'] .sd-info-list::-webkit-scrollbar-track{background:#eaf1fa}
-body[data-theme='light'] .sd::-webkit-scrollbar-thumb,body[data-theme='light'] .sd-info-list::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#c2d2e6,#aebfd7);border-color:#eaf1fa}
-body[data-theme='light'] .sd::-webkit-scrollbar-thumb:hover,body[data-theme='light'] .sd-info-list::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#b2c4db,#9fb3cd)}
-body[data-theme='light'] .cd{background:linear-gradient(180deg,#ffffff,#f2f6fc)}
-body[data-theme='light'] .dash-stat{background:linear-gradient(180deg,#ffffff,#f3f7ff)}
-body[data-theme='light'] .admin-scroll-pane{background:linear-gradient(180deg,#ffffff,#f4f8ff)}
-body[data-theme='light'] .bt,body[data-theme='light'] .bg{background:linear-gradient(180deg,#f6faff,#e8eff9);border-color:#c6d2e3;color:#233247;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
-body[data-theme='light'] .bt:hover,body[data-theme='light'] .bg:hover{background:linear-gradient(180deg,#ffffff,#edf3fb);border-color:#b8c9de;color:#16243a}
-body[data-theme='light'] .hd-nav .on,body[data-theme='light'] .top-nav .on{background:linear-gradient(180deg,#eaf7ef,#dff2e6);border-color:#9fcdaf;color:#1c6b3a!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.88)}
-body[data-theme='light'] .hd .ver{background:linear-gradient(180deg,#f6faff,#e8eff9);color:#1b2a3f;border-color:#bfd0e6}
-body[data-theme='light'] .hd-mobile-toggle{background:linear-gradient(180deg,#ffffff,#edf3fb);border-color:#c6d2e3;color:#233247}
-body[data-theme='light'] .tb tr:hover td{background:#edf3fb}
-body[data-theme='light'] .lb{background:linear-gradient(180deg,#ffffff,#f3f7ff)}
->>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
 table.tb{width:100%;border-collapse:collapse}
 .tb th{text-align:left;font-size:calc(11px + var(--font-adjust));font-weight:800;color:var(--txd);text-transform:uppercase;letter-spacing:.12em;padding:10px 12px;border-bottom:1px solid var(--brd);background:var(--table-head-bg)}
 .tb td{padding:10px 12px;font-size:calc(13px + var(--font-adjust));border-bottom:1px solid var(--brd);vertical-align:middle}
@@ -9694,7 +9439,6 @@ body.login-mode .lb{width:min(100vw,560px);margin:auto;box-shadow:var(--shadow)}
 function copyLink(url){navigator.clipboard.writeText(window.location.origin+url);var b=event.target;b.textContent='Gekopieerd!';setTimeout(()=>b.textContent='Link',1500);}
 function openM(id){document.getElementById(id).classList.add('on');}
 function closeM(id){document.getElementById(id).classList.remove('on');}
-<<<<<<< HEAD
 function showEditUser(uid, username, role, email){
     document.getElementById('euUserId').value=uid;
     document.getElementById('euUsername').value=username;
@@ -9795,122 +9539,6 @@ async function toggleFullscreenMode(){
     }
 }
 document.addEventListener('fullscreenchange', updateFullscreenButtonLabel);
-=======
-function showEditUser(uid, username, role, email){
-    document.getElementById('euUserId').value=uid;
-    document.getElementById('euUsername').value=username;
-    document.getElementById('euRole').value=role;
-    document.getElementById('euEmail').value=email||'';
-    openM('editUserM');
-}
-function toggleProfileMenu(){
-    var el=document.getElementById('profileMenuWrap');
-    if(!el) return;
-    el.classList.toggle('open');
-}
-function closeMobileMainMenu(){
-    document.body.classList.remove('mobile-menu-open');
-}
-function toggleMobileMainMenu(ev){
-    if(ev){ ev.preventDefault(); ev.stopPropagation(); }
-    document.body.classList.toggle('mobile-menu-open');
-}
-document.addEventListener('DOMContentLoaded',function(){
-    var nav=document.getElementById('mainNav');
-    if(nav){
-        nav.querySelectorAll('a').forEach(function(link){
-            link.addEventListener('click',function(){
-                var pf=document.getElementById('profileMenuWrap');
-                if(pf) pf.classList.remove('open');
-            });
-        });
-    }
-    document.querySelectorAll('.js-close-mobile-menu').forEach(function(el){
-        el.addEventListener('click',function(){ closeMobileMainMenu(); });
-    });
-    document.querySelectorAll('.log-actions-mobile').forEach(function(el){
-        el.addEventListener('toggle', function(){
-            if(!el.open){
-                el.classList.remove('open-up');
-                return;
-            }
-            document.querySelectorAll('.log-actions-mobile').forEach(function(other){
-                if(other !== el){
-                    other.open = false;
-                    other.classList.remove('open-up');
-                }
-            });
-            var panel = el.querySelector('.log-actions-mobile-panel');
-            if(!panel) return;
-            el.classList.remove('open-up');
-            requestAnimationFrame(function(){
-                var rect = panel.getBoundingClientRect();
-                if(rect.bottom > (window.innerHeight - 8)){
-                    el.classList.add('open-up');
-                }
-                requestAnimationFrame(function(){
-                    el.scrollIntoView({block:'nearest', inline:'nearest'});
-                });
-            });
-        });
-    });
-    var updateModal=document.getElementById('updateNoticeM');
-    if(updateModal){
-        var latest=updateModal.getAttribute('data-latest') || '';
-        var key='sm_update_notice_seen_' + latest;
-        try{
-            if(localStorage.getItem(key)!=='1'){
-                openM('updateNoticeM');
-                localStorage.setItem(key,'1');
-            }
-        } catch(err){
-            // Als localStorage niet beschikbaar is, tonen we de melding alleen voor deze paginalading.
-            openM('updateNoticeM');
-        }
-    }
-    updateFullscreenButtonLabel();
-});
-document.addEventListener('click',function(e){
-    if(document.body.classList.contains('mobile-menu-open')){
-        var menu=document.getElementById('mobileMainMenu');
-        var btn=document.getElementById('mobileMainMenuBtn');
-        if(menu && btn && !menu.contains(e.target) && !btn.contains(e.target)){
-            closeMobileMainMenu();
-        }
-    }
-    var el=document.getElementById('profileMenuWrap');
-    if(!el) return;
-    if(!el.contains(e.target)) el.classList.remove('open');
-});
-document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){
-        closeMobileMainMenu();
-        var el=document.getElementById('profileMenuWrap');
-        if(el) el.classList.remove('open');
-    }
-});
-function updateFullscreenButtonLabel(){
-    var btn=document.getElementById('fullscreenToggleBtn');
-    if(!btn) return;
-    var isFull=!!document.fullscreenElement;
-    btn.textContent=isFull ? '⤢ Venster' : '⛶ Volledig scherm';
-    btn.setAttribute('aria-pressed', isFull ? 'true' : 'false');
-}
-async function toggleFullscreenMode(){
-    try{
-        if(!document.fullscreenElement){
-            await document.documentElement.requestFullscreen();
-        } else {
-            await document.exitFullscreen();
-        }
-    } catch(err) {
-        console.warn('Fullscreen niet beschikbaar', err);
-    } finally {
-        updateFullscreenButtonLabel();
-    }
-}
-document.addEventListener('fullscreenchange', updateFullscreenButtonLabel);
->>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
 </script>
 </head><body class="<?=in_array($page,['login','public_target_add','set_password'],true)?'login-mode':''?>"<?=($theme!=='auto'?' data-theme="'.e($theme).'"':'')?><?=' data-fontsize="'.e($fontsize).'"'?> >
 
@@ -10018,7 +9646,6 @@ document.addEventListener('fullscreenchange', updateFullscreenButtonLabel);
 <p class="sub">Maak SmokePing Manager klaar voor gebruik</p>
 <?php if($flash):?><div class="fl <?=$flash['type']?>"><?=e($flash['msg'])?></div><?php endif;?>
 
-<<<<<<< HEAD
 <?php if($step==='1'): ?>
 <div class="setup-step-label">Stap 1 van 6: Kies je thema</div>
 <form method="POST"><input type="hidden" name="action" value="setup_wizard_theme"><?=csrfField()?>
@@ -10291,282 +9918,6 @@ $_spStatusTip = $_spActive
 </div>
 </aside>
 <div class="ct">
-=======
-<?php if($step==='1'): ?>
-<div class="setup-step-label">Stap 1 van 6: Kies je thema</div>
-<form method="POST"><input type="hidden" name="action" value="setup_wizard_theme"><?=csrfField()?>
-<div class="setup-list-row"><label>Thema</label>
-<select name="theme">
-<option value="auto" <?=$theme==='auto'?'selected':''?>>Automatisch (volg systeem)</option>
-<option value="light" <?=$theme==='light'?'selected':''?>>Licht</option>
-<option value="dark" <?=$theme==='dark'?'selected':''?>>Donker</option>
-</select></div>
-<div class="setup-actions"><button type="submit" class="bt bp">Volgende</button><a href="?p=setup&step=2" class="bt">Overslaan</a></div>
-</form>
-<?php elseif($step==='2'): ?>
-<div class="setup-step-label">Stap 2 van 6: Gebruikersnaam & Wachtwoord</div>
-<form method="POST"><input type="hidden" name="action" value="setup_wizard_credentials"><?=csrfField()?>
-<div class="setup-list-row"><label>Gebruikersnaam (leeg = admin)</label><input type="text" name="newuser" placeholder="admin"></div>
-<div class="setup-list-row"><label>Wachtwoord</label><input type="password" name="newpass" required></div>
-<div class="setup-actions"><button type="submit" class="bt bp">Volgende</button><a href="?p=setup&step=3" class="bt">Overslaan</a></div>
-</form>
-<?php elseif($step==='3'): ?>
-<div class="setup-step-label">Stap 3 van 6: Email Instellingen</div>
-<form method="POST" id="emailForm"><input type="hidden" name="action" value="setup_wizard_email"><?=csrfField()?>
-<div class="fg" style="border:1px solid var(--brd);border-radius:8px;padding:12px;background:var(--bg);margin-bottom:12px">
-<div style="font-weight:700;margin:0 0 8px">SMTP Email instellingen</div>
-<p style="font-size:12px;color:var(--txd);margin:0 0 10px">Deze instellingen zijn voor uitval- en statusmails.</p>
-<div class="setup-list-row"><label>Email Provider</label>
-<select name="email_provider" id="emailProvider" onchange="updateProviderFields()">
-<option value="gmail" selected>Gmail</option>
-<option value="outlook">Outlook / Hotmail</option>
-<option value="yahoo">Yahoo Mail</option>
-<option value="custom">Custom SMTP</option>
-</select></div>
-<div class="setup-list-row"><label>Email Adres (mailadres + wachtwoord voor inloggen)</label><input type="email" name="email_address" required placeholder="your.email@gmail.com"></div>
-<div class="setup-list-row"><label>Wachtwoord</label><input type="password" name="email_password" required placeholder="app password of wachtwoord"></div>
-<div id="customFields" style="display:none">
-<div class="setup-list-row"><label>SMTP Host</label><input type="text" name="custom_smtp_host" placeholder="smtp.example.com"></div>
-<div class="setup-list-row"><label>SMTP Port</label><input type="number" name="custom_smtp_port" value="587"></div>
-<div class="setup-list-row"><label>Encryptie</label>
-<select name="custom_smtp_encryption">
-<option value="tls" selected>TLS</option>
-<option value="ssl">SSL</option>
-<option value="none">Geen</option>
-</select></div>
-</div>
-</div>
-
-<div class="fg" style="border:1px solid var(--brd);border-radius:8px;padding:12px;background:var(--bg)">
-<div style="font-weight:700;margin:0 0 8px">Google Auth instellingen</div>
-<p style="font-size:12px;color:var(--txd);margin:0 0 10px">Deze instellingen zijn alleen voor inloggen met Google en staan los van SMTP email.</p>
-<div class="setup-list-row"><label>Google Auth inschakelen</label>
-<label style="display:flex;align-items:center;gap:8px;margin:0;color:var(--tx)"><input type="checkbox" name="google_auth_enabled" value="1" checked>Google login activeren</label></div>
-<div class="setup-list-row"><label>Google Client ID</label><input type="text" name="google_client_id" placeholder="xxxxx.apps.googleusercontent.com"></div>
-<div class="setup-list-row"><label>Google Client Secret</label><input type="password" name="google_client_secret" placeholder="Client secret"></div>
-<div class="setup-list-row"><label>Redirect URI</label><input type="text" name="google_redirect_uri" value="<?=e(buildGoogleRedirectUri($db))?>" placeholder="<?=e(buildGoogleRedirectUri($db))?>"></div>
-<p style="font-size:12px;color:var(--txd);margin:8px 0 0">Als Google login actief is, vul dan Client ID en Secret in om door te kunnen naar de volgende stap.</p>
-</div>
-
-<div class="setup-actions"><button type="submit" class="bt bp">Volgende</button><a href="?p=setup&step=4" class="bt">Overslaan</a></div>
-</form>
-
-<?php elseif($step==='4'): ?>
-<div class="setup-step-label">Stap 4 van 6: Database & Presentatie afstemmen</div>
-<form method="POST" id="wizardTuningForm" onsubmit="return confirmWizardTuningSubmit()"><input type="hidden" name="action" value="setup_wizard_smokeping_tuning"><?=csrfField()?>
-
-<div class="fg" style="border:1px solid var(--brd);border-radius:8px;padding:12px;background:var(--bg)">
-<label style="display:flex;align-items:center;gap:8px;font-weight:600"><input type="checkbox" name="apply_database_tuning" value="1" checked>Database instellingen aanpassen</label>
-<p style="font-size:12px;color:var(--txd);margin:8px 0 10px">Default: elke <strong>10 seconden</strong> een meetronde, met <strong>5 pings</strong> per ronde.  
-Dit betekent gemiddeld ongeveer 1 ping per <strong>2 seconden</strong> tijdens die meetronde.</p>
-
-<div class="setup-list-row"><label>Voorinstelling</label>
-<select name="db_profile" id="dbProfile" onchange="updateDbPresetHint()">
-<option value="default_300_20">Standaard - 5 minuten, 20 pings</option>
-<option value="fast_10_5" selected>Sneller - 10 seconden, 5 pings (ongeveer 1 ping per 2s)</option>
-<option value="custom">Aangepast - zelf step en pings kiezen</option>
-</select></div>
-
-<div class="setup-list">
-<div class="setup-list-row"><label>Meetinterval (step in seconden)</label><input type="number" name="db_step" id="dbStep" value="10" min="10" max="3600"></div>
-<div class="setup-list-row"><label>Aantal pings per meting</label><input type="number" name="db_pings" id="dbPings" value="5" min="1" max="100"></div>
-</div>
-<div id="dbHint" style="font-size:12px;color:var(--txd)">Bij deze keuze is dat ongeveer 1 ping per 2 seconden tijdens een meetronde.</div>
-</div>
-
-<div class="fg" style="border:1px solid var(--brd);border-radius:8px;padding:12px;background:var(--bg)">
-<label style="display:flex;align-items:center;gap:8px;font-weight:600"><input type="checkbox" name="apply_presentation_tuning" value="1" checked>Presentation grafiekranges aanpassen</label>
-<p style="font-size:12px;color:var(--txd);margin:8px 0 10px">Pas de zichtbare grafiekperiodes aan. Formaat per regel: <code>Label|Range</code>.  
-Voorbeeld: <code>Last 1 Hour|1h</code>.</p>
-<div style="font-size:12px;background:#fff4e5;border:1px solid #f1c27d;color:#8a5a00;padding:8px 10px;border-radius:6px;margin-bottom:10px">
-Let op: bij toepassen van Presentation wijzigingen worden bestaande grafieken verwijderd (.rrd), daarna wordt SmokePing automatisch herstart.
-</div>
-<div class="setup-list-row"><label>Grafiek opties</label>
-<textarea name="presentation_ranges" rows="10">Last 1 Hour|1h
-Last 3 Hours|3h
-Last 24 Hours|1d
-Last 30 Days|30d
-Last 180 Days|180d
-Last 360 Days|360d</textarea>
-</div>
-</div>
-
-<div class="setup-actions"><button type="submit" class="bt bp">Volgende</button><a href="?p=setup&step=5" class="bt">Overslaan</a></div>
-</form>
-
-<script>
-function updateDbPresetHint(){
-    var profile = document.getElementById('dbProfile').value;
-    var stepEl = document.getElementById('dbStep');
-    var pingsEl = document.getElementById('dbPings');
-    if(profile === 'default_300_20'){ stepEl.value = 300; pingsEl.value = 20; }
-    if(profile === 'fast_10_5'){ stepEl.value = 10; pingsEl.value = 5; }
-    var step = Math.max(1, parseInt(stepEl.value || '1', 10));
-    var pings = Math.max(1, parseInt(pingsEl.value || '1', 10));
-    var interval = (step / pings).toFixed(2);
-    if(interval.endsWith('.00')) interval = interval.slice(0, -3);
-    document.getElementById('dbHint').textContent = 'Bij deze keuze is dat ongeveer 1 ping per ' + interval + ' seconden tijdens een meetronde.';
-}
-function confirmWizardTuningSubmit(){
-    var presentationCheckbox = document.querySelector('input[name="apply_presentation_tuning"]');
-    if (presentationCheckbox && presentationCheckbox.checked) {
-        return confirm('Let op: bestaande grafiekdata wordt verwijderd om de nieuwe grafiekinstellingen toe te passen. Daarna wordt SmokePing automatisch herstart. Doorgaan?');
-    }
-    return true;
-}
-document.addEventListener('DOMContentLoaded', function(){
-    var s = document.getElementById('dbStep');
-    var p = document.getElementById('dbPings');
-    if(s) s.addEventListener('input', updateDbPresetHint);
-    if(p) p.addEventListener('input', updateDbPresetHint);
-    updateDbPresetHint();
-});
-</script>
-
-<?php elseif($step==='5'): ?>
-<div class="setup-step-label">Stap 5 van 6: Targets importeren</div>
-<form method="POST" id="targetsImportForm" enctype="multipart/form-data"><input type="hidden" name="action" value="setup_wizard_targets_import"><?=csrfField()?>
-<div class="setup-list-row"><label>Importeer bestaand Targets bestand of backup</label><input type="file" class="file-input" name="targets_import_file" accept=".conf,.txt,.backup,.cfg"></div>
-<p style="font-size:12px;color:var(--txd);margin:8px 0 14px">Upload hier je bestaande Targets bestand om categorieen en targets tijdens de wizard in te laden.</p>
-<div class="setup-actions"><button type="submit" class="bt bp">Volgende</button><button type="button" onclick="document.getElementById('skipForm').submit()" class="bt">Overslaan</button></div>
-</form>
-<form method="GET" id="skipForm" style="display:none"><input type="hidden" name="p" value="setup"><input type="hidden" name="step" value="6"></form>
-<?php elseif($step==='6'): ?>
-<div class="setup-step-label">Stap 6 van 6: Automatische backups</div>
-<form method="POST"><input type="hidden" name="action" value="setup_wizard_backup_schedule"><?=csrfField()?>
-<div class="fg" style="border:1px solid var(--brd);border-radius:8px;padding:12px;background:var(--bg)">
-<p style="font-size:12px;color:var(--txd);margin:0 0 10px">Slim schema: bewaar altijd de laatste items, daarna alle dagelijkse backups voor een korte periode, vervolgens 1 per week en daarna 1 per maand.</p>
-<div class="setup-list">
-    <div class="setup-list-row">
-        <label>Automatische full backups inschakelen</label>
-        <label style="display:flex;align-items:center;gap:8px;margin:0;color:var(--tx)"><input type="checkbox" name="auto_backup_enabled" value="1" checked>Ingeschakeld</label>
-    </div>
-    <div class="setup-list-row">
-        <label>Nieuwe backup maken</label>
-        <select name="auto_backup_frequency"><option value="daily" selected>Elke dag</option><option value="weekly">Elke week</option><option value="monthly">Elke maand</option></select>
-    </div>
-    <div class="setup-list-row">
-        <label>Behoud altijd laatste x items</label>
-        <input type="number" name="auto_backup_keep_latest" value="10" min="1" max="100">
-    </div>
-    <div class="setup-list-row">
-        <label>Alle dagelijkse backups bewaren (dagen)</label>
-        <input type="number" name="auto_backup_retain_daily" value="14" min="0" max="365">
-    </div>
-    <div class="setup-list-row">
-        <label>Daarna 1 per week bewaren (weken)</label>
-        <input type="number" name="auto_backup_retain_weekly" value="8" min="0" max="104">
-    </div>
-    <div class="setup-list-row">
-        <label>Daarna 1 per maand bewaren (maanden)</label>
-        <input type="number" name="auto_backup_retain_monthly" value="6" min="0" max="36">
-    </div>
-</div>
-</div>
-<div class="setup-actions"><button type="submit" class="bt bp">Voltooien</button><a href="?p=setup&step=complete" class="bt">Overslaan</a></div>
-</form>
-<?php elseif($step==='complete'): ?>
-<div style="text-align:center;padding:20px 0">
-<div style="font-size:32px;margin-bottom:12px">✓</div>
-<h3>Voltooid!</h3>
-<p>SmokePing Manager is gereed. Veel succes met monitoren!</p>
-<form method="POST" style="margin-top:16px"><input type="hidden" name="action" value="setup_wizard_complete"><?=csrfField()?><button type="submit" class="bt bp" style="width:100%">Naar Overzicht</button></form>
-</div>
-<?php endif; ?>
-</div></div>
-<?php else: requireLogin();
-$_spActive = (int)@shell_exec('pgrep -c "smokeping" 2>/dev/null') > 0;
-$_spStatusTip = $_spActive
-    ? 'Groen: SmokePing service draait en reageert normaal.'
-    : 'Rood: SmokePing service draait niet of reageert niet.';
-?>
-<div class="hd">
-<h1>
-    <span class="brand-mark <?=$_spActive?'ok':'err'?>" data-tip="<?=htmlspecialchars($_spStatusTip, ENT_QUOTES)?>" tabindex="0" aria-label="<?=htmlspecialchars($_spStatusTip, ENT_QUOTES)?>">●</span>
-        <?php if(!$_spActive): ?>
-        <span class="brand-alert hd-tip" data-tip="SmokePing is inactief. Herstart of rebuild de service om metingen te hervatten." aria-label="SmokePing is inactief. Herstart of rebuild de service om metingen te hervatten"><span class="brand-alert-dot"></span>Smokeping inactief</span>
-        <?php endif; ?>
-    <span class="brand-text"><span class="brand-title ver"><?=APP_TITLE?> <?=APP_VERSION?></span></span>
-    <?php if(!empty($updateNotice)): ?><button type="button" class="hd-update-btn hd-tip" onclick="openM('updateNoticeM')" data-tip="Er staat een nieuwere versie klaar. Klik voor update-instructies." aria-label="Update beschikbaar">⬆ Update beschikbaar</button><?php endif; ?>
-</h1>
-<button type="button" class="hd-mobile-toggle" id="mobileMainMenuBtn" onclick="toggleMobileMainMenu(event)"><span class="menu-ico">☰</span> Menu</button>
-<nav class="hd-nav" id="mainNav">
-<a href="?p=dash" class="<?=$page==='dash'?'on':''?> hd-tip" data-tip="Overzicht: samenvatting van status, aantallen en snelle links" aria-label="Overzicht: samenvatting van status, aantallen en snelle links"><span class="top-nav-ic">⌂</span>Overzicht</a>
-<a href="?p=targets" class="<?=in_array($page,['targets','cat'])?'on':''?> hd-tip" data-tip="Targets: beheer categorieen, targets en monitoring instellingen" aria-label="Targets: beheer categorieen, targets en monitoring instellingen"><span class="top-nav-ic">⊞</span>Targets</a>
-<?php if(canManage($db)): ?><a href="?p=database" class="<?=$page==='database'?'on':''?> hd-tip" data-tip="Database: bekijk en beheer opgeslagen meetgegevens" aria-label="Database: bekijk en beheer opgeslagen meetgegevens"><span class="top-nav-ic">🗄</span>Database</a><?php endif; ?>
-<?php if(canManage($db)): ?><a href="?p=settings" class="<?=$page==='settings'?'on':''?> hd-tip" data-tip="Instellingen: systeem-, notificatie- en backupopties" aria-label="Instellingen: systeem-, notificatie- en backupopties"><span class="top-nav-ic">⚙</span>Instellingen</a><?php endif; ?>
-<?php if(isAdmin($db)): ?><a href="?p=admin" class="<?=$page==='admin'?'on':''?> hd-tip" data-tip="Admin Debug: technische controles, logging en diagnostiek" aria-label="Admin Debug: technische controles, logging en diagnostiek"><span class="top-nav-ic">🔧</span>Admin Debug</a><?php endif; ?>
-</nav>
-<div class="hd-right">
-<div class="top-nav-actions">
-    <button type="button" class="bt bsm hd-tip" id="fullscreenToggleBtn" onclick="toggleFullscreenMode()" data-tip="Schermvullend tonen of weer terug naar venster" aria-label="Schermvullend tonen of weer terug naar venster" aria-pressed="false">⛶ Volledig scherm</button>
-    <?php if(hasActionPermission($db, 'act_config_manage')): ?>
-        <form method="POST"><input type="hidden" name="action" value="reload"><?=csrfField()?><button class="bt bsm troubleshoot-btn hd-tip" type="submit" data-tip="Herstelactie: herbouw configuratie en herstart SmokePing" aria-label="Herstelactie: herbouw configuratie en herstart SmokePing">🛠 Rebuild</button></form>
-        <form method="POST"><input type="hidden" name="action" value="restart"><?=csrfField()?><button class="bt bsm troubleshoot-btn hd-tip" type="submit" data-tip="Herstelactie: herstart alleen de SmokePing service" aria-label="Herstelactie: herstart alleen de SmokePing service">🛠 Restart</button></form>
-    <?php endif; ?>
-        <form method="POST"><input type="hidden" name="action" value="logout"><button type="submit" class="bt bsm danger hd-tip" data-tip="Uitloggen: beeindig je sessie en ga terug naar het inlogscherm" aria-label="Uitloggen: beeindig je sessie en ga terug naar het inlogscherm">⇥ Uitloggen</button></form>
-</div>
-</div>
-</div>
-<div class="hd-mobile-overlay" id="mobileMainMenuOverlay" onclick="closeMobileMainMenu()"></div>
-<div class="hd-mobile-menu" id="mobileMainMenu" role="dialog" aria-label="Hoofdmenu">
-    <div class="hd-mobile-head">
-        <div class="hd-mobile-title">Hoofdmenu</div>
-        <button type="button" class="bt bg bsm" onclick="closeMobileMainMenu()">Sluiten</button>
-    </div>
-    <div class="hd-mobile-links" style="margin-bottom:10px">
-        <a href="?p=dash" class="<?=$page==='dash'?'on':''?> js-close-mobile-menu hd-tip" data-tip="Overzicht: samenvatting van status, aantallen en snelle links" aria-label="Overzicht: samenvatting van status, aantallen en snelle links"><span class="top-nav-ic">⌂</span>Overzicht</a>
-        <a href="?p=targets" class="<?=in_array($page,['targets','cat'])?'on':''?> js-close-mobile-menu hd-tip" data-tip="Targets: beheer categorieen, targets en monitoring instellingen" aria-label="Targets: beheer categorieen, targets en monitoring instellingen"><span class="top-nav-ic">⊞</span>Targets</a>
-        <?php if(canManage($db)): ?><a href="?p=database" class="<?=$page==='database'?'on':''?> js-close-mobile-menu hd-tip" data-tip="Database: bekijk en beheer opgeslagen meetgegevens" aria-label="Database: bekijk en beheer opgeslagen meetgegevens"><span class="top-nav-ic">🗄</span>Database</a><?php endif; ?>
-        <?php if(canManage($db)): ?><a href="?p=settings" class="<?=$page==='settings'?'on':''?> js-close-mobile-menu hd-tip" data-tip="Instellingen: systeem-, notificatie- en backupopties" aria-label="Instellingen: systeem-, notificatie- en backupopties"><span class="top-nav-ic">⚙</span>Instellingen</a><?php endif; ?>
-        <?php if(isAdmin($db)): ?><a href="?p=admin" class="<?=$page==='admin'?'on':''?> js-close-mobile-menu hd-tip" data-tip="Admin Debug: technische controles, logging en diagnostiek" aria-label="Admin Debug: technische controles, logging en diagnostiek"><span class="top-nav-ic">🔧</span>Admin Debug</a><?php endif; ?>
-    </div>
-    <div class="hd-mobile-actions">
-        <button type="button" class="bt bsm troubleshoot-btn" onclick="toggleFullscreenMode()"><span class="top-nav-ic">⛶</span><span>Volledig scherm</span></button>
-        <?php if(hasActionPermission($db, 'act_config_manage')): ?>
-        <form method="POST"><input type="hidden" name="action" value="reload"><?=csrfField()?><button class="bt bsm troubleshoot-btn" type="submit"><span class="top-nav-ic">🛠</span><span>Rebuild</span></button></form>
-        <form method="POST"><input type="hidden" name="action" value="restart"><?=csrfField()?><button class="bt bsm troubleshoot-btn" type="submit"><span class="top-nav-ic">🛠</span><span>Restart</span></button></form>
-        <?php endif; ?>
-        <form method="POST"><input type="hidden" name="action" value="logout"><button type="submit" class="bt bsm danger"><span class="top-nav-ic">⇥</span><span>Uitloggen</span></button></form>
-    </div>
-</div>
-<?php if(!empty($updateNotice)): ?>
-<div class="mo" id="updateNoticeM" data-latest="<?=e((string)$updateNotice['latest'])?>" onclick="if(event.target===this)closeM('updateNoticeM')" style="z-index:1300">
-    <div class="md" style="width:min(560px,92vw)">
-        <h3>Nieuwe versie beschikbaar</h3>
-        <p style="margin-bottom:10px;color:var(--txd);font-size:13px">Je draait versie <strong><?=e(APP_VERSION)?></strong>, maar op de server staat versie <strong><?=e((string)$updateNotice['latest'])?></strong>.</p>
-        <div style="border:1px solid var(--brd);border-radius:10px;padding:10px 12px;background:var(--s1);font-size:12px;color:var(--txd);line-height:1.5;margin-bottom:14px">
-            Als admin kun je de update installeren door het update-script opnieuw uit te voeren op de server. Voor de volledige instructies en laatste bestanden, gebruik de GitHub-repository.
-        </div>
-        <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
-            <button type="button" class="bt bg" onclick="closeM('updateNoticeM')">Later</button>
-            <a class="bt bp" href="https://github.com/charlesderidder/Smokeping-Manager" target="_blank" rel="noopener noreferrer">charlesderidder/Smokeping-Manager</a>
-            <?php if(!empty($updateNotice['url'])): ?><a class="bt" href="<?=e((string)$updateNotice['url'])?>" target="_blank" rel="noopener noreferrer">Update-script openen</a><?php endif; ?>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
-<div class="app">
-<aside class="sd">
-<div class="sd-info">
-<div class="sd-info-title">Info</div>
-<?php if(!empty($flashHistory)): ?>
-<div class="sd-info-list">
-<?php foreach(array_reverse($flashHistory) as $msg): $msgType=in_array(($msg['type']??'success'),['success','error'],true)?$msg['type']:'success'; ?>
-<div class="sd-info-item <?=$msgType?>">
-    <div class="sd-info-item-meta">
-        <span class="sd-info-item-type"><?=e($msgType)?></span>
-        <span><?=date('d-m-Y H:i:s', (int)($msg['ts'] ?? time()))?></span>
-    </div>
-    <div class="sd-info-item-text"><?=e((string)($msg['msg'] ?? ''))?></div>
-</div>
-<?php endforeach; ?>
-</div>
-<?php else: ?><div class="sd-info-empty">Geen meldingen beschikbaar.</div><?php endif;?>
-</div>
-</aside>
-<div class="ct">
->>>>>>> a6ee2655d85d17c242df5ef2440025b1edeca2ec
 <?php
 // Pre-compute default email for forms (available in all page contexts)
 $_uid=(int)($_SESSION['uid']??0);
@@ -12279,7 +11630,7 @@ document.addEventListener('DOMContentLoaded', function(){ resetTgtForm(); openM(
 <?php
 // ========== INSTELLINGEN ==========
 elseif($page==='settings'):
-    $stab=$_GET['stab']??'instellingen';
+    $stab = trim((string)($_GET['stab'] ?? 'profiel'));
     $isAdminUi = isAdmin($db);
     $canManageUi = canManage($db);
     $uiCanConfigManage = hasActionPermission($db, 'act_config_manage');
@@ -12290,22 +11641,27 @@ elseif($page==='settings'):
     $canOpenConfigUi = $isAdminUi || $uiCanConfigManage || $canManageUi;
     $canOpenBackupsUi = $isAdminUi || $uiCanBackupsManage;
     $canOpenBeheerUi = $isAdminUi || $uiCanMailUse || $uiCanMailSettings || $uiCanAlertsManage;
-    $legacyMap=[
-        'theme'=>'instellingen','fontsize'=>'instellingen','account'=>'instellingen','setup'=>'instellingen',
-        'users'=>'beheer','alerts'=>'beheer','rrdlogs'=>'beheer',
-        'system'=>'configuratie','config'=>'configuratie',
-        'backup'=>'backups','email'=>'beheer','log'=>'logging'
+    $canOpenNotificatiesUi = $canOpenBeheerUi;
+    $navMode = getSetting($db, 'settings_nav_mode', 'tabs');
+    if (!in_array($navMode, ['tabs', 'sidebar'], true)) $navMode = 'tabs';
+    $legacyMap = [
+        'instellingen' => 'profiel', 'theme'       => 'profiel',
+        'fontsize'     => 'profiel', 'account'     => 'profiel',
+        'setup'        => 'admin',   'permissions' => 'admin',
+        'email'        => 'notificaties',
+        'beheer'       => ($isAdminUi ? 'gebruikers' : 'notificaties'),
+        'users'        => 'gebruikers', 'alerts' => 'notificaties', 'rrdlogs' => 'performance',
+        'system'       => 'configuratie', 'config' => 'configuratie',
+        'backup'       => 'backups', 'log' => 'logging',
     ];
-    if(isset($legacyMap[$stab])) $stab=$legacyMap[$stab];
-    $allowedStabs = ['instellingen'];
+    if (isset($legacyMap[$stab])) $stab = $legacyMap[$stab];
+    $allowedStabs = ['profiel'];
+    if ($isAdminUi) $allowedStabs[] = 'admin';
     if ($canOpenConfigUi) $allowedStabs[] = 'configuratie';
     if ($canOpenBackupsUi) $allowedStabs[] = 'backups';
-    if ($canOpenBeheerUi) $allowedStabs[] = 'beheer';
-    if ($isAdminUi) {
-        $allowedStabs[] = 'logging';
-        $allowedStabs[] = 'performance';
-    }
-    if(!in_array($stab,$allowedStabs,true)) $stab='instellingen';
+    if ($canOpenNotificatiesUi) $allowedStabs[] = 'notificaties';
+    if ($isAdminUi) { $allowedStabs[] = 'gebruikers'; $allowedStabs[] = 'logging'; $allowedStabs[] = 'performance'; }
+    if (!in_array($stab, $allowedStabs, true)) $stab = 'profiel';
     smPerfStart('settings_prep_ms');
     $files = [];
     $selFile = '';
@@ -12315,9 +11671,9 @@ elseif($page==='settings'):
     $fullBackups = [];
     $autoBackupCfg = ['enabled'=>false,'frequency'=>'daily','keep_latest'=>10,'retain_daily'=>14,'retain_weekly'=>8,'retain_monthly'=>6,'last_period_key'=>'','last_run_at'=>'','last_result'=>''];
     $autoBackupDirs = [];
-    $emailSettings = null;
+    $emailSettings = ['id'=>1,'smtp_host'=>'','smtp_port'=>587,'smtp_encryption'=>'tls','smtp_enabled'=>0,'smtp_username'=>'','smtp_password'=>'','smtp_from_email'=>''];
     $allAlerts = [];
-    $defaultTestEmail = '';
+    $notifyEmail = '';
     $pendingApprovalCount = 0;
     $currentRoleForUi = getUserRole($db);
     if ($stab === 'configuratie') {
@@ -12364,17 +11720,21 @@ elseif($page==='settings'):
             smCacheSet('settings:auto_backup_dirs', $autoBackupDirs, 45);
         }
     }
-    if($stab === 'beheer' && $canOpenBeheerUi){
+    if ($stab === 'notificaties' || ($stab === 'notificaties' && $canOpenNotificatiesUi)) {
         if ($uiCanMailUse || $uiCanMailSettings || $isAdminUi) {
             $emailSettings = $db->query('SELECT * FROM email_settings WHERE id=1')->fetchArray(SQLITE3_ASSOC);
-            if(!$emailSettings) {
-                $db->exec('INSERT INTO email_settings (id, smtp_host, smtp_port, smtp_encryption, smtp_from_name) VALUES (1, "smtp.gmail.com", 587, "tls", "SmokePing Manager")');
+            if (!is_array($emailSettings)) {
+                $db->exec('INSERT OR IGNORE INTO email_settings (id, smtp_host, smtp_port, smtp_encryption, smtp_from_name, smtp_enabled) VALUES (1, "smtp.gmail.com", 587, "tls", "SmokePing Manager", 0)');
                 $emailSettings = $db->query('SELECT * FROM email_settings WHERE id=1')->fetchArray(SQLITE3_ASSOC);
+                if (!is_array($emailSettings)) $emailSettings = ['id'=>1,'smtp_host'=>'smtp.gmail.com','smtp_port'=>587,'smtp_encryption'=>'tls','smtp_enabled'=>0,'smtp_username'=>'','smtp_password'=>'','smtp_from_email'=>''];
             }
-            $defaultTestEmail = getDefaultTestEmail($db);
+            $notifyEmail = getDefaultTestEmail($db) ?? '';
+        } else {
+            $emailSettings = ['id'=>1,'smtp_host'=>'','smtp_port'=>587,'smtp_encryption'=>'tls','smtp_enabled'=>0,'smtp_username'=>'','smtp_password'=>'','smtp_from_email'=>''];
+            $notifyEmail = '';
         }
         if ($uiCanAlertsManage || $isAdminUi) {
-            $allAlerts = getAllAlerts($db);
+            $allAlerts = getAllAlerts($db) ?? [];
         }
     }
     if (isAdmin($db)) {
@@ -12470,21 +11830,74 @@ elseif($page==='settings'):
     .mobile-backup-accordion.is-collapsed .cd-t::after{content:'▸'}
     .mobile-backup-accordion.is-collapsed>:not(.cd-t){display:none}
 }
+/* Settings nav redesign v6 */
+.settings-pg-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:8px;flex-wrap:wrap}
+.settings-pg-header h2{font-size:16px;margin:0}
+.snav-toggle{display:flex;gap:3px;border:1px solid var(--brd);border-radius:8px;padding:3px;background:var(--s1)}
+.snav-toggle button{display:flex;align-items:center;gap:5px;padding:4px 9px;border:none;border-radius:5px;font-size:12px;font-weight:600;cursor:pointer;color:var(--txd);background:transparent;transition:.14s}
+.snav-toggle button.active{background:var(--bg);color:var(--tx);box-shadow:0 1px 4px rgba(0,0,0,.13)}
+.snav-toggle button:hover:not(.active){color:var(--tx)}
+.settings-wrap{display:block}
+.settings-subtabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:10px}
+.settings-wrap.sidebar-mode{display:grid;grid-template-columns:208px minmax(0,1fr);gap:14px;align-items:start}
+.settings-wrap.sidebar-mode .settings-pg-header{grid-column:1/-1}
+.settings-wrap.sidebar-mode .settings-subtabs{grid-template-columns:1fr;margin-bottom:0;align-self:start;position:sticky;top:60px;max-height:calc(100vh - 80px);overflow-y:auto}
+.settings-wrap.sidebar-mode .settings-subtabs .subtab{border-radius:8px}
+.settings-wrap.sidebar-mode .settings-content-area{min-width:0}
+.subtab.locked{opacity:.52;cursor:default;pointer-events:none}
+.subtab-lock{display:inline-block;margin-left:4px;font-size:9px;opacity:.8}
+.subtab-role-pill{display:inline-block;padding:1px 5px;border-radius:3px;font-size:9px;font-weight:700;margin-left:4px;background:color-mix(in srgb,var(--ac) 18%,transparent);color:var(--ac);border:1px solid color-mix(in srgb,var(--ac) 30%,transparent);vertical-align:middle}
+.locked-tab-info{background:var(--s1);border:1px dashed var(--brd);border-radius:10px;padding:32px 20px;text-align:center;color:var(--txd)}
+.locked-tab-info .lt-icon{font-size:32px;margin-bottom:8px}
+.locked-tab-info h3{font-size:15px;margin-bottom:6px;color:var(--tx)}
+.locked-tab-info p{font-size:13px;line-height:1.5}
+@media(max-width:860px){.settings-wrap.sidebar-mode{grid-template-columns:180px minmax(0,1fr)}}
+@media(max-width:640px){.settings-wrap.sidebar-mode{grid-template-columns:1fr}.settings-wrap.sidebar-mode .settings-subtabs{position:static;max-height:none}}
 </style>
-<div class="subtabs">
-<a href="?p=settings&stab=instellingen" class="subtab <?=$stab==='instellingen'?'active':''?>"><span class="subtab-title">⚙️ Instellingen</span><span class="subtab-hint">Thema, sessie, voorkeuren</span></a>
-<?php if($canOpenConfigUi): ?><a href="?p=settings&stab=configuratie" class="subtab <?=$stab==='configuratie'?'active':''?>"><span class="subtab-title">🧩 Configuratie</span><span class="subtab-hint">Service en configfiles</span></a>
-<?php endif; ?><?php if($canOpenBackupsUi): ?><a href="?p=settings&stab=backups" class="subtab <?=$stab==='backups'?'active':''?>"><span class="subtab-title">💾 Backups</span><span class="subtab-hint">Herstel en retentie</span></a><?php endif; ?>
-<?php if(isAdmin($db)): ?>
-<a href="?p=settings&stab=logging" class="subtab <?=$stab==='logging'?'active':''?>"><span class="subtab-title">📋 Logging</span><span class="subtab-hint">Historie en onderhoud</span></a>
-<a href="?p=settings&stab=performance" class="subtab <?=$stab==='performance'?'active':''?>"><span class="subtab-title">⚡ Performance</span><span class="subtab-hint">Snelheid en cache</span></a>
-<?php endif; ?>
-<?php if($canOpenBeheerUi): ?><a href="?p=settings&stab=beheer" class="subtab <?=$stab==='beheer'?'active':''?>"><span class="subtab-title">🛡️ Beheer<?php if($isAdminUi && $pendingApprovalCount>0): ?><span class="subtab-badge"><?=$pendingApprovalCount?></span><?php endif; ?></span><span class="subtab-hint">Gebruikers, goedkeuringen en alerts</span></a><?php endif; ?>
+<div id="settingsWrap" class="settings-wrap <?=$navMode==='sidebar'?'sidebar-mode':''?>">
+<div class="settings-pg-header">
+<h2 style="margin:0;font-size:16px">&#x2699;&#xFE0F; Instellingen</h2>
+<div class="snav-toggle">
+<button type="button" data-mode="tabs" onclick="setSettingsNavMode('tabs')" class="<?=$navMode==='tabs'?'active':''?>" title="Horizontale tabs">&#x229E; Tabs</button>
+<button type="button" data-mode="sidebar" onclick="setSettingsNavMode('sidebar')" class="<?=$navMode==='sidebar'?'active':''?>" title="Verticale sidebar">&#x2630; Sidebar</button>
 </div>
-
-<?php if($stab==='instellingen'): ?>
+</div>
+<div class="settings-subtabs"><?php
+$_sTabs=[
+['id'=>'profiel',      'i'=>'&#x1F464;','l'=>'Mijn Profiel',  'h'=>'Thema, sessie & profiel',   'ok'=>true,                   'b'=>0],
+['id'=>'admin',        'i'=>'&#x1F511;','l'=>'Systeem',        'h'=>'Auth, rechten & reset',     'ok'=>$isAdminUi,             'b'=>0,'r'=>'Admin'],
+['id'=>'configuratie', 'i'=>'&#x1F9E9;','l'=>'Configuratie',   'h'=>'Service & configfiles',     'ok'=>$canOpenConfigUi,       'b'=>0,'r'=>'Beheerder'],
+['id'=>'backups',      'i'=>'&#x1F4BE;','l'=>'Backups',         'h'=>'Herstel & retentie',        'ok'=>$canOpenBackupsUi,      'b'=>0,'r'=>'Beheerder'],
+['id'=>'notificaties', 'i'=>'&#x1F514;','l'=>'Notificaties',   'h'=>'SMTP, alerts & meldingen',  'ok'=>$canOpenNotificatiesUi, 'b'=>0,'r'=>'Beheerder'],
+['id'=>'gebruikers',   'i'=>'&#x1F465;','l'=>'Gebruikers',     'h'=>'Accounts & rollen',         'ok'=>$isAdminUi,             'b'=>$pendingApprovalCount,'r'=>'Admin'],
+['id'=>'logging',      'i'=>'&#x1F4CB;','l'=>'Logging',         'h'=>'Historie & onderhoud',      'ok'=>$isAdminUi,             'b'=>0,'r'=>'Admin'],
+['id'=>'performance',  'i'=>'&#x26A1;','l'=>'Performance',     'h'=>'Snelheid & cache',           'ok'=>$isAdminUi,             'b'=>0,'r'=>'Admin'],
+];
+foreach($_sTabs as $_t):
+$_a=$stab===$_t['id'];$_c='subtab'.($_a?' active':'').($_t['ok']?'':' locked');
+$_badge=($_t['b']>0&&$_t['ok'])?"<span class=\"subtab-badge\">{$_t['b']}</span>":'';
+$_lock=$_t['ok']?'':' &#x1F512;';
+$_rpill=(!$_t['ok']&&isset($_t['r']))?"<span class=\"subtab-role-pill\">{$_t['r']}</span>":'';
+$_title="<span class=\"subtab-title\">{$_t['i']} ".e($_t['l'])."$_badge$_lock</span>";
+$_hint="<span class=\"subtab-hint\">".e($_t['h'])."$_rpill</span>";
+if($_t['ok'])echo "<a href=\"?p=settings&stab={$_t['id']}\" class=\"$_c\">$_title$_hint</a>";
+else echo "<span class=\"$_c\" title=\"Vereist: {$_t['r']}\">$_title$_hint</span>";
+endforeach;?></div>
+<script>
+function setSettingsNavMode(mode){
+var w=document.getElementById('settingsWrap');
+if(!w)return;
+w.classList.toggle('sidebar-mode',mode==='sidebar');
+document.querySelectorAll('.snav-toggle button').forEach(function(b){b.classList.toggle('active',b.dataset.mode===mode);});
+var fd=new FormData();
+fd.append('action','set_settings_nav_mode');fd.append('mode',mode);fd.append('stab','<?=e($stab)?>');fd.append('csrf','<?=csrf()?>');
+fetch('',{method:'POST',body:fd,credentials:'same-origin',headers:{'X-Requested-With':'XMLHttpRequest'}}).catch(function(){});
+}
+</script>
+<div class="settings-content-area">
+<?php if($stab==='profiel'): ?>
 <div class="settings-pref-grid">
-<div class="cd settings-pref-card"><div class="cd-t">🎨 Thema, sessie & lettertype</div>
+<div class="cd settings-pref-card"><div class="cd-t">&#x1F3A8; Thema, sessie & lettertype</div>
 <form method="POST"><input type="hidden" name="action" value="set_theme"><?=csrfField()?>
 <div class="settings-inline-stack">
 <div class="fg"><label>Thema voorkeur</label><select name="theme"><option value="auto" <?=$theme==='auto'?'selected':''?>>Automatisch</option><option value="light" <?=$theme==='light'?'selected':''?>>Licht</option><option value="dark" <?=$theme==='dark'?'selected':''?>>Donker</option></select></div>
@@ -12492,33 +11905,58 @@ elseif($page==='settings'):
 <div class="fg"><label>Lettergrootte voorkeur</label><select name="fontsize"><option value="10" <?=$fontsize==='10'?'selected':''?>>10px</option><option value="12" <?=$fontsize==='12'?'selected':''?>>12px</option><option value="14" <?=$fontsize==='14'?'selected':''?>>14px (Standaard)</option><option value="16" <?=$fontsize==='16'?'selected':''?>>16px</option><option value="18" <?=$fontsize==='18'?'selected':''?>>18px</option><option value="20" <?=$fontsize==='20'?'selected':''?>>20px</option><option value="22" <?=$fontsize==='22'?'selected':''?>>22px</option><option value="24" <?=$fontsize==='24'?'selected':''?>>24px</option></select></div>
 </div>
 <button type="submit" class="bt bp">Opslaan</button></form></div>
-
-<div class="cd settings-pref-card"><div class="cd-t">👤 Profielbeheer</div>
+<div class="cd settings-pref-card"><div class="cd-t">&#x1F464; Profielbeheer</div>
 <form method="POST"><input type="hidden" name="action" value="chpw"><?=csrfField()?>
 <div class="fg"><label>Nieuwe gebruikersnaam (leeg = behouden)</label><input type="text" name="newuser" value="<?=e($_SESSION['uname']??'')?>"></div>
 <div class="fg"><label>Huidig wachtwoord</label><input type="password" name="cur" required></div>
 <div class="fg"><label>Nieuw wachtwoord (leeg = behouden)</label><input type="password" name="new" minlength="6"></div>
 <div class="fg"><label>Bevestig nieuw wachtwoord</label><input type="password" name="con" minlength="6"></div>
 <button type="submit" class="bt bp">Opslaan</button></form></div>
-
-<?php if(isAdmin($db)): ?>
-<div class="cd settings-pref-card"><div class="cd-t">🔐 Google Auth</div>
+<div class="cd settings-pref-card"><div class="cd-t">&#x1F30D; Navigatie voorkeur</div>
+<p style="font-size:12px;color:var(--txd);margin-bottom:12px">Kies hoe de navigatie van de Instellingen-pagina wordt weergegeven. Wordt bewaard per account.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<button type="button" onclick="setSettingsNavMode('tabs')" class="bt <?=$navMode==='tabs'?'bp':'bw'?>">&#x229E; Horizontale tabs</button>
+<button type="button" onclick="setSettingsNavMode('sidebar')" class="bt <?=$navMode==='sidebar'?'bp':'bw'?>">&#x2630; Verticale sidebar</button>
+</div></div>
+</div>
+<?php elseif($stab==='admin'): ?>
+<?php if($isAdminUi): ?>
+<div class="settings-pref-grid">
+<div class="cd settings-pref-card"><div class="cd-t">&#x1F510; Google Auth</div>
 <form method="POST"><input type="hidden" name="action" value="save_google_auth_settings"><?=csrfField()?>
-<div class="fg"><label><input type="checkbox" name="google_auth_enabled" value="1" <?=getSetting($db, 'google_auth_enabled', '0') === '1' ? 'checked' : ''?>> Google aanmelding inschakelen</label></div>
-<div class="fg"><label>Google Client ID</label><input type="text" name="google_client_id" value="<?=e((string)getSetting($db, 'google_client_id', ''))?>" placeholder="xxxxx.apps.googleusercontent.com"></div>
-<div class="fg"><label>Google Client Secret</label><input type="password" name="google_client_secret" placeholder="Laat leeg om bestaand geheim te behouden"></div>
-<div class="fg"><label>Redirect URI</label><input type="text" name="google_redirect_uri" value="<?=e((string)getSetting($db, 'google_redirect_uri', buildGoogleRedirectUri($db)))?>" placeholder="<?=e(buildGoogleRedirectUri($db))?>"></div>
-<p style="font-size:12px;color:var(--txd);margin:8px 0 0">Nieuwe Google registraties komen eerst in de goedkeuringswachtrij. De notificatie gaat naar de standaard e-mailontvangers.</p>
+<div class="fg"><label><input type="checkbox" name="google_auth_enabled" value="1" <?=getSetting($db,'google_auth_enabled','0')==='1'?'checked':''?>> Google aanmelding inschakelen</label></div>
+<div class="fg"><label>Google Client ID</label><input type="text" name="google_client_id" value="<?=e((string)getSetting($db,'google_client_id',''))?>" placeholder="xxxxx.apps.googleusercontent.com"></div>
+<div class="fg"><label>Google Client Secret</label><input type="password" name="google_client_secret" placeholder="Laat leeg om bestaand te behouden"></div>
+<div class="fg"><label>Redirect URI</label><input type="text" name="google_redirect_uri" value="<?=e((string)getSetting($db,'google_redirect_uri',buildGoogleRedirectUri($db)))?>" placeholder="<?=e(buildGoogleRedirectUri($db))?>"></div>
+<p style="font-size:12px;color:var(--txd);margin:8px 0 0">Nieuwe Google registraties komen eerst in de goedkeuringswachtrij.</p>
 <button type="submit" class="bt bp">Google Instellingen Opslaan</button></form></div>
-
-<div class="cd settings-pref-card"><div class="cd-t">🚀 Stappenplan</div>
+<div class="cd settings-pref-card"><div class="cd-t">&#x1F680; Stappenplan</div>
 <p style="font-size:12px;color:var(--txd);margin-bottom:12px">Reset alle categorieën en targets, en start het stappenplan opnieuw.</p>
-<?php if($uiCanConfigManage): ?><form method="POST" onsubmit="return confirm('WAARSCHUWING: Dit verwijdert alle categorieën en targets! Weet je zeker dat je het stappenplan wilt resetten?')"><input type="hidden" name="action" value="reset_setup"><?=csrfField()?><button type="submit" class="bt bd">Stappenplan Resetten</button></form><?php else: ?><p style="color:var(--txd);font-size:13px">Je hebt geen rechten om het stappenplan te resetten.</p><?php endif; ?>
+<?php if($uiCanConfigManage): ?><form method="POST" onsubmit="return confirm('WAARSCHUWING: Dit verwijdert alle categorieën en targets! Weet je zeker dat je het stappenplan wilt resetten?')"><input type="hidden" name="action" value="reset_setup"><?=csrfField()?><button type="submit" class="bt bd">Stappenplan Resetten</button></form><?php else: ?><p style="color:var(--txd);font-size:13px">Geen rechten om stappenplan te resetten.</p><?php endif; ?>
 </div>
 </div>
-<?php endif; ?>
-
-<?php elseif($stab==='configuratie'): ?>
+<div class="cd"><div class="cd-t">&#x1F510; Paginarechten voor niet-admin gebruikers</div>
+<p style="font-size:12px;color:var(--txd);margin-bottom:12px">Beheer welke paginas niet-admin gebruikers kunnen zien en welke acties ze mogen uitvoeren.</p>
+<form method="POST" style="margin-bottom:12px"><input type="hidden" name="action" value="set_user_page_permissions"><?=csrfField()?>
+<?php $pageKeys=['targets','dashboard','database','settings','logging'];$actionDefs=getActionPermissionDefinitions();$actionGroups=[];foreach($actionDefs as $aK=>$aMeta){$aG=(string)($aMeta['group']??'Overig');$actionGroups[$aG][$aK]=$aMeta;}?>
+<div class="beheer-users-wrap"><table class="beheer-users-table" style="font-size:13px"><thead><tr style="background:var(--s2);border-bottom:2px solid var(--brd)"><th style="text-align:left;padding:10px">Gebruiker</th><th style="text-align:center;padding:10px">Targets</th><th style="text-align:center;padding:10px">Dashboard</th><th style="text-align:center;padding:10px">Database</th><th style="text-align:center;padding:10px">Settings</th><th style="text-align:center;padding:10px">Logging</th></tr></thead><tbody>
+<?php $adminUR=[];$adminUQ=$db->query('SELECT id,username,role FROM users WHERE approval_status="active" AND role!="admin" ORDER BY role ASC, username ASC');if($adminUQ instanceof SQLite3Result){while($aRow=$adminUQ->fetchArray(SQLITE3_ASSOC))$adminUR[]=$aRow;}
+if(empty($adminUR)):?><tr><td colspan="6" style="padding:12px;color:var(--txd);text-align:center">Geen niet-admin gebruikers gevonden.</td></tr>
+<?php else:foreach($adminUR as $aU):$aPerms=getPageVisibility($db,(int)$aU['id']);?><tr style="border-bottom:1px solid var(--brd)"><td style="padding:10px"><input type="hidden" name="present_user_ids[]" value="<?=(int)$aU['id']?>"><?=e((string)$aU['username'])?> <span style="color:var(--txd);font-size:11px">(<?=e((string)$aU['role'])?>)</span></td>
+<?php foreach($pageKeys as $pK):?><td style="text-align:center;padding:10px"><label style="display:inline-flex;align-items:center;cursor:pointer"><input type="checkbox" name="user_<?=(int)$aU['id']?>_<?=$pK?>" value="1" <?=(int)($aPerms[$pK]??0)===1?'checked':''?> style="cursor:pointer"></label></td><?php endforeach;?></tr>
+<?php endforeach;endif;?></tbody></table></div>
+<div class="cd-t" style="margin-top:16px">&#x1F9E9; Actierechten per gebruiker</div>
+<p style="font-size:12px;color:var(--txd);margin-bottom:12px">Wat mag elke gebruiker doen: targets, backups, mail, config, etc.</p>
+<?php if(!empty($adminUR)):?><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px">
+<?php foreach($adminUR as $aU):$aActP=getActionPermissions($db,(int)$aU['id'],(string)$aU['role']);?><div class="beheer-card-compact" style="padding:12px"><div class="cd-t" style="font-size:14px;margin-bottom:8px"><?=e((string)$aU['username'])?> <span style="color:var(--txd);font-size:11px">(<?=e((string)$aU['role'])?>)</span></div>
+<?php foreach($actionGroups as $aGN=>$aGI):?><div style="margin-bottom:8px"><div style="font-size:11px;color:var(--txd);text-transform:uppercase;letter-spacing:.04em;margin:6px 0"><?=e($aGN)?></div>
+<?php foreach($aGI as $aAK=>$aAMeta):?><label style="display:flex;align-items:flex-start;gap:8px;margin:4px 0;cursor:pointer;font-size:12px"><input type="checkbox" name="user_<?=(int)$aU['id']?>_<?=$aAK?>" value="1" <?=(int)($aActP[$aAK]??0)===1?'checked':''?>><span><?=e((string)($aAMeta['label']??$aAK))?></span></label><?php endforeach;?></div>
+<?php endforeach;?></div><?php endforeach;?></div><?php endif;?>
+<button type="submit" class="bt bp" style="margin-top:12px">&#x1F4BE; Rechten Opslaan</button>
+</form></div>
+<?php else: ?>
+<div class="locked-tab-info"><div class="lt-icon">&#x1F512;</div><h3>Geen toegang</h3><p>Vereist rol: <strong>Admin</strong><br>Jouw rol: <strong><?=e($currentRoleForUi?:'onbekend')?></strong></p></div>
+<?php endif; ?><?php elseif($stab==='configuratie'): ?>
 <div class="cd"><div class="cd-t">🔄 Configuratie & Service</div>
 <?php if($uiCanConfigManage): ?><div style="display:flex;gap:8px;margin-bottom:16px"><form method="POST"><input type="hidden" name="action" value="reload"><?=csrfField()?><button class="bt bo" style="flex:1;justify-content:center">Rebuild & Restart SmokePing</button></form><form method="POST"><input type="hidden" name="action" value="restart"><?=csrfField()?><button class="bt bo" style="flex:1;justify-content:center">Alleen Restart</button></form></div><?php endif; ?>
 <table style="width:100%;font-size:13px;line-height:1.8"><tr><td style="color:var(--txd);padding:5px 0;width:200px">Targets Config</td><td><code style="font-size:11px"><?=SMOKEPING_TARGETS_FILE?></code><?php if(file_exists(SMOKEPING_TARGETS_FILE)) echo ' ✅'; ?></td></tr><tr><td style="color:var(--txd);padding:5px 0">Probes Config</td><td><code style="font-size:11px"><?=SMOKEPING_PROBES_FILE?></code><?php if(file_exists(SMOKEPING_PROBES_FILE)) echo ' ✅'; ?></td></tr><tr><td style="color:var(--txd);padding:5px 0">Database</td><td><code style="font-size:11px"><?=DB_PATH?></code><?php if(file_exists(DB_PATH)) echo ' ✅'; ?></td></tr><tr><td style="color:var(--txd);padding:5px 0">RRD Data Dir</td><td><code style="font-size:11px"><?=SMOKEPING_DATA_DIR?></code><?php if(is_dir(SMOKEPING_DATA_DIR)) echo ' ✅'; ?></td></tr><tr><td style="color:var(--txd);padding:5px 0">PHP Versie</td><td><?=phpversion()?></td></tr><tr><td style="color:var(--txd);padding:5px 0">SmokePing CGI</td><td><code style="font-size:11px"><?=SMOKEPING_CGI_URL?></code></td></tr></table>
@@ -13036,628 +12474,73 @@ function showPerformanceSettingInfo(kind){
 <div class="cd"><div class="cd-t">Performance</div><p style="color:var(--txd)">Alleen admins hebben toegang tot performancestatistieken.</p></div>
 <?php endif; ?>
 
-<?php elseif($stab==='beheer'): ?>
-<?php if($canOpenBeheerUi): ?>
-<?php
-$beheerTab = trim((string)($_GET['btab'] ?? 'users'));
-$allowedBeheerTabs = [];
-if ($isAdminUi) $allowedBeheerTabs[] = 'users';
-if ($uiCanMailUse || $uiCanMailSettings || $isAdminUi) $allowedBeheerTabs[] = 'email';
-if ($isAdminUi) $allowedBeheerTabs[] = 'permissions';
-if ($uiCanAlertsManage || $isAdminUi) $allowedBeheerTabs[] = 'alerts';
-if ($isAdminUi) $allowedBeheerTabs[] = 'rrd';
-if (empty($allowedBeheerTabs)) $allowedBeheerTabs = ['email'];
-if (!in_array($beheerTab, $allowedBeheerTabs, true)) $beheerTab = $allowedBeheerTabs[0];
-?>
-<div class="subtabs" style="margin-bottom:10px">
-<?php if($isAdminUi): ?>
-<a href="?p=settings&stab=beheer&btab=users" class="subtab <?=$beheerTab==='users'?'active':''?>"><span class="subtab-title">👥 Gebruikersbeheer<?php if($pendingApprovalCount>0): ?><span class="subtab-badge"><?=$pendingApprovalCount?></span><?php endif; ?></span><span class="subtab-hint">Accounts en rollen</span></a>
-<?php endif; ?>
-<?php if($uiCanMailUse || $uiCanMailSettings || $isAdminUi): ?>
-<a href="?p=settings&stab=beheer&btab=email" class="subtab <?=$beheerTab==='email'?'active':''?>"><span class="subtab-title">📧 E-mail & Notificaties</span><span class="subtab-hint">SMTP en meldingen</span></a>
-<?php endif; ?>
-<?php if($isAdminUi): ?>
-<a href="?p=settings&stab=beheer&btab=permissions" class="subtab <?=$beheerTab==='permissions'?'active':''?>"><span class="subtab-title">🔐 Paginarechten</span><span class="subtab-hint">Zichtbaarheid user-pagina's</span></a>
-<?php endif; ?>
-<?php if($uiCanAlertsManage || $isAdminUi): ?>
-<a href="?p=settings&stab=beheer&btab=alerts" class="subtab <?=$beheerTab==='alerts'?'active':''?>"><span class="subtab-title">🔔 Alerts</span><span class="subtab-hint">Alertprofielen beheren</span></a>
-<?php endif; ?>
-<?php if($isAdminUi): ?>
-<a href="?p=settings&stab=beheer&btab=rrd" class="subtab <?=$beheerTab==='rrd'?'active':''?>"><span class="subtab-title">📋 RRD Logs</span><span class="subtab-hint">Reset geschiedenis</span></a>
-<?php endif; ?>
-</div>
-
-<?php if($beheerTab==='users' && $isAdminUi): ?>
-<?php if($pendingApprovalCount>0): ?>
-<div class="cd" style="margin-bottom:10px"><div class="cd-t">⏳ Goedkeuringswachtrij</div><p style="font-size:13px;color:var(--txd)">Er <?=($pendingApprovalCount===1?'staat':'staan')?> <strong><?=$pendingApprovalCount?></strong> gebruiker<?=($pendingApprovalCount===1?'':'s')?> te wachten op goedkeuring. Gebruik hieronder de knoppen <strong>Goedkeuren</strong> of <strong>Afwijzen</strong>.</p></div>
-<?php endif; ?>
-<div class="cd"><div class="beheer-users-head"><div class="cd-t" style="margin-bottom:0">👥 Gebruikersbeheer</div><button type="button" class="bt bp bsm" onclick="openM('addUserM')">+ Nieuwe Gebruiker</button></div>
-<?php
-$pendingRows=[];
-$pendingSelect = ['id','username'];
-if (userColumnExists($db, 'google_email')) $pendingSelect[] = 'google_email';
-if (userColumnExists($db, 'requested_at')) $pendingSelect[] = 'requested_at';
-$pendingOrder = userColumnExists($db, 'requested_at') ? 'requested_at ASC, id ASC' : 'id ASC';
-$pendingSql = 'SELECT ' . implode(',', $pendingSelect) . ' FROM users WHERE approval_status="pending" ORDER BY ' . $pendingOrder;
-$pendingQuery = $db->query($pendingSql);
-if ($pendingQuery instanceof SQLite3Result) {
-    while($pendingRow=$pendingQuery->fetchArray(SQLITE3_ASSOC)) $pendingRows[]=$pendingRow;
-}
-?>
-<?php if(!empty($pendingRows)): ?>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px;margin-bottom:12px">
-<?php foreach($pendingRows as $pending): ?>
-<div style="border:1px solid var(--warn);background:var(--warnbg);border-radius:10px;padding:10px">
-<div style="font-weight:800;color:var(--warnfg);font-size:13px;margin-bottom:4px"><?=e((string)($pending['username'] ?? 'onbekend'))?></div>
-<?php if(!empty($pending['google_email'])): ?><div style="font-size:12px;color:var(--txd);margin-bottom:3px"><?=e((string)$pending['google_email'])?></div><?php endif; ?>
-<?php if(!empty($pending['requested_at'])): ?><div style="font-size:11px;color:var(--txd);margin-bottom:8px">Aangevraagd: <?=e((string)$pending['requested_at'])?></div><?php endif; ?>
-<div style="display:flex;gap:6px;flex-wrap:wrap"><form method="POST" style="display:inline"><input type="hidden" name="action" value="approve_user"><?=csrfField()?><input type="hidden" name="user_id" value="<?=(int)$pending['id']?>"><button type="submit" class="bt bp bsm">✓ Goedkeuren</button></form><form method="POST" style="display:inline" onsubmit="return confirm('Deze registratie afwijzen?')"><input type="hidden" name="action" value="reject_user"><?=csrfField()?><input type="hidden" name="user_id" value="<?=(int)$pending['id']?>"><button type="submit" class="bt bd bsm">✕ Afwijzen</button></form></div>
-</div>
-<?php endforeach; ?>
-</div>
-<div class="beheer-users-wrap" style="margin-bottom:12px">
-<table class="beheer-users-table" style="font-size:13px"><thead><tr style="background:var(--s2);border-bottom:2px solid var(--brd)"><th style="text-align:left;padding:10px">Aanvraag</th><th style="text-align:left;padding:10px">Google e-mail</th><th style="text-align:left;padding:10px">Aangevraagd</th><th style="text-align:center;padding:10px">Acties</th></tr></thead><tbody>
-<?php foreach($pendingRows as $pending): ?>
-<tr style="border-bottom:1px solid var(--brd)"><td style="padding:10px"><?=e($pending['username'])?></td><td style="padding:10px"><?=e((string)($pending['google_email'] ?? ''))?></td><td style="padding:10px"><?=e((string)($pending['requested_at'] ?? ''))?></td><td style="padding:10px;text-align:center"><div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap"><form method="POST" style="display:inline"><input type="hidden" name="action" value="approve_user"><?=csrfField()?><input type="hidden" name="user_id" value="<?=(int)$pending['id']?>"><button type="submit" class="bt bp bsm">✓ Goedkeuren</button></form><form method="POST" style="display:inline" onsubmit="return confirm('Deze registratie afwijzen?')"><input type="hidden" name="action" value="reject_user"><?=csrfField()?><input type="hidden" name="user_id" value="<?=(int)$pending['id']?>"><button type="submit" class="bt bd bsm">✕ Afwijzen</button></form></div></td></tr>
-<?php endforeach; ?></tbody></table></div>
-<?php elseif($pendingApprovalCount>0): ?>
-<div class="cd" style="margin-bottom:12px"><p style="font-size:13px;color:var(--warnfg)">Er zijn wachtende registraties geteld, maar de lijst kon niet volledig worden geladen. Vernieuw de pagina of controleer of de database is gemigreerd.</p></div>
-<?php endif; ?>
-<?php
-$activeUsers=[];
-$activeUsersQuery = $db->query('SELECT id,username,email,role,auth_provider,google_email,last_login_at FROM users WHERE approval_status="active" ORDER BY role DESC, username ASC');
-if ($activeUsersQuery instanceof SQLite3Result) {
-    while($ar=$activeUsersQuery->fetchArray(SQLITE3_ASSOC)) $activeUsers[]=$ar;
-}
-$roleDisplay=['admin'=>'👑 Admin','manager'=>'⚙️ Manager','user'=>'👤 User','readonly'=>'👁️ Alleen lezen'];
-?>
-<div class="cd" style="margin-bottom:12px">
-<div class="cd-t">✅ Toegangsoverzicht (actieve gebruikers)</div>
-<div class="beheer-users-wrap">
-<table class="beheer-users-table" style="font-size:13px"><thead><tr style="background:var(--s2);border-bottom:2px solid var(--brd)"><th style="text-align:left;padding:10px">Gebruiker</th><th style="text-align:left;padding:10px">Rol</th><th style="text-align:left;padding:10px">Provider</th><th style="text-align:left;padding:10px">Laatste login</th></tr></thead><tbody>
-<?php foreach($activeUsers as $au): ?>
-<tr style="border-bottom:1px solid var(--brd)"><td style="padding:10px"><?=e((string)$au['username'])?><?=((int)$au['id']===(int)($_SESSION['uid']??0))?' <span style="color:var(--ok);font-weight:600">(jij)</span>':''?></td><td style="padding:10px"><?=$roleDisplay[$au['role']]??e((string)$au['role'])?></td><td style="padding:10px"><?=e((string)($au['auth_provider'] ?? 'local'))?><?=!empty($au['google_email'])?' <span style="color:var(--txd);font-size:11px">'.e((string)$au['google_email']).'</span>':''?></td><td style="padding:10px"><?=!empty($au['last_login_at'])?e(formatDbDateLocal((string)$au['last_login_at'])):'-'?></td></tr>
-<?php endforeach; ?>
-<?php if(empty($activeUsers)): ?><tr><td colspan="4" style="padding:12px;color:var(--txd)">Geen actieve gebruikers gevonden.</td></tr><?php endif; ?>
-</tbody></table>
-</div>
-</div>
-<div class="beheer-users-wrap"><table class="beheer-users-table" style="font-size:13px"><thead><tr style="background:var(--s2);border-bottom:2px solid var(--brd)"><th style="text-align:left;padding:10px">Gebruiker</th><th style="text-align:left;padding:10px">Rol</th><th style="text-align:left;padding:10px">Status</th><th style="text-align:center;padding:10px">Acties</th></tr></thead><tbody>
-<?php $users=$db->query('SELECT id,username,email,role,approval_status,google_email,auth_provider,requested_at,approved_at FROM users ORDER BY CASE WHEN approval_status="pending" THEN 0 ELSE 1 END, id'); while($u=$users->fetchArray(SQLITE3_ASSOC)): $statusDisplay=['active'=>'Actief','pending'=>'Wacht op goedkeuring','rejected'=>'Afgewezen']; $statusKey=strtolower((string)($u['approval_status'] ?? 'active')); $isCurrentUser=$u['id']==$_SESSION['uid'];?>
-<tr style="border-bottom:1px solid var(--brd)"><td style="padding:10px"><?=e($u['username'])?><?=$isCurrentUser?' <span style="color:var(--ok);font-weight:600">(jij)</span>':''?></td><td style="padding:10px"><?=$roleDisplay[$u['role']]??$u['role']?></td><td style="padding:10px"><span class="bge" style="<?=e($statusKey==='active' ? 'background:var(--okbg);color:var(--okfg);border:1px solid var(--ok)' : ($statusKey==='pending' ? 'background:var(--warnbg);color:var(--warnfg);border:1px solid var(--warn)' : 'background:var(--errbg);color:var(--errfg);border:1px solid var(--err)'))?>"><?=e($statusDisplay[$statusKey]??$statusKey)?></span><?=!empty($u['email'])?' <span style="color:var(--txd);font-size:11px">'.e((string)$u['email']).'</span>':''?><?=!empty($u['google_email'])?' <span style="color:var(--txd);font-size:11px">'.e((string)$u['google_email']).'</span>':''?></td><td style="padding:10px;text-align:center"><?php if($statusKey!=='active'): ?><form method="POST" style="display:inline"><input type="hidden" name="action" value="approve_user"><?=csrfField()?><input type="hidden" name="user_id" value="<?=(int)$u['id']?>"><button type="submit" class="bt bp bsm">✓ Goedkeuren</button></form><form method="POST" style="display:inline" onsubmit="return confirm('Deze registratie afwijzen?')"><input type="hidden" name="action" value="reject_user"><?=csrfField()?><input type="hidden" name="user_id" value="<?=(int)$u['id']?>"><button type="submit" class="bt bd bsm">✕ Afwijzen</button></form><?php elseif(!$isCurrentUser): ?><form method="POST" style="display:inline"><input type="hidden" name="action" value="edit_user"><input type="hidden" name="user_id" value="<?=(int)$u['id']?>"><?=csrfField()?><button type="button" class="bt bg bsm" onclick="showEditUser(<?=(int)$u['id']?>, '<?=e($u['username'])?>', '<?=$u['role']?>', '<?=e((string)($u['email'] ?? ''))?>')">✎ Bewerken</button></form><form method="POST" style="display:inline" onsubmit="return confirm('Gebruiker verwijderen?')"><input type="hidden" name="action" value="del_user"><input type="hidden" name="user_id" value="<?=(int)$u['id']?>"><?=csrfField()?><button type="submit" class="bt bd bsm">🗑 Verwijderen</button></form><?php else: ?><span style="color:var(--txd);font-size:11px">Kan jezelf niet wijzigen</span><?php endif; ?></td></tr>
-<?php endwhile; ?></tbody></table></div></div>
-
-<?php endif; ?>
-
-<?php if($beheerTab==='email' && ($uiCanMailUse || $uiCanMailSettings || $isAdminUi)): ?>
-<div class="cd"><div class="cd-t">📧 E-mail & Alert Instellingen</div>
-<style>
-.beheer-mail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:12px}
-.beheer-card-compact{border:1px solid var(--brd);border-radius:8px;background:var(--bg);padding:10px}
-.beheer-card-compact .cd-t{margin-bottom:8px}
-.beheer-inline-fields{display:grid;gap:6px}
-.beheer-inline-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px;align-items:center}
-.beheer-inline-row label{font-size:11px;color:var(--txd);font-weight:600;margin:0}
-.beheer-inline-row input,.beheer-inline-row select{height:28px;padding:2px 8px;font-size:12px;line-height:1.2}
-.beheer-inline-row small{grid-column:2;font-size:10px;color:var(--txd);line-height:1.35}
-.beheer-toggle{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;margin-bottom:8px}
-.beheer-stack-card{border:1px solid var(--brd);border-radius:8px;background:var(--bg);padding:10px;margin-bottom:10px}
-.beheer-notify-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-@media(max-width:1080px){.beheer-mail-grid{grid-template-columns:1fr}}
-@media(max-width:1080px){.beheer-notify-grid{grid-template-columns:1fr}}
-@media(max-width:760px){.beheer-inline-row{grid-template-columns:1fr}.beheer-inline-row small{grid-column:1}}
-</style>
+<?php elseif($stab==='notificaties'): ?>
+<?php if($canOpenNotificatiesUi || $isAdminUi || $uiCanMailUse): ?>
+<div class="settings-pref-grid">
+<div class="cd settings-pref-card"><div class="cd-t">&#x1F4E7; SMTP Instellingen</div>
 <form method="POST"><input type="hidden" name="action" value="save_email_settings"><?=csrfField()?>
-<div class="beheer-mail-grid">
-<div class="beheer-card-compact">
-<div class="cd-t">SMTP Instellingen</div>
-<label class="beheer-toggle">
-<input type="checkbox" name="smtp_enabled" value="1" <?=$emailSettings['smtp_enabled']? 'checked':''?>>
-<span>SMTP E-mail verzenden inschakelen</span>
- </label>
+<label class="beheer-toggle"><input type="checkbox" name="smtp_enabled" value="1" <?=$emailSettings['smtp_enabled']?'checked':''?>> SMTP inschakelen</label>
 <div class="beheer-inline-fields">
-<div class="beheer-inline-row"><label>SMTP Host</label><input type="text" name="smtp_host" value="<?=e($emailSettings['smtp_host']??'smtp.gmail.com')?>" placeholder="smtp.gmail.com"></div>
-<div class="beheer-inline-row"><label>Poort</label><input type="number" name="smtp_port" value="<?=$emailSettings['smtp_port']??587?>" placeholder="587"></div>
-<div class="beheer-inline-row"><label>Encryptie</label><select name="smtp_encryption">
-<option value="tls" <?=($emailSettings['smtp_encryption']??'tls')==='tls'?'selected':''?>>TLS</option>
-<option value="ssl" <?=($emailSettings['smtp_encryption']??'')==='ssl'?'selected':''?>>SSL</option>
-</select></div>
-<div class="beheer-inline-row"><label>SMTP Username</label><input type="email" name="smtp_username" value="<?=e($emailSettings['smtp_username']??'')?>" placeholder="jouw.naam@gmail.com"></div>
-<div class="beheer-inline-row"><label>App Password</label><input type="password" name="smtp_password" placeholder="<?=!empty($emailSettings['smtp_password'])?'••••••••••••••••':'16-cijferig App Password'?>"></div>
-<div class="beheer-inline-row"><label>Afzender E-mail</label><input type="email" name="smtp_from_email" value="<?=e($emailSettings['smtp_from_email']??$emailSettings['smtp_username']??'')?>" placeholder="jouw.naam@gmail.com"></div>
-<div class="beheer-inline-row"><label>Afzender Naam</label><input type="text" name="smtp_from_name" value="<?=e($emailSettings['smtp_from_name']??'SmokePing Manager')?>" placeholder="SmokePing Manager"></div>
+<div class="beheer-inline-row"><label>Host</label><input type="text" name="smtp_host" value="<?=e($emailSettings['smtp_host']??'smtp.gmail.com')?>" placeholder="smtp.gmail.com"></div>
+<div class="beheer-inline-row"><label>Poort</label><input type="number" name="smtp_port" value="<?=$emailSettings['smtp_port']??587?>"></div>
+<div class="beheer-inline-row"><label>Encryptie</label><select name="smtp_encryption"><option value="tls" <?=($emailSettings['smtp_encryption']??'tls')==='tls'?'selected':''?>>TLS</option><option value="ssl" <?=($emailSettings['smtp_encryption']??'')==='ssl'?'selected':''?>>SSL</option></select></div>
+<div class="beheer-inline-row"><label>Username</label><input type="email" name="smtp_username" value="<?=e($emailSettings['smtp_username']??'')?>"></div>
+<div class="beheer-inline-row"><label>Wachtwoord</label><input type="password" name="smtp_password" placeholder="<?=!empty($emailSettings['smtp_password'])?'••••••••••':'Enter password'?>"></div>
+<div class="beheer-inline-row"><label>Afzender</label><input type="email" name="smtp_from_email" value="<?=e($emailSettings['smtp_from_email']??$emailSettings['smtp_username']??'')?>"></div>
 </div>
-</div>
-
-<div class="beheer-card-compact">
-<div class="cd-t">Alert Configuratie</div>
-<label class="beheer-toggle">
-<input type="checkbox" name="alert_enabled" value="1" <?=$emailSettings['alert_enabled']?'checked':''?>>
-<span>Automatische alerts inschakelen bij target uitval</span>
-</label>
-<div class="beheer-inline-fields">
-<div class="beheer-inline-row"><label>Uptime Drempel</label><input type="number" name="alert_threshold" value="<?=$emailSettings['alert_threshold']??95?>" min="0" max="100" placeholder="95"></div>
-<small>Alert versturen als uptime onder dit percentage komt.</small>
-<div class="beheer-inline-row"><label>Packet loss</label><input type="number" step="0.1" name="mail_threshold" value="<?=e((string)($emailSettings['mail_threshold']??5.0))?>" min="0" max="100" placeholder="5.0"></div>
-<small>Mail alleen bij minimaal dit packet-loss percentage.</small>
-<div class="beheer-inline-row"><label>Mail interval</label><input type="number" name="alert_interval_minutes" value="<?=$emailSettings['alert_interval_minutes']??15?>" min="1" max="1440" placeholder="15"></div>
-<small>Minimale tijd tussen twee waarschuwingmails.</small>
-<div class="beheer-inline-row"><label>Verzendlijst</label><input type="text" name="alert_recipients" value="<?=e($emailSettings['alert_recipients']??'')?>" placeholder="admin@example.com, monitor@example.com"></div>
-<small>Default voor targets met notificatie en fallback voor sessie- en uitvalmails.</small>
-</div>
-</div>
-</div>
-
-<div class="beheer-notify-grid">
-<div class="beheer-stack-card">
-<div class="cd-t">⚠️ Uitval Notificaties</div>
-<div class="fg">
-<label style="display:flex;align-items:center;gap:8px;cursor:pointer">
-<input type="checkbox" name="batch_outage_notifications" value="1" <?=((int)($emailSettings['batch_outage_notifications']??1)===1)?'checked':''?>>
-<span>Batch uitval notificaties (verzamel alle uitvallen in 1 e-mail)</span>
-</label>
-<small style="color:var(--txd);font-size:11px;margin-left:28px">Aangeraden om e-mail spamming te voorkomen bij massale uitval. Uitgeschakeld = afzonderlijke e-mail per uitval.</small>
-</div>
-<div class="fg"><label>Uitval Mail Interval</label>
-<select name="outage_mail_interval">
-<option value="5" <?=((int)($emailSettings['outage_mail_interval']??5)===5)?'selected':''?>>5 minuten</option>
-<option value="10" <?=((int)($emailSettings['outage_mail_interval']??5)===10)?'selected':''?>>10 minuten</option>
-<option value="15" <?=((int)($emailSettings['outage_mail_interval']??5)===15)?'selected':''?>>15 minuten</option>
-<option value="30" <?=((int)($emailSettings['outage_mail_interval']??5)===30)?'selected':''?>>30 minuten</option>
-<option value="240" <?=((int)($emailSettings['outage_mail_interval']??5)===240)?'selected':''?>>4 uren</option>
-<option value="480" <?=((int)($emailSettings['outage_mail_interval']??5)===480)?'selected':''?>>8 uren</option>
-<option value="1440" <?=((int)($emailSettings['outage_mail_interval']??5)===1440)?'selected':''?>>1 dag</option>
-<option value="2880" <?=((int)($emailSettings['outage_mail_interval']??5)===2880)?'selected':''?>>2 dagen</option>
-<option value="10080" <?=((int)($emailSettings['outage_mail_interval']??5)===10080)?'selected':''?>>7 dagen</option>
-</select>
-<small style="color:var(--txd);font-size:11px">Bij batch worden uitval en herstel in 1 gecombineerde mail verstuurd volgens dit interval. Start/einde sessie-mails blijven direct.</small>
-</div>
-</div>
-
-<div class="beheer-stack-card">
-<div class="cd-t">📉 Pingverlies Notificaties</div>
-<div class="fg">
-<label style="display:flex;align-items:center;gap:8px;cursor:pointer">
-<input type="checkbox" name="ping_loss_notifications" value="1" <?=((int)($emailSettings['ping_loss_notifications']??0)===1)?'checked':''?>>
-<span>Aparte e-mail sturen bij pingverlies (per target)</span>
-</label>
-<small style="color:var(--txd);font-size:11px;margin-left:28px">Verwerkt pingverlies per target. Enkele verliesmomenten tonen datum+tijd, langere verliesreeksen tonen begin- en eindtijd.</small>
-</div>
-</div>
-</div>
-
-<div style="display:flex;gap:8px;justify-content:space-between;align-items:center">
-<?php if($uiCanMailSettings || $isAdminUi): ?>
-<button type="submit" class="bt bp">💾 Instellingen Opslaan</button>
-<?php endif; ?>
-<?php if($uiCanMailUse || $isAdminUi): ?>
-<button type="button" class="bt bg" onclick="testEmail(event)">📤 Test E-mail Verzenden</button>
-<?php endif; ?>
-</div>
-</form>
-
-<div id="testEmailResult" style="margin-top:12px;display:none;padding:12px;border-radius:var(--r);"></div>
-</div>
-<?php endif; ?>
-
-<?php if($beheerTab==='permissions' && $isAdminUi): ?>
-<div class="cd" style="margin-top:12px">
-<div class="cd-t">🔐 Pagina Zichtbaarheid voor niet-admin gebruikers</div>
-<p style="font-size:12px;color:var(--txd);margin-bottom:12px">Beheer welke pagina's niet-admin gebruikers kunnen zien en openen. Voor gebruikers met rol <strong>user</strong> en <strong>readonly</strong> blijven Database en Logging altijd geblokkeerd voor veiligheid.</p>
-<form method="POST" style="margin-bottom:12px">
-<input type="hidden" name="action" value="set_user_page_permissions"><?=csrfField()?>
-<?php
-$pageKeys = ['targets','dashboard','database','settings','logging'];
-$actionDefs = getActionPermissionDefinitions();
-$actionGroups = [];
-foreach ($actionDefs as $actionKey => $meta) {
-    $group = (string)($meta['group'] ?? 'Overig');
-    if (!isset($actionGroups[$group])) $actionGroups[$group] = [];
-    $actionGroups[$group][$actionKey] = $meta;
-}
-?>
-<div class="beheer-users-wrap">
-<table class="beheer-users-table" style="font-size:13px">
-<thead><tr style="background:var(--s2);border-bottom:2px solid var(--brd)">
-<th style="text-align:left;padding:10px">Gebruiker</th>
-<th style="text-align:center;padding:10px">Targets</th>
-<th style="text-align:center;padding:10px">Dashboard</th>
-<th style="text-align:center;padding:10px">Database</th>
-<th style="text-align:center;padding:10px">Settings</th>
-<th style="text-align:center;padding:10px">Logging</th>
-</tr></thead>
-<tbody>
-<?php 
-$userRows = [];
-$usersQuery = $db->query('SELECT id,username,role FROM users WHERE approval_status="active" AND role!="admin" ORDER BY role ASC, username ASC');
-if ($usersQuery instanceof SQLite3Result) {
-    while($userRow = $usersQuery->fetchArray(SQLITE3_ASSOC)) $userRows[] = $userRow;
-}
-if (empty($userRows)): 
-?>
-<tr><td colspan="6" style="padding:12px;color:var(--txd);text-align:center">Geen niet-admin gebruikers gevonden.</td></tr>
-<?php else: foreach($userRows as $user): 
-    $perms = getPageVisibility($db, (int)$user['id']);
-?>
-<tr style="border-bottom:1px solid var(--brd)">
-<td style="padding:10px"><input type="hidden" name="present_user_ids[]" value="<?=(int)$user['id']?>"><?=e((string)$user['username'])?> <span style="color:var(--txd);font-size:11px">(<?=e((string)$user['role'])?>)</span></td>
-<?php foreach($pageKeys as $page): ?>
-<td style="text-align:center;padding:10px">
-<label style="display:inline-flex;align-items:center;cursor:pointer">
-<input type="checkbox" name="user_<?=(int)$user['id']?>_<?=$page?>" value="1" <?=(int)($perms[$page] ?? 0) === 1 ? 'checked' : ''?> style="cursor:pointer">
-</label>
-</td>
-<?php endforeach; ?>
-</tr>
-<?php endforeach; endif; ?>
-</tbody>
-</table>
-</div>
-
-<div class="cd-t" style="margin-top:16px">🧩 Actierechten per gebruiker</div>
-<p style="font-size:12px;color:var(--txd);margin-bottom:12px">Hier bepaal je wat gebruikers exact mogen doen: toevoegen, bewerken, verplaatsen, verwijderen, mailfunctie, backups, configuratie en meer.</p>
-<?php if (!empty($userRows)): ?>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px">
-<?php foreach($userRows as $user):
-    $actionPerms = getActionPermissions($db, (int)$user['id'], (string)$user['role']);
-?>
-<div class="beheer-card-compact" style="padding:12px">
-<div class="cd-t" style="font-size:14px;margin-bottom:8px"><?=e((string)$user['username'])?> <span style="color:var(--txd);font-size:11px">(<?=e((string)$user['role'])?>)</span></div>
-<?php foreach ($actionGroups as $groupName => $groupItems): ?>
-<div style="margin-bottom:8px">
-<div style="font-size:11px;color:var(--txd);text-transform:uppercase;letter-spacing:.04em;margin:6px 0"><?=e($groupName)?></div>
-<?php foreach ($groupItems as $actionKey => $meta): ?>
-<label style="display:flex;align-items:flex-start;gap:8px;margin:4px 0;cursor:pointer;font-size:12px">
-<input type="checkbox" name="user_<?=(int)$user['id']?>_<?=$actionKey?>" value="1" <?=(int)($actionPerms[$actionKey] ?? 0) === 1 ? 'checked' : ''?>>
-<span><?=e((string)($meta['label'] ?? $actionKey))?></span>
-</label>
-<?php endforeach; ?>
-</div>
-<?php endforeach; ?>
-</div>
-<?php endforeach; ?>
-</div>
-<?php endif; ?>
-
-<button type="submit" class="bt bp" style="margin-top:12px">💾 Rechten Opslaan</button>
-</form>
-</div>
-<?php endif; ?>
-
-<?php if($beheerTab==='email'): ?>
-<script>
-function testEmail(ev) {
-    var email = prompt('Voer een e-mailadres in om een testmail naartoe te sturen:', <?=json_encode($defaultTestEmail)?>);
-    if(!email) return;
-    var btn = ev.target;
-    btn.disabled = true;
-    btn.textContent = '⏳ Bezig met verzenden...';
-    
-    fetch('', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'action=test_email&test_email='+encodeURIComponent(email)+'&<?=csrfField(true)?>'
-    })
-    .then(r => r.json())
-    .then(data => {
-        var resultDiv = document.getElementById('testEmailResult');
-        resultDiv.style.display = 'block';
-        resultDiv.style.background = data.success ? 'var(--ok)' : 'var(--err)';
-        resultDiv.style.color = '#fff';
-        resultDiv.style.padding = '12px';
-        resultDiv.style.marginTop = '12px';
-        resultDiv.style.borderRadius = '6px';
-        
-        var html = '<strong>' + (data.success ? '✅' : '❌') + ' ' + data.message + '</strong>';
-        
-        // Add debug output in a collapsible section
-        if(data.debug) {
-            html += '<br><br>';
-            html += '<details style="margin-top:8px;background:rgba(0,0,0,0.2);padding:8px;border-radius:4px;">';
-            html += '<summary style="cursor:pointer;font-weight:bold;">🔍 Debug Log (klik om te openen)</summary>';
-            html += '<pre style="margin-top:8px;font-size:11px;white-space:pre-wrap;word-wrap:break-word;max-height:300px;overflow-y:auto;">' + data.debug + '</pre>';
-            html += '</details>';
-        }
-        
-        resultDiv.innerHTML = html;
-        btn.disabled = false;
-        btn.textContent = '📤 Test E-mail Verzenden';
-        
-        // Auto-hide after 15 seconds (longer for debug info)
-        setTimeout(() => resultDiv.style.display = 'none', 15000);
-    })
-    .catch(err => {
-        var resultDiv = document.getElementById('testEmailResult');
-        resultDiv.style.display = 'block';
-        resultDiv.style.background = 'var(--err)';
-        resultDiv.style.color = '#fff';
-        resultDiv.style.padding = '12px';
-        resultDiv.textContent = '❌ Fout: ' + err;
-        btn.disabled = false;
-        btn.textContent = '📤 Test E-mail Verzenden';
-    });
-}
-</script>
-<?php endif; ?>
-<?php if($beheerTab==='alerts' && ($uiCanAlertsManage || $isAdminUi)): ?>
-<div class="cd">
-<div class="cd-t">🔔 Alert Configuraties Beheer</div>
-<p style="font-size:13px;color:var(--txd);margin-bottom:16px">
-    Configureer hier de alerts die je kunt toewijzen aan targets. Elke alert definieert wanneer er een notificatie moet worden verstuurd.
-</p>
-
-<?php if($uiCanAlertsManage || $isAdminUi): ?>
-<button class="bt bp" onclick="openM('alertM');document.getElementById('alA').value='add_alert';document.getElementById('alTitle').textContent='Nieuwe Alert';document.getElementById('alBtn').textContent='Toevoegen';document.getElementById('alertForm').reset();document.getElementById('alER').style.display='none'">+ Nieuwe Alert</button>
-<?php endif; ?>
-
-<?php if(empty($allAlerts)):?><div style="padding:20px;text-align:center;color:var(--txd)"><p>Geen alerts geconfigureerd.</p></div>
-<?php else:?><div style="padding:0;overflow-x:auto;margin-top:16px"><table class="tb">
-<thead><tr><th>Naam</th><th>Weergave</th><th>Type</th><th>Drempel</th><th>Duur</th><th>Ontvangers</th><th>Status</th><?php if($uiCanAlertsManage || $isAdminUi):?><th style="text-align:right">Acties</th><?php endif;?></tr></thead><tbody>
-<?php foreach($allAlerts as $al):?><tr>
-<td><code style="font-size:12px"><?=e($al['name'])?></code></td>
-<td><strong><?=e($al['display_name'])?></strong></td>
-<td><span class="bge bge-on"><?=e(ucfirst($al['type']))?></span></td>
-<td><?=round($al['threshold_loss']*100,1)?>% loss</td>
-<td><?=$al['threshold_duration']?>s</td>
-<td><?php if(!empty($al['recipients'])):?><code style="font-size:11px"><?=e(substr($al['recipients'],0,30))?><?=strlen($al['recipients'])>30?'...':''?></code><?php else:?><span style="color:var(--txd)">Via email settings</span><?php endif;?></td>
-<td><span class="bge <?=$al['enabled']?'bge-on':'bge-off'?>"><?=$al['enabled']?'Actief':'Uit'?></span></td>
-<?php if($uiCanAlertsManage || $isAdminUi):?><td><div style="display:flex;gap:4px;justify-content:flex-end">
-<button class="bt bg bsm" onclick='var d=<?=json_encode($al)?>;document.getElementById("alA").value="edit_alert";document.getElementById("alTitle").textContent="Alert Bewerken";document.getElementById("alBtn").textContent="Opslaan";document.getElementById("alId").value=d.id;document.getElementById("alN").value=d.name;document.getElementById("alD").value=d.display_name;document.getElementById("alT").value=d.type;document.getElementById("alTL").value=(d.threshold_loss*100).toFixed(1);document.getElementById("alTD").value=d.threshold_duration;document.getElementById("alNM").value=d.notification_method;document.getElementById("alR").value=d.recipients||"";document.getElementById("alEn").checked=d.enabled==1;document.getElementById("alER").style.display="flex";openM("alertM")'>Bewerken</button>
-<form method="POST" style="display:inline" onsubmit="return confirm('Alert verwijderen?')"><input type="hidden" name="action" value="del_alert"><?=csrfField()?><input type="hidden" name="id" value="<?=(int)$al['id']?>"><button class="bt bd bsm">×</button></form>
-</div></td><?php endif;?>
-</tr><?php endforeach;?></tbody></table></div><?php endif;?>
-</div>
-<?php endif; ?>
-
-<?php else: ?>
-<div class="cd"><div class="cd-t">Beheer</div><p style="color:var(--txd)">Je hebt momenteel geen beheerrechten om deze onderdelen te openen. Jouw rol is: <strong><?=e($currentRoleForUi ?: 'onbekend')?></strong>.</p></div>
-<?php endif; ?>
-
-<?php if(isAdmin($db) && $beheerTab==='rrd'): ?>
-<div class="cd"><div class="cd-t">📋 RRD Reset Logs</div>
-<div class="beheer-rrd-wrap"><table class="beheer-rrd-table" style="font-size:12px">
-<thead><tr style="background:var(--s2);border-bottom:1px solid var(--brd)"><th style="text-align:left;padding:8px">Datum</th><th style="text-align:left;padding:8px">Gebruiker</th><th style="text-align:left;padding:8px">Target</th><th style="text-align:left;padding:8px">Status</th><th style="text-align:left;padding:8px">Details</th></tr></thead>
-<tbody>
-<?php $logs = $db->query('SELECT * FROM rrd_reset_logs ORDER BY created_at DESC LIMIT 50'); $hasLogs = false; while($log = $logs->fetchArray(SQLITE3_ASSOC)): $hasLogs = true; $statusBg = $log['result'] === 'success' ? 'var(--ok)' : 'var(--err)'; $statusText = $log['result'] === 'success' ? 'OK' : 'FAILED'; ?>
-<tr style="border-bottom:1px solid var(--brd);font-family:monospace;font-size:11px"><td style="padding:8px;color:var(--txd)"><?=e(formatDbDateLocal($log['created_at'] ?? ''))?></td><td style="padding:8px"><?=e($log['username'])?></td><td style="padding:8px"><strong><?=e($log['category_name'])?>/<?=e($log['target_name'])?></strong></td><td style="padding:8px"><span style="background:<?=$statusBg?>;color:#fff;padding:2px 6px;border-radius:3px;font-size:10px"><?=$statusText?></span></td><td style="padding:8px;word-break:break-word;max-width:400px;color:var(--txd)"><?=e(substr($log['details'],0,200))?><?=strlen($log['details'])>200?'...':''?></td></tr>
-<?php endwhile; if(!$hasLogs): ?><tr><td colspan="5" style="padding:16px;text-align:center;color:var(--txd)">Geen logs beschikbaar</td></tr><?php endif; ?>
-</tbody>
-</table></div></div>
-<?php endif; ?>
-
-<div class="mo" id="addUserM" onclick="if(event.target===this)closeM('addUserM')"><div class="md">
-<h3>Nieuwe Gebruiker</h3>
-<form method="POST"><input type="hidden" name="action" value="add_user"><?=csrfField()?>
-<div class="fg"><label>Gebruikersnaam</label><input type="text" name="username" required minlength="3" placeholder="bijv. john"></div>
-<div class="fg"><label>E-mailadres</label><input type="email" name="email" required placeholder="bijv. john@example.com"></div>
-<div class="fg"><label>Rol</label><select name="role" required>
-<option value="manager">⚙️ Manager - kan config bewerken</option>
-<option value="user">👤 User - eigen targets beheren</option>
-<option value="readonly">👁️ Alleen lezen - kan alles zien maar niet wijzigen</option>
-<option value="admin">👑 Admin - volledige toegang (incl. gebruikersbeheer)</option>
-</select></div>
-<p style="margin:8px 0 0;font-size:12px;color:var(--txd)">Na toevoegen ontvangt de gebruiker een e-mail met een link om zelf een eerste wachtwoord in te stellen.</p>
-<div style="display:flex;gap:6px;justify-content:flex-end;margin-top:12px"><button type="button" class="bt bg" onclick="closeM('addUserM')">Annuleren</button><button type="submit" class="bt bp">Toevoegen</button></div>
-</form></div></div>
-
-<div class="mo" id="editUserM" onclick="if(event.target===this)closeM('editUserM')"><div class="md">
-<h3>Gebruiker Bewerken</h3>
-<form method="POST"><input type="hidden" name="action" value="edit_user"><?=csrfField()?>
-<input type="hidden" name="user_id" id="euUserId">
-<div class="fg"><label>Gebruikersnaam</label><input type="text" name="username" id="euUsername" required minlength="3"></div>
-<div class="fg"><label>E-mailadres</label><input type="email" name="email" id="euEmail" required></div>
-<div class="fg"><label>Rol</label><select name="role" id="euRole" required>
-<option value="manager">⚙️ Manager - kan config bewerken</option>
-<option value="user">👤 User - eigen targets beheren</option>
-<option value="readonly">👁️ Alleen lezen - kan alles zien maar niet wijzigen</option>
-<option value="admin">👑 Admin - volledige toegang</option>
-</select></div>
-<div style="display:flex;gap:6px;justify-content:flex-end;margin-top:12px"><button type="button" class="bt bw" onclick="document.getElementById('rpwUserId').value=document.getElementById('euUserId').value;closeM('editUserM');openM('resetUserPwdM')">Reset wachtwoord…</button><button type="button" class="bt bg" onclick="closeM('editUserM')">Annuleren</button><button type="submit" class="bt bp">Opslaan</button></div>
-</form></div></div>
-
-<div class="mo" id="resetUserPwdM" onclick="if(event.target===this)closeM('resetUserPwdM')"><div class="md">
-<h3>Wachtwoord resetten</h3>
-<form method="POST" onsubmit="return confirm('Wachtwoord resetten?')"><input type="hidden" name="action" value="user_change_password"><?=csrfField()?>
-<input type="hidden" name="user_id" id="rpwUserId">
-<div class="fg"><label>Nieuw wachtwoord</label><input type="password" name="new_password" required minlength="6" placeholder="Minimaal 6 tekens"></div>
-<div style="display:flex;gap:6px;justify-content:flex-end;margin-top:12px"><button type="button" class="bt bg" onclick="closeM('resetUserPwdM')">Annuleren</button><button type="submit" class="bt bp">Resetten</button></div>
-</form></div></div>
-
-<div class="mo" id="alertM" onclick="if(event.target===this)closeM('alertM')"><div class="md">
-<h3 id="alTitle">Nieuwe Alert</h3>
-<form method="POST" id="alertForm"><input type="hidden" name="action" id="alA" value="add_alert"><?=csrfField()?>
-<input type="hidden" name="id" id="alId">
-<div class="fr">
-<div class="fg"><label>Naam (intern)</label><input type="text" name="name" id="alN" required pattern="[a-zA-Z0-9_]+" placeholder="bijv. high_priority"></div>
-<div class="fg"><label>Weergavenaam</label><input type="text" name="display_name" id="alD" required placeholder="bijv. Hoge Prioriteit Alert"></div>
-</div>
-<div class="fr">
-<div class="fg"><label>Type</label><select name="type" id="alT">
-<option value="email">E-mail</option>
-<option value="sms">SMS (nog niet ondersteund)</option>
-<option value="webhook">Webhook (nog niet ondersteund)</option>
-</select></div>
-<div class="fg"><label>Notificatie Methode</label><select name="notification_method" id="alNM">
-<option value="email">E-mail</option>
-</select></div>
-</div>
-<div class="fr">
-<div class="fg"><label>Drempel (% packet loss)</label><input type="number" name="threshold_loss" id="alTL" min="0" max="100" step="0.1" value="5" required><small style="color:var(--txd);font-size:11px">Bijv. 5 = 5% packet loss</small></div>
-<div class="fg"><label>Duur (seconden)</label><input type="number" name="threshold_duration" id="alTD" min="60" max="3600" value="300" required><small style="color:var(--txd);font-size:11px">Hoe lang probleem moet bestaan voordat alert</small></div>
-</div>
-<div class="fg"><label>E-mail Ontvangers (optioneel)</label><input type="text" name="recipients" id="alR" placeholder="mail1@example.com, mail2@example.com"><small style="color:var(--txd);font-size:11px">Laat leeg om de ontvangers uit E-mail Alerts settings te gebruiken</small></div>
-<div class="fg ck" id="alER" style="display:none"><input type="checkbox" name="enabled" id="alEn" checked><label for="alEn">Alert Actief</label></div>
-<div style="display:flex;gap:6px;justify-content:flex-end;margin-top:12px">
-<button type="button" class="bt bg" onclick="closeM('alertM')">Annuleren</button>
-<button type="submit" class="bt bp" id="alBtn">Toevoegen</button></div></form></div></div>
-<?php endif; ?>
-
-<?php elseif($stab==='email'): ?>
-<?php
-$typeLabels = ['session_start'=>'Sessie start','session_end'=>'Sessie einde','session_end_manual'=>'Sessie handmatig einde','session_summary'=>'Sessie tussenstand','outage_start'=>'Uitval','outage_end'=>'Uitval opgelost','outage_batch'=>'Uitval/herstel batch','ping_loss'=>'Pingverlies','test'=>'Test','notification'=>'Notificatie'];
-$mailStatusMeta = [
-    'pending' => ['label' => 'In wachtrij', 'bg' => 'var(--warnbg)', 'fg' => 'var(--warnfg)', 'border' => 'var(--warn)'],
-    'sending' => ['label' => 'Bezig', 'bg' => 'var(--s2)', 'fg' => 'var(--tx)', 'border' => 'var(--ac)'],
-    'success' => ['label' => 'Verzonden', 'bg' => 'var(--okbg)', 'fg' => 'var(--okfg)', 'border' => 'var(--ok)'],
-    'failed' => ['label' => 'Mislukt', 'bg' => 'var(--errbg)', 'fg' => 'var(--errfg)', 'border' => 'var(--err)'],
-    'cancelled' => ['label' => 'Geannuleerd', 'bg' => 'var(--s2)', 'fg' => 'var(--txd)', 'border' => 'var(--brd)'],
-];
-$queuedMailLogs = [];
-$queuedRes = $db->query('SELECT id,type,target_name,email_to,subject,status,message,created_at,datetime(created_at, \'localtime\') AS created_at_local FROM mail_log WHERE status="pending" ORDER BY id ASC LIMIT 100');
-if ($queuedRes) { while ($queuedRow = $queuedRes->fetchArray(SQLITE3_ASSOC)) { $queuedMailLogs[] = $queuedRow; } }
-$mailLogs = [];
-$mlRes = $db->query('SELECT id,type,target_name,email_to,subject,status,message,debug_output,created_at,datetime(created_at, \'localtime\') AS created_at_local FROM mail_log WHERE status <> "pending" ORDER BY id DESC LIMIT 100');
-if ($mlRes) { while ($mlRow = $mlRes->fetchArray(SQLITE3_ASSOC)) { $mailLogs[] = $mlRow; } }
-// Targets met notificatie ingeschakeld
-$notifyTargets = [];
-$ntRes = $db->query('SELECT id,display_name,session_duration,session_started_at,session_start_notified,session_end_notified,enabled FROM targets WHERE session_notify_enabled=1 ORDER BY display_name');
-if ($ntRes) { while ($ntRow = $ntRes->fetchArray(SQLITE3_ASSOC)) { $notifyTargets[] = $ntRow; } }
-$notifyEmail = getDefaultTestEmail($db);
-?>
-<div class="cd"><div class="cd-t">📧 Test E-mail Versturen</div>
-<div class="fg"><label>E-mailadres</label><input type="text" id="testEmailAddr" value="<?=e($notifyEmail)?>" placeholder="ontvanger@voorbeeld.nl" style="max-width:320px"></div>
-<?php if($uiCanMailUse || $isAdminUi): ?>
-<button type="button" class="bt bp" onclick="sendTestEmail()">Verstuur test</button>
-<?php endif; ?>
+<button type="submit" class="bt bp" style="margin-top:12px">SMTP Opslaan</button></form></div>
+<div class="cd settings-pref-card"><div class="cd-t">&#x1F4E8; Test E-mail</div>
+<div class="fg"><label>Adres</label><input type="text" id="testEmailAddr" value="<?=e($notifyEmail??'')?>" placeholder="test@example.com" style="max-width:320px"></div>
+<?php if($uiCanMailUse || $isAdminUi): ?><button type="button" class="bt bp" onclick="sendTestEmail()">Verstuur Test</button><?php endif; ?>
 <div id="testEmailResult" style="margin-top:10px;font-size:13px"></div>
 <script>
-function sendTestEmail(){
+function sendTestEmail(){var el=document.getElementById('testEmailResult');el.textContent='Bezig...';var addr=document.getElementById('testEmailAddr').value.trim();fetch('',{method:'POST',body:new URLSearchParams({action:'test_email',email:addr,csrf:'<?=csrf()?>'}),headers:{'Content-Type':'application/x-www-form-urlencoded','X-Requested-With':'XMLHttpRequest'}}).then(r=>r.text()).then(function(d){el.style.display='block';el.style.background='var(--ok)';el.style.color='#fff';el.style.padding='12px';el.style.borderRadius='4px';el.textContent='✓ Verzonden';document.getElementById('testEmailAddr').value='';setTimeout(function(){el.style.display='none'},15000)}).catch(err=>{el.style.display='block';el.style.background='var(--err)';el.style.color='#fff';el.textContent='❌ Fout: '+err})}
+</script></div>
+</div>
+<?php endif; ?>
+<?php elseif($stab==='gebruikers'): ?>
+<?php if($isAdminUi): ?>
+<div class="cd"><div class="beheer-users-head"><div class="cd-t">&#x1F464; Gebruikersbeheer</div><button type="button" class="bt bp bsm" onclick="openM('addUserM')">+ Nieuwe Gebruiker</button></div>
+<?php if($pendingApprovalCount>0): ?>
+<div style="background:var(--warnbg);border:1px solid var(--warn);border-radius:8px;padding:12px;margin-bottom:12px"><div style="font-weight:600;color:var(--warnfg);margin-bottom:8px">⏳ Wachtrij: <?=$pendingApprovalCount?> Registratie(s)</div>
+<?php $pendingRows=[];$pendingSelect=['id','username'];if(userColumnExists($db,'google_email'))$pendingSelect[]='google_email';if(userColumnExists($db,'requested_at'))$pendingSelect[]='requested_at';$pendingOrder=userColumnExists($db,'requested_at')?'requested_at ASC, id ASC':'id ASC';$pendingSql='SELECT '.implode(',',$pendingSelect).' FROM users WHERE approval_status="pending" ORDER BY '.$pendingOrder;$pendingQuery=$db->query($pendingSql);if($pendingQuery instanceof SQLite3Result){while($pendingRow=$pendingQuery->fetchArray(SQLITE3_ASSOC))$pendingRows[]=$pendingRow;}?>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px">
+<?php foreach($pendingRows as $pending): ?>
+<div style="border:1px solid var(--warnbg);background:var(--s2);border-radius:8px;padding:10px"><div style="font-weight:600;margin-bottom:4px"><?=e($pending['username'])?></div><?php if(!empty($pending['google_email'])): ?><div style="font-size:12px;color:var(--txd);margin-bottom:4px"><?=e($pending['google_email'])?></div><?php endif; ?><div style="display:flex;gap:6px;flex-wrap:wrap"><form method="POST" style="display:inline"><input type="hidden" name="action" value="approve_user"><?=csrfField()?><input type="hidden" name="user_id" value="<?=(int)$pending['id']?>"><button type="submit" class="bt bp bsm">✓ Goedkeuren</button></form><form method="POST" style="display:inline" onsubmit="return confirm('Afwijzen?')"><input type="hidden" name="action" value="reject_user"><?=csrfField()?><input type="hidden" name="user_id" value="<?=(int)$pending['id']?>"><button type="submit" class="bt bd bsm">✕ Afwijzen</button></form></div></div>
+<?php endforeach; ?></div></div><?php endif; ?>
+<div class="beheer-users-wrap" style="margin-top:16px">
+<table class="beheer-users-table" style="font-size:12px"><thead><tr style="background:var(--s2);border-bottom:2px solid var(--brd)"><th style="text-align:left;padding:10px">Gebruiker</th><th style="text-align:left;padding:10px">Rol</th><th style="text-align:left;padding:10px">Status</th><th style="text-align:center;padding:10px">Acties</th></tr></thead><tbody>
+<?php $activeUsers=[];$activeUsersQuery=$db->query('SELECT id,username,email,role,approval_status FROM users ORDER BY approval_status DESC, username ASC');if($activeUsersQuery instanceof SQLite3Result){while($ar=$activeUsersQuery->fetchArray(SQLITE3_ASSOC))$activeUsers[]=$ar;}$roleDisplay=['admin'=>'👑 Admin','manager'=>'⚙️ Manager','user'=>'👤 User','readonly'=>'👁️ Alleen lezen'];?>
+<?php foreach($activeUsers as $au): ?><tr style="border-bottom:1px solid var(--brd)"><td style="padding:10px"><?=e($au['username'])?><?=((int)$au['id']===(int)($_SESSION['uid']??0))?'  <span style="color:var(--ok)">(jij)</span>':''?></td><td style="padding:10px"><?=$roleDisplay[$au['role']]??$au['role']?></td><td style="padding:10px"><span class="bge" style="<?=($au['approval_status']==='active'?'background:var(--ok);color:#fff':'background:var(--warn);color:#000')?>"><?=ucfirst($au['approval_status'])?></span></td><td style="padding:10px;text-align:center"><button class="bt bg bsm" onclick="showEditUser(<?=(int)$au['id']?>,'<?=e($au['username'])?>','<?=$au['role']?>','<?=e($au['email']??'')  ?>')">✎ Bewerken</button><?php if((int)$au['id']!==(int)($_SESSION['uid']??0)): ?><form method="POST" style="display:inline" onsubmit="return confirm('Gebruiker verwijderen?')"><input type="hidden" name="action" value="del_user"><?=csrfField()?><input type="hidden" name="user_id" value="<?=(int)$au['id']?>"><button class="bt bd bsm">×</button></form><?php endif; ?></td></tr>
+<?php endforeach; if(empty($activeUsers)): ?><tr><td colspan="4" style="padding:12px;text-align:center;color:var(--txd)">Geen gebruikers</td></tr><?php endif; ?></tbody></table></div></div>
+<?php else: ?>
+<div class="locked-tab-info"><div class="lt-icon">&#x1F512;</div><h3>Geen toegang</h3><p>Vereist rol: <strong>Admin</strong><br>Jouw rol: <strong><?=e($currentRoleForUi?:'onbekend')?></strong></p></div>
+<?php endif; ?>
+<?php else: ?>
+<div class="cd"><div class="cd-t">Geen Tab</div><p style="color:var(--txd)">De opgegeven tab bestaat niet.</p></div>
+<?php endif; ?>
+</div><!-- .settings-content-area -->
+</div><!-- .settings-wrap -->
+<script>
+// Settings page JS helpers
+if(typeof openM==='undefined')window.openM=function(id){var m=document.getElementById(id);if(m)m.style.display='flex'};
+if(typeof closeM==='undefined')window.closeM=function(id){var m=document.getElementById(id);if(m)m.style.display='none'};
+function sendTestEmail__dup(){
   var el=document.getElementById('testEmailResult');
-  el.textContent='Bezig...';
+  if(!el)return;
+  el.textContent='Bezig...';el.style.display='block';
   var addr=document.getElementById('testEmailAddr').value.trim();
-    fetch('',{
-        method:'POST',
-        headers:{'Content-Type':'application/x-www-form-urlencoded'},
-        body:'action=test_email&test_email='+encodeURIComponent(addr)+'&<?=csrfField(true)?>'
-    }).then(r=>r.json()).then(d=>{
-    el.innerHTML='<strong style="color:'+(d.success?'var(--ok)':'var(--err)')+'">'+
-      (d.success?'✓ Mail verstuurd':'✗ Mislukt')+': '+escHtml(d.message)+'</strong>'+
-      (d.debug?'<details style="margin-top:6px"><summary style="cursor:pointer;font-size:11px;color:var(--txd)">Debug output</summary><pre style="font-size:10px;overflow:auto;max-height:200px;background:var(--s2);padding:8px;border-radius:4px;margin-top:4px">'+escHtml(d.debug)+'</pre></details>':'');
-  }).catch(e=>{el.textContent='Fout: '+e.message;});
+  if(!addr){el.textContent='Voer een e-mailadres in';el.style.background='var(--err)';el.style.color='#fff';return}
+  fetch('',{method:'POST',body:new URLSearchParams({action:'test_email',email:addr,csrf:'<?=csrf()?>'}),headers:{'Content-Type':'application/x-www-form-urlencoded','X-Requested-With':'XMLHttpRequest'}})
+    .then(r=>r.text())
+    .then(function(d){el.style.background='var(--ok)';el.style.color='#fff';el.style.padding='12px';el.textContent='✓ Test e-mail verzonden';setTimeout(function(){el.style.display='none'},5000)})
+    .catch(err=>{el.style.background='var(--err)';el.style.color='#fff';el.textContent='❌ Fout: '+err})
 }
-function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 </script>
-</div>
-
-<?php if(!empty($notifyTargets)): ?>
-<div class="cd"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><div class="cd-t" style="margin-bottom:0">🎯 Notificatiestatus per target</div></div>
-<table style="width:100%;border-collapse:collapse;font-size:13px"><thead><tr style="background:var(--s2);border-bottom:2px solid var(--brd)">
-<th style="text-align:left;padding:10px">Target</th>
-<th style="text-align:left;padding:10px">Sessieduur</th>
-<th style="text-align:center;padding:10px">Start verzonden</th>
-<th style="text-align:center;padding:10px">Einde verzonden</th>
-<th style="text-align:center;padding:10px">Actie</th>
-</tr></thead><tbody>
-<?php foreach($notifyTargets as $nt):
-  $snLabels=['0'=>'Nee','1'=>'Ja'];
-  $durLabel = $nt['session_duration'] === 'unlimited' ? 'Onbeperkt' : sessionDurationLabel($nt['session_duration']);
-  $startNotified = (int)($nt['session_start_notified']??0);
-  $endNotified = (int)($nt['session_end_notified']??0);
-?>
-<tr style="border-bottom:1px solid var(--brd)">
-<td style="padding:10px"><?=e($nt['display_name'])?><?=$nt['enabled']?'':' <span style="color:var(--txd);font-size:11px">(uitgeschakeld)</span>'?></td>
-<td style="padding:10px"><?=e($durLabel)?></td>
-<td style="padding:10px;text-align:center"><span style="color:<?=$startNotified?'var(--ok)':'var(--txd)'?>"><?=$startNotified?'✓ Ja':'— Nee'?></span></td>
-<td style="padding:10px;text-align:center"><span style="color:<?=$endNotified?'var(--ok)':'var(--txd)'?>"><?=$endNotified?'✓ Ja':'— Nee'?></span></td>
-<td style="padding:10px;text-align:center">
-<?php if(($uiCanMailUse || $isAdminUi) && $startNotified): ?>
-<form method="POST" style="display:inline"><input type="hidden" name="action" value="reset_notify_flag"><input type="hidden" name="target_id" value="<?=(int)$nt['id']?>"><?=csrfField()?><button type="submit" class="bt bg bsm" title="Reset start-notificatie zodat bij volgende sessie opnieuw een start-mail wordt gestuurd">↺ Reset start</button></form>
-<?php else: ?>
-<span style="color:var(--txd);font-size:11px">—</span>
-<?php endif; ?>
-<?php if(($uiCanMailUse || $isAdminUi) && (int)($nt['enabled']??0)===1): ?>
-<form method="POST" style="display:inline;margin-left:6px" onsubmit="return confirm('Tussenstand van deze sessie nu per e-mail versturen?')"><input type="hidden" name="action" value="session_summary_now"><input type="hidden" name="target_id" value="<?=(int)$nt['id']?>"><?=csrfField()?><button type="submit" class="bt bg bsm" title="Mail tussenstand van lopende sessie">📨 Tussenstand</button></form>
-<form method="POST" style="display:inline;margin-left:6px" onsubmit="return confirm('Sessie nu handmatig beëindigen en samenvatting mailen?')"><input type="hidden" name="action" value="manual_end_session"><input type="hidden" name="target_id" value="<?=(int)$nt['id']?>"><?=csrfField()?><button type="submit" class="bt bw bsm" title="Beeindig sessie handmatig en mail samenvatting">⏹ Beëindig sessie</button></form>
-<?php endif; ?>
-</td>
-</tr>
-<?php endforeach; ?>
-</tbody></table></div>
-<?php endif; ?>
-
-<div class="cd"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-<div class="cd-t" style="margin-bottom:0">📋 Mail Log <span style="font-size:12px;font-weight:400;color:var(--txd)">(laatste 100)</span></div>
-<?php if(($uiCanMailUse || $isAdminUi) && !empty($mailLogs)): ?>
-<form method="POST" onsubmit="return confirm('Mail log wissen?')"><input type="hidden" name="action" value="clear_mail_log"><?=csrfField()?><button type="submit" class="bt bd bsm">🗑 Log wissen</button></form>
-<?php endif; ?>
-</div>
-<?php if(!empty($queuedMailLogs)): ?>
-<div style="margin-bottom:12px;border:1px solid var(--brd);border-radius:10px;background:var(--bg);overflow:auto">
-<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px solid var(--brd);background:var(--s1)">
-        <div style="font-weight:700">Wachtrij voor verzending <span style="font-size:12px;font-weight:400;color:var(--txd)">(<?=count($queuedMailLogs)?>)</span></div>
-        <div style="font-size:12px;color:var(--txd)">Deze mails worden door deferred maintenance verstuurd.</div>
-</div>
-<table style="width:100%;border-collapse:collapse;font-size:13px"><thead><tr style="background:var(--s2);border-bottom:2px solid var(--brd)">
-<th style="text-align:left;padding:10px">Geplaatst</th>
-<th style="text-align:left;padding:10px">Type</th>
-<th style="text-align:left;padding:10px">Target</th>
-<th style="text-align:left;padding:10px">Ontvanger</th>
-<th style="text-align:left;padding:10px">Onderwerp</th>
-<th style="text-align:center;padding:10px">Status</th>
-<th style="text-align:right;padding:10px">Actie</th>
-</tr></thead><tbody>
-<?php foreach($queuedMailLogs as $ml):
-    $tlabel = $typeLabels[$ml['type']] ?? $ml['type'];
-    $statusMeta = $mailStatusMeta[$ml['status']] ?? $mailStatusMeta['pending'];
-?>
-<tr style="border-bottom:1px solid var(--brd);vertical-align:top">
-<td style="padding:10px;white-space:nowrap;color:var(--txd);font-size:11px"><?=e($ml['created_at_local'] ?? $ml['created_at'])?></td>
-<td style="padding:10px;white-space:nowrap"><?=e($tlabel)?></td>
-<td style="padding:10px"><?=e($ml['target_name'])?></td>
-<td style="padding:10px;font-size:11px;color:var(--txd)"><?=e($ml['email_to'])?></td>
-<td style="padding:10px"><?=e($ml['subject'])?></td>
-<td style="padding:10px;text-align:center"><span style="display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600;background:<?=$statusMeta['bg']?>;color:<?=$statusMeta['fg']?>;border:1px solid <?=$statusMeta['border']?>"><?=e($statusMeta['label'])?></span></td>
-<td style="padding:10px;text-align:right">
-<?php if($uiCanMailUse || $isAdminUi): ?>
-<form method="POST" onsubmit="return confirm('Deze mail uit de wachtrij halen en niet meer versturen?')" style="display:inline">
-        <input type="hidden" name="action" value="cancel_queued_mail"><?=csrfField()?>
-        <input type="hidden" name="mail_log_id" value="<?=(int)$ml['id']?>">
-        <button type="submit" class="bt bd bsm">Annuleren</button>
-</form>
-<?php else: ?>
-<span style="color:var(--txd);font-size:11px">-</span>
-<?php endif; ?>
-</td>
-</tr>
-<?php endforeach; ?>
-</tbody></table>
-</div>
-<?php endif; ?>
-<?php if(empty($mailLogs)): ?>
-<p style="color:var(--txd);font-size:13px">Nog geen mail-pogingen geregistreerd.</p>
-<?php else: ?>
-<table style="width:100%;border-collapse:collapse;font-size:13px"><thead><tr style="background:var(--s2);border-bottom:2px solid var(--brd)">
-<th style="text-align:left;padding:10px">Datum/tijd</th>
-<th style="text-align:left;padding:10px">Type</th>
-<th style="text-align:left;padding:10px">Target</th>
-<th style="text-align:left;padding:10px">Ontvanger</th>
-<th style="text-align:center;padding:10px">Status</th>
-<th style="text-align:left;padding:10px">Bericht</th>
-</tr></thead><tbody>
-<?php foreach($mailLogs as $ml):
-  $tlabel = $typeLabels[$ml['type']] ?? $ml['type'];
-    $statusMeta = $mailStatusMeta[$ml['status']] ?? $mailStatusMeta['failed'];
-?>
-<tr style="border-bottom:1px solid var(--brd);vertical-align:top">
-<td style="padding:10px;white-space:nowrap;color:var(--txd);font-size:11px"><?=e($ml['created_at_local'] ?? $ml['created_at'])?></td>
-<td style="padding:10px;white-space:nowrap"><?=e($tlabel)?></td>
-<td style="padding:10px"><?=e($ml['target_name'])?></td>
-<td style="padding:10px;font-size:11px;color:var(--txd)"><?=e($ml['email_to'])?></td>
-<td style="padding:10px;text-align:center"><span style="display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600;background:<?=$statusMeta['bg']?>;color:<?=$statusMeta['fg']?>;border:1px solid <?=$statusMeta['border']?>"><?=e($statusMeta['label'])?></span></td>
-<td style="padding:10px;font-size:12px">
-<?=e($ml['message'])?>
-<?php if(!empty($ml['debug_output'])): ?><details style="margin-top:4px"><summary style="cursor:pointer;font-size:11px;color:var(--txd)">Debug</summary><pre style="font-size:10px;overflow:auto;max-height:200px;background:var(--s2);padding:6px;border-radius:4px;margin-top:4px;white-space:pre-wrap"><?=e($ml['debug_output'])?></pre></details><?php endif; ?>
-</td>
-</tr>
-<?php endforeach; ?>
-</tbody></table>
-<?php endif; ?>
-</div>
-
-<?php endif;?>
-</div>
-</div><?php endif;?>
-
+<div class="mo" id="addUserM" onclick="if(event.target===this)closeM('addUserM')"><div class="md"><h3>Nieuwe Gebruiker</h3><form method="POST"><input type="hidden" name="action" value="add_user"><?=csrfField()?><div class="fg"><label>Gebruikersnaam</label><input type="text" name="username" required minlength="3" placeholder="bijv. john"></div><div class="fg"><label>E-mailadres</label><input type="email" name="email" required placeholder="bijv. john@example.com"></div><div class="fg"><label>Rol</label><select name="role" required><option value="manager">⚙️ Manager</option><option value="user">👤 User</option><option value="readonly">👁️ Alleen lezen</option><option value="admin">👑 Admin</option></select></div><p style="margin:8px 0 0;font-size:12px;color:var(--txd)">Na toevoegen ontvangt de gebruiker een e-mail.</p><div style="display:flex;gap:6px;justify-content:flex-end;margin-top:12px"><button type="button" class="bt bg" onclick="closeM('addUserM')">Annuleren</button><button type="submit" class="bt bp">Toevoegen</button></div></form></div></div>
+<div class="mo" id="editUserM" onclick="if(event.target===this)closeM('editUserM')"><div class="md"><h3>Gebruiker Bewerken</h3><form method="POST"><input type="hidden" name="action" value="edit_user"><?=csrfField()?><input type="hidden" name="user_id" id="euUserId"><div class="fg"><label>Gebruikersnaam</label><input type="text" name="username" id="euUsername" required minlength="3"></div><div class="fg"><label>E-mailadres</label><input type="email" name="email" id="euEmail" required></div><div class="fg"><label>Rol</label><select name="role" id="euRole" required><option value="manager">⚙️ Manager</option><option value="user">👤 User</option><option value="readonly">👁️ Alleen lezen</option><option value="admin">👑 Admin</option></select></div><div style="display:flex;gap:6px;justify-content:flex-end;margin-top:12px"><button type="button" class="bt bw" onclick="document.getElementById('rpwUserId').value=document.getElementById('euUserId').value;closeM('editUserM');openM('resetUserPwdM')">Reset wachtwoord…</button><button type="button" class="bt bg" onclick="closeM('editUserM')">Annuleren</button><button type="submit" class="bt bp">Opslaan</button></div></form></div></div>
+<div class="mo" id="resetUserPwdM" onclick="if(event.target===this)closeM('resetUserPwdM')"><div class="md"><h3>Wachtwoord Resetten</h3><form method="POST" onsubmit="return confirm('Wachtwoord resetten?')"><input type="hidden" name="action" value="user_change_password"><?=csrfField()?><input type="hidden" name="user_id" id="rpwUserId"><div class="fg"><label>Nieuw wachtwoord</label><input type="password" name="new_password" required minlength="6" placeholder="Min 6 tekens"></div><div style="display:flex;gap:6px;justify-content:flex-end;margin-top:12px"><button type="button" class="bt bg" onclick="closeM('resetUserPwdM')">Annuleren</button><button type="submit" class="bt bp">Resetten</button></div></form></div></div>
+<div class="mo" id="alertM" onclick="if(event.target===this)closeM('alertM')"><div class="md"><h3 id="alTitle">Nieuwe Alert</h3><form method="POST"><input type="hidden" name="action" id="alA" value="add_alert"><?=csrfField()?><input type="hidden" name="id" id="alId"><div class="fg"><label>Alert Naam</label><input type="text" name="name" id="alN" required minlength="2" placeholder="bijv. high_loss"></div><div class="fg"><label>Weergave Naam</label><input type="text" name="display_name" id="alD" required placeholder="bijv. Hoog Verlies"></div><div class="fg"><label>Type</label><select name="type" id="alT" required><option value="loss">Packet Loss</option><option value="latency">Latency</option></select></div><div class="fg"><label>Drempel (%)</label><input type="number" name="threshold_loss" id="alTL" min="0" max="100" step="0.1" placeholder="bijv. 10.5"></div><div class="fg"><label>Duur (sec)</label><input type="number" name="threshold_duration" id="alTD" min="1" placeholder="bijv. 60"></div><div class="fg"><label>Notificatie</label><select name="notification_method" id="alNM"><option value="email">E-mail</option><option value="webhook">Webhook</option></select></div><div class="fg"><label>E-mail Ontvangers (optioneel)</label><input type="text" name="recipients" id="alR" placeholder="mail1@example.com, mail2@example.com"><small style="color:var(--txd);font-size:11px">Leeg = gebruik default</small></div><div class="fg ck" id="alER" style="display:none"><input type="checkbox" name="enabled" id="alEn" checked><label for="alEn">Alert Actief</label></div><div style="display:flex;gap:6px;justify-content:flex-end;margin-top:12px"><button type="button" class="bt bg" onclick="closeM('alertM')">Annuleren</button><button type="submit" class="bt bp" id="alBtn">Toevoegen</button></div></form></div></div>
 <!-- Notification Help Modal -->
 <div class="mo" id="notifHelpModal" onclick="if(event.target===this)closeM('notifHelpModal')">
 <div class="md">
@@ -13844,6 +12727,7 @@ function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').
 })();
 <?php endif; ?>
 </script>
+<?php endif; ?>
 
 <?php
 finalizePerformanceMetric($db, (string)($page ?? 'unknown'));
