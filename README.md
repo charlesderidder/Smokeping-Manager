@@ -1,4 +1,4 @@
-# SmokePing Manager v6.0
+# SmokePing Manager v6.3
 
 ## Nederlands
 
@@ -12,6 +12,7 @@ Deze repository bevat een all-in-one installatiescript en webinterface die:
 - Maakt snelle toegang mogelijk via het commando `smokepingmanager`
 
 ### Changelog (samenvatting)
+- 6.3 - Bugfix: dubbele CustomGraphGroup categorieen in Targets bestand (samengestelde grafieken) opgelost, waardoor SmokePing niet meer weigerde te herstarten na het samenvoegen van meerdere targets in 1 grafiek.
 - 6.0 - Release: UI-verbeteringen, éénmalige update-popup en blijvende "Update beschikbaar" knop; documentatie bijgewerkt.
 - 5.9 - Bij meerdere uitval wordt alles verzameld per target in 1 mail ipv aparte mails. Opschonen IPv6 grafieken bij opschonen RRD grafieken opgelost.
 - 5.8 - Bij toevoegen van nieuwe targets worden deze automatisch toegevoegd aan de wachtrij.
@@ -156,6 +157,11 @@ This repository contains an all-in-one installer script that:
 - deploys the web application
 - provides maintenance and management actions through a CLI menu
 - enables fast launch using the `smokepingmanager` command
+
+### Changelog (summary)
+- 6.3 - Bugfix: fixed duplicate CustomGraphGroup categories in the Targets file (combined graphs), which previously caused SmokePing to fail restarting after merging multiple targets into 1 graph.
+- 6.0 - Release: UI improvements, one-time update popup and persistent "Update available" button; documentation updated.
+- 5.x and earlier - See the Dutch changelog above for the full history.
 
 ### Key features
 
